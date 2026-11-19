@@ -3,138 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Legend — GTA VI Trophy Guide &amp; Tracker (PS5)</title>
-<meta name="description" content="The complete offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: guides, a roadmap to the platinum, filters and progress that stays on your device.">
+<title>Leonida Legend — the GTA VI trophy guide &amp; tracker</title>
+<meta name="description" content="Leonida Legend: a fully offline guide and progress tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI — a written guide for every trophy, a phase-by-phase roadmap to the platinum, and filters to plan your run.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <p class="kicker">Vice City Nights · Grand Theft Auto VI · PlayStation 5</p>
+
+<header class="masthead">
+  <div class="masthead-grid">
+    <div class="masthead-copy">
+      <p class="eyebrow">Grand Theft Auto VI · PlayStation 5 · Vice City Nights edition</p>
       <h1>Leonida Legend</h1>
-      <p class="subtitle">The complete guide &amp; tracker for all <strong>55 trophies</strong> of GTA VI.
-      Every trophy explained in plain words, a seven-phase roadmap to the platinum, and a checklist
-      that remembers your progress on this device — no account, no network, no fuss.</p>
-      <div class="hero-actions">
-        <button id="btn-export" type="button">Export progress</button>
-        <label class="btn-like" for="import-file">Import progress</label>
-        <input id="import-file" type="file" accept="application/json,.json" hidden>
-        <button id="btn-reset" type="button" class="danger">Reset progress</button>
+      <p class="lede">Every one of the <strong>55 PS5 trophies</strong> of GTA VI, explained in
+      plain language and tracked on this device. A guide for each trophy, a roadmap that walks
+      you to the platinum in sensible phases, and a checklist that keeps your progress in the
+      browser — no sign-up, nothing uploaded, works with the network unplugged.</p>
+      <div class="progress-tools">
+        <button id="ll-export" type="button">Export progress</button>
+        <button id="ll-import-btn" type="button">Import progress</button>
+        <input id="ll-import" type="file" accept="application/json,.json" hidden>
+        <button id="ll-reset" type="button" class="warn">Reset progress</button>
       </div>
-      <p id="import-note" class="note" role="status"></p>
+      <p id="ll-notice" class="notice" role="status" aria-live="polite"></p>
     </div>
-    <div class="ring-wrap" aria-label="Overall trophy progress">
-      <svg class="ring" viewBox="0 0 120 120" width="168" height="168" role="img" aria-labelledby="ring-title">
-        <title id="ring-title">Trophy progress ring</title>
-        <circle class="ring-track" cx="60" cy="60" r="52"></circle>
-        <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"></circle>
+    <figure class="dial" aria-label="Overall trophy progress">
+      <svg viewBox="0 0 144 144" width="176" height="176" role="img" aria-label="Progress dial">
+        <circle class="dial-track" cx="72" cy="72" r="63"></circle>
+        <circle class="dial-arc" id="ll-dial-arc" cx="72" cy="72" r="63"></circle>
       </svg>
-      <div class="ring-label">
-        <span id="ring-count">0/55</span>
-        <span id="ring-pct">0%</span>
-        <span class="ring-sub">trophies earned</span>
-      </div>
-    </div>
+      <figcaption class="dial-readout">
+        <span id="ll-dial-count">–/55</span>
+        <span id="ll-dial-pct">–%</span>
+        <span class="dial-caption">earned</span>
+      </figcaption>
+    </figure>
   </div>
 </header>
 
 <main>
-  <section aria-labelledby="grades-h">
-    <h2 id="grades-h">Progress by grade</h2>
-    <div id="grade-cards" class="grade-cards"></div>
+  <section aria-labelledby="ll-grades-h">
+    <h2 id="ll-grades-h">Where you stand, by grade</h2>
+    <div id="ll-grade-row" class="grade-row"></div>
   </section>
 
-  <section aria-labelledby="roadmap-h">
-    <h2 id="roadmap-h">Roadmap to the platinum</h2>
-    <p class="section-intro">Seven phases, in the order a first-time platinum hunter should work them:
-    the story first — it unlocks the map, the money and the tools — then the people of Leonida, its
-    pastimes and its far corners, and finally the long counters that reward patience.
-    Nothing on this list is missable: every trophy can still be earned after the credits roll.</p>
-    <ol id="roadmap" class="roadmap"></ol>
+  <section aria-labelledby="ll-road-h">
+    <h2 id="ll-road-h">The road to the platinum</h2>
+    <p class="intro">Work the phases in order. The campaign comes first because it unlocks the
+    map, the money and the arsenal everything else leans on; then the people, the pastimes and
+    the far corners of Leonida; then the loud stuff, the two-player trophies, and at the end
+    the slow counters. One promise the whole list keeps: <em>nothing is missable</em> — every
+    trophy below can still be earned after the credits.</p>
+    <ol id="ll-roadmap" class="roadmap"></ol>
   </section>
 
-  <section aria-labelledby="controls-h">
-    <h2 id="controls-h">Find a trophy</h2>
-    <div class="controls">
-      <label>Search
-        <input id="f-search" type="search" placeholder="Name, description, guide text…">
+  <section aria-labelledby="ll-find-h">
+    <h2 id="ll-find-h">Plan the hunt</h2>
+    <form class="toolbar" id="ll-toolbar" autocomplete="off">
+      <label class="field grow">Search the guide
+        <input id="ll-q" type="search" placeholder="Try “vault”, “fishing”, “stunt”…">
       </label>
-      <label>Grade
-        <select id="f-grade">
-          <option value="all">All grades</option>
+      <label class="field">Grade
+        <select id="ll-grade">
+          <option value="">All grades</option>
           <option value="platinum">Platinum</option>
           <option value="gold">Gold</option>
           <option value="silver">Silver</option>
           <option value="bronze">Bronze</option>
         </select>
       </label>
-      <label>Phase
-        <select id="f-phase">
-          <option value="all">All phases</option>
+      <label class="field">Phase
+        <select id="ll-phase">
+          <option value="">All phases</option>
         </select>
       </label>
-      <label>Status
-        <select id="f-status">
-          <option value="all">Earned &amp; unearned</option>
-          <option value="earned">Earned only</option>
-          <option value="unearned">Unearned only</option>
+      <label class="field">Status
+        <select id="ll-status">
+          <option value="">All</option>
+          <option value="done">Earned</option>
+          <option value="todo">Not yet</option>
         </select>
       </label>
-      <label>Sort by
-        <select id="f-sort">
+      <label class="field">Sort
+        <select id="ll-sort">
           <option value="guide">Guide order</option>
           <option value="grade">Grade</option>
-          <option value="difficulty">Difficulty</option>
-          <option value="time">Time estimate</option>
+          <option value="difficulty">Easiest first</option>
+          <option value="time">Quickest first</option>
         </select>
       </label>
-      <label class="check">
-        <input id="f-missable" type="checkbox"> Missable only
+      <label class="toggle">
+        <input id="ll-missable" type="checkbox"> Missable only
       </label>
-      <label class="check">
-        <input id="f-spoilers" type="checkbox" checked> Hide story spoilers
+      <label class="toggle">
+        <input id="ll-spoilers" type="checkbox" checked> Hide story spoilers
       </label>
-    </div>
-    <p id="result-count" class="note" role="status"></p>
+    </form>
+    <p id="ll-showing" class="notice" role="status" aria-live="polite"></p>
   </section>
 
-  <section aria-label="Trophy cards">
-    <div id="grid" class="grid"></div>
-    <p id="empty-note" class="note" hidden>No trophies match those filters. Loosen a filter or clear the search.</p>
+  <section aria-label="Trophy list">
+    <noscript><p class="notice">The trophy cards are rendered by JavaScript from the bundled data file — enable JavaScript to browse and track them. The guide text lives in data/trophies.json.</p></noscript>
+    <div id="ll-cards" class="cards"></div>
+    <p id="ll-none" class="notice" hidden>Nothing matches. Clear the search or loosen a filter and the trophies will come back.</p>
   </section>
 
-  <section aria-labelledby="sources-h" class="sources">
-    <h2 id="sources-h">Sources &amp; honesty</h2>
-    <p><strong>Official list basis.</strong> The 55 trophy names, their official descriptions and their
-    grades (1 platinum, 2 gold, 6 silver, 46 bronze) are reproduced from the official PlayStation 5
-    trophy list for Grand Theft Auto VI. Names, descriptions and grades are quoted exactly as published;
-    everything else on this page — every guide, tip, difficulty rating and time estimate — was written
-    for this guide.</p>
-    <p><strong>Per-card basis.</strong> Each trophy card carries a <em>Basis</em> line naming what its
-    guide rests on: the official list entry, the kind of content it belongs to (a story mission, a
-    stranger strand, an activity, a robbery system), and — where a place or system is named — the
-    setting facts Rockstar has shown publicly.</p>
-    <p><strong>Setting facts.</strong> What this guide says about Leonida itself — Vice City and Ocean
-    Beach, VCIA (the international airport), the duo of Lucia and Jason, the state's gangs, swamps and
-    keys — comes from Rockstar's official trailers and official game pages, not from leaks or rumour.</p>
-    <p><strong>The honesty note.</strong> GTA VI launches on <strong>26 May 2026</strong>. Until the game
-    is in players' hands, exact in-game labels, markers and locations cannot be verified against the
-    shipped game. Where a guide describes a trigger that only the shipped game can settle, the card says
-    so, and once the game is out, those details are confirmed against it — and where this guide and the
-    in-game menu differ, <strong>the in-game menu wins</strong>. No guide here invents a precise location
-    the game has not shown.</p>
-    <p><strong>Unofficial fan guide.</strong> Leonida Legend is an unofficial, fan-made companion. All
-    guide text and artwork on this page are original to it; nothing here is copied from Rockstar.
-    Grand Theft Auto, GTA VI and Rockstar Games are trademarks of their respective owners, and this
-    page is not affiliated with or endorsed by them.</p>
+  <section aria-labelledby="ll-src-h" class="sources">
+    <h2 id="ll-src-h">Sources, and an honest note</h2>
+    <p><strong>What is official.</strong> The trophy names, the official descriptions and the
+    grades — one platinum, two gold, six silver, forty-six bronze — are quoted exactly from the
+    official PlayStation 5 trophy list for Grand Theft Auto VI. Quotation is all they are: the
+    words are the list's own.</p>
+    <p><strong>What is ours.</strong> Everything else. Each card's guide, tip, difficulty score,
+    time estimate and phase were written for Leonida Legend, and each card ends with a
+    <em>Basis</em> line saying what its guide leans on — the official entry, the family of
+    content it belongs to, and the setting facts Rockstar has made public in trailers and on
+    its official pages (Vice City and Ocean Beach, VCIA airport, the two protagonists, the
+    gangs and wetlands of Leonida).</p>
+    <p><strong>The pre-launch note.</strong> GTA VI releases on <strong>26 May 2026</strong>.
+    Until the shipped game can be checked, exact in-game labels, markers and locations in these
+    guides are careful inferences from the official list, not verified sightings — no guide
+    here states a precise location the game has not shown. Once the game is out, details get
+    confirmed against it, and wherever this page and the in-game menu disagree, the in-game
+    menu is right.</p>
+    <p><strong>Unofficial.</strong> Leonida Legend is a fan-made companion, not affiliated with
+    or endorsed by Rockstar Games. Its text and artwork are original. Grand Theft Auto, GTA VI
+    and Rockstar Games are trademarks of their owners.</p>
   </section>
 </main>
 
 <footer>
-  <p>Leonida Legend — an offline fan guide. Your progress never leaves this browser.</p>
+  <p>Leonida Legend · an offline fan guide · your checklist lives only in this browser.</p>
 </footer>
 
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
