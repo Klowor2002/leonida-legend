@@ -1,36 +1,106 @@
-// A working gta6-trophy-guide-01 entry (Node 22, standard library only): the guide is this directory's app/ folder,
-// plain static files a browser opens at app/index.html (ES modules, CSS, no build step), offline: it loads nothing
-// over the network, and its trophy list and guides are app/data/trophies.json. The program hands it in: it copies app/
-// and screenshots/ from beside this file to /output and writes /output/dossier.json, the summary the judge reads (your
-// screenshots, the first load's files and bytes, and your source), with the vendored make.fun library. Leave
-// vendor/makefun-frontend.ts as it is: the scorer requires dossier.json to be byte for byte what its own copy writes.
+// main.ts — Leonida Legend: hand-in program for gta6-trophy-guide-01.
 //
-// Only the plumbing, not a winner: a plain checklist of the 55 trophies with a one-line hint each. Write a real guide
-// for every trophy in your own words, a roadmap to the platinum, filters and a spoiler setting in app/, put 3 or 4 PNG
-// or JPEG screenshots of it in screenshots/ (the first by name is the cover; shots.json says which views this
-// starter's were taken of), and run it.
+// What the grader runs. The guide itself is the static site in app/ — plain
+// HTML, CSS and ES modules plus the trophy data — and this program hands it
+// in: it stages a clean copy of app/ and screenshots/ in the output
+// directory, then builds the dossier (the judge's summary: cover-first
+// screenshots, the first load's files and bytes, and the app source) with
+// the vendored make.fun library and writes it as dossier.json.
 //
-// Serve it locally with `node serve.ts`, then open http://localhost:8080.
-// Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
+// The dossier bytes are a contract: the scorer rebuilds them with its own
+// copy of the library and expects a byte-for-byte match, so the caps below
+// are the scorer's gate values, not a local choice. Only text_max_bytes
+// shapes the bytes; the rest refuse an entry the scorer would refuse.
+//
+// Output directory: MAKEFUN_OUTPUT_DIR when set (local runs), else /output
+// (the grader's container). Run it with:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// Serve the same app locally with: node serve.ts
 
-import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { buildDossier } from './vendor/makefun-frontend.ts';
+import { createHash } from "node:crypto";
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { buildDossier, DOSSIER_SCHEMA, DossierError } from "./vendor/makefun-frontend.ts";
 
-const here = fileURLToPath(new URL('.', import.meta.url));
-const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+// The scorer's caps (its gate.json): at most 4 screenshots of 256 KiB each,
+// at most 993 app entries / 48 MiB of app files, dossier text cut at 160 KiB.
+const GATE_CAPS = {
+  text_max_bytes: 163_840,
+  screenshots: { max: 4, max_bytes: 262_144 },
+  app_max_files: 993,
+  app_max_bytes: 50_331_648,
+} as const;
 
-mkdirSync(out, { recursive: true });
-cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
-mkdirSync(join(out, 'screenshots'), { recursive: true });
-if (existsSync(join(here, 'screenshots'))) cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true });
+/** Recursively copy a directory tree, file by file, in name order. */
+function stageTree(from: string, to: string): number {
+  mkdirSync(to, { recursive: true });
+  let files = 0;
+  for (const name of readdirSync(from).sort()) {
+    const src = join(from, name);
+    const dst = join(to, name);
+    if (statSync(src).isDirectory()) {
+      files += stageTree(src, dst);
+    } else {
+      copyFileSync(src, dst);
+      files += 1;
+    }
+  }
+  return files;
+}
 
-// The scorer's own caps (reference/gate.json): only text_max_bytes shapes the bytes; the others refuse an entry the
-// scorer would refuse (more than 4 screenshots or one over 256 KiB; more than 993 files and directories in app/ or
-// 48 MiB of app files: app/ counts beside /output's own 1000-entry cap, its screenshots/ and dossier.json).
-writeFileSync(
-  join(out, 'dossier.json'),
-  buildDossier(out, { text_max_bytes: 163840, screenshots: { max: 4, max_bytes: 262144 }, app_max_files: 993, app_max_bytes: 50331648 }),
-);
+function main(): void {
+  const here = dirname(fileURLToPath(import.meta.url));
+  const out = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+  mkdirSync(out, { recursive: true });
+
+  const appFiles = stageTree(join(here, "app"), join(out, "app"));
+  let shots = 0;
+  const shotsDir = join(here, "screenshots");
+  if (existsSync(shotsDir)) {
+    shots = stageTree(shotsDir, join(out, "screenshots"));
+  }
+
+  const dossier = buildDossier(out, GATE_CAPS);
+  writeFileSync(join(out, "dossier.json"), dossier);
+
+  // Sanity-peek at what was built: the schema must be the dossier format and
+  // the cover image must be present, or the hand-in is not worth reporting.
+  const peek = JSON.parse(new TextDecoder().decode(dossier)) as {
+    schema?: string;
+    images?: unknown[];
+  };
+  if (peek.schema !== DOSSIER_SCHEMA) {
+    throw new Error(`unexpected dossier schema: ${String(peek.schema)}`);
+  }
+  const images = peek.images?.length ?? 0;
+  if (images === 0) throw new Error("dossier holds no screenshots");
+
+  const digest = createHash("sha256").update(dossier).digest("hex");
+  console.log(
+    `staged ${appFiles} app files, ${shots} screenshots -> ${out}`,
+  );
+  console.log(
+    `dossier.json: ${dossier.length} bytes, ${images} images, sha256 ${digest}`,
+  );
+}
+
+try {
+  main();
+} catch (err) {
+  const detail =
+    err instanceof DossierError
+      ? `[${err.limit ?? "invalid"}] ${err.message}`
+      : err instanceof Error
+        ? err.message
+        : String(err);
+  console.error(`main: hand-in failed: ${detail}`);
+  process.exit(1);
+}
