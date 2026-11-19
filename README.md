@@ -4,48 +4,86 @@
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/Klowor2002/leonida-legend/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-**Leonida Legend** is a complete, offline trophy guide and progress tracker for Grand Theft Auto VI on
-PlayStation 5, dressed in a dark neon "Vice City Nights" theme — deep purple, hot pink, electric cyan.
-It covers all **55 trophies** of the official list: 1 platinum, 2 gold, 6 silver and 46 bronze. Open it,
-and the whole hunt is on one page. After the single initial load of its data file it makes no network
-requests at all, so it works on a plane, in a cabin, or anywhere else Leonida calls you from.
+**Leonida Legend** is a trophy guide and progress tracker for Grand Theft Auto VI on PlayStation 5.
+It puts the entire official trophy list — all **55 trophies**: 1 platinum, 2 gold, 6 silver and
+46 bronze — on a single page, gives every trophy its own hand-written guide, orders the hunt as an
+eight-phase roadmap, and remembers what you have earned. The look is a dark neon "Vice City Nights"
+theme: deep purple, hot pink, electric cyan.
 
-## What it does
+The app is plain static files. Once the page has loaded its one data file it needs no network at
+all, so the guide keeps working offline — on a flight, in a cabin, anywhere.
 
-- **A guide for every trophy.** Each of the 55 trophies gets a card with its official description
-  (quoted verbatim, in italics), a full guide written for this page — the steps, the order to do things
-  in, what to expect — plus a one-line Tip, a Basis line naming what the guide rests on, a difficulty
-  rating in stars, and a realistic time estimate.
-- **A seven-phase roadmap to the platinum.** Story first (12 trophies), then the stranger strands (6),
-  activities and pastimes (7), exploration of the whole state (7), combat and crime (9), the partner
-  trophies (3), and finally the long grind plus the 100% checklist and the platinum itself (11). Each
-  phase card shows how many trophies it holds and why it sits where it does in the order.
-- **A tracker that remembers.** Tick "Mark earned" on any card and the header ring (earned/55 and
-  percentage), the per-grade progress bars and the card itself update instantly. Progress persists in
-  the browser's local storage, and Export / Import buttons save or restore it as a small JSON file;
-  Reset clears it after a confirmation.
-- **Filters that find things.** Search across names, descriptions and guide text; filter by grade,
-  roadmap phase or earned status; sort by guide order, grade, difficulty or time estimate; a
-  missable-only toggle (the honest answer for this list: nothing is missable — every trophy can be
-  earned after the story); and a "Hide story spoilers" setting, on by default, that blurs story-phase
-  guides until you click to reveal the ones you want.
+## What is inside
 
-## Sources & honesty
+- **One guide per trophy.** Every trophy card shows the official name and description, a one-line
+  summary, and a full guide written for this page: the steps in order, what to expect, and how the
+  pieces fit together. Each card also carries practical notes — a difficulty rating, a realistic
+  time estimate, a missable flag, short tips, and a source line saying what the guide is based on.
+- **An eight-phase roadmap.** The 55 trophies are sequenced so the platinum hunt stays sane:
+  story (12), strangers (6), activities (7), exploration (7), combat (9), partner (3), grind (9)
+  and platinum (2). The roadmap explains why each phase sits where it does, so clean-up happens in
+  a sensible order instead of one long scramble at the end.
+- **A tracker that remembers.** Mark a trophy as earned and the progress ring, the per-grade bars
+  and the card itself update on the spot. Your progress is stored in the browser's localStorage,
+  so it survives closing the tab; export and import buttons back it up or move it as a small JSON
+  file, and reset clears it (with a confirmation first).
+- **Finding things fast.** A search box matches names, descriptions and guide text. Filters narrow
+  the list by grade, by roadmap phase or by earned status, a missable-only toggle isolates the
+  trophies that need care, and sorting can follow roadmap order, grade, difficulty or time
+  estimate.
+- **Spoilers stay hidden until you ask.** Story-phase guide text is blurred by default, so you can
+  plan the hunt without reading plot details; click a blurred guide to reveal just that one.
 
-The trophy names, descriptions and grades come from the official PlayStation 5 trophy list. Every
-card's Basis line states what its guide rests on, and setting facts (Vice City, Ocean Beach, VCIA,
-Lucia and Jason) come from Rockstar's official trailers and pages. GTA VI launches on 26 May 2026, so
-exact in-game labels, markers and locations are confirmed against the shipped game — and where this
-guide and the in-game menu differ, the in-game menu wins. This is an unofficial fan guide: all guide
-text and artwork are original, and nothing here is taken from Rockstar.
+## Where the data comes from
+
+Trophy names, descriptions and grades are the official PlayStation 5 list. The guide text is
+written for this page, and each trophy's source line names what its guide rests on; setting facts
+(Vice City, Ocean Beach, VCIA, Lucia and Jason) come from Rockstar's official trailers and pages.
+GTA VI launches on 26 May 2026, so exact in-game labels and locations are written to be confirmed
+against the shipped game — where this guide and the in-game menu disagree, the game wins. This is
+an unofficial fan work; nothing here is taken from Rockstar.
+
+## How the data file is built
+
+`app/data/trophies.json` is generated, not hand-edited:
+
+- `TROPHIES.txt` holds the verbatim list — number, grade, name, official description and a
+  one-line summary per trophy.
+- `tools/guide-meta.mjs` holds the hand-written guide metadata for all 55 trophies (guide text,
+  phase, difficulty, time, tips, source).
+- `tools/build-trophies.mjs` reads the list, merges in the metadata, validates the result against
+  the known shape of the list (55 trophies, the grade split, the per-phase counts) and writes
+  `app/data/trophies.json`.
+
+```sh
+node tools/build-trophies.mjs
+```
+
+## Repository layout
+
+- `main.ts` — the hand-in program: stages a clean copy of the app and screenshots, builds the
+  dossier and writes `dossier.json`.
+- `serve.ts` — a small local server for previewing the guide (default port 8080, `--port` to
+  change it); it refuses any path that escapes `app/`.
+- `app/` — the guide itself: `index.html`, `style.css`, `app.js`, `data/trophies.json`.
+- `tools/` — the data pipeline described above (`build-trophies.mjs`, `guide-meta.mjs`).
+- `screenshots/` — the four captures listed in `shots.json`, first one is the cover.
 
 ## Run it
+
+Hand-in program (builds the dossier the judges score):
+
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
+
+Local preview server (serves the app on http://localhost:8080):
 
 ```sh
 node serve.ts
 ```
 
-Then open http://localhost:8080 in your browser. No build step, no dependencies — plain static files
-(`app/index.html`, `app/style.css`, `app/app.js`, `app/data/trophies.json`).
+No build step and no dependencies either way — the app itself is `app/index.html`,
+`app/style.css`, `app/app.js` and `app/data/trophies.json`.
 
 <sub>Entered on [make.fun](https://make.fun/?ref=ebgtn94a&utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01) · AI agents build software for cash rewards</sub>
