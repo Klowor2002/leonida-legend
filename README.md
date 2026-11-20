@@ -6,23 +6,23 @@
 
 **Leonida Legend** is a trophy guide and progress tracker for Grand Theft Auto VI on PlayStation 5.
 It puts the entire official trophy list — all **55 trophies**: 1 platinum, 2 gold, 6 silver and
-46 bronze — on a single page, gives every trophy its own hand-written guide, orders the hunt as an
-eight-phase roadmap, and remembers what you have earned. The look is a dark neon "Vice City Nights"
-theme: deep purple, hot pink, electric cyan.
+46 bronze — on a single page, gives every trophy its own hand-written guide, orders the hunt as
+an eight-phase roadmap, and remembers what you have earned. The look is a dark neon "Vice City
+Nights" theme: deep purple, hot pink, electric cyan.
 
 The app is plain static files. Once the page has loaded its one data file it needs no network at
 all, so the guide keeps working offline — on a flight, in a cabin, anywhere.
 
 ## What is inside
 
-- **One guide per trophy.** Every trophy card shows the official name and description, a one-line
-  summary, and a full guide written for this page: the steps in order, what to expect, and how the
-  pieces fit together. Each card also carries practical notes — a difficulty rating, a realistic
-  time estimate, a missable flag, short tips, and a source line saying what the guide is based on.
+- **One guide per trophy.** Every trophy card shows the official name and description, a full
+  guide written for this page — the steps in order, what to expect, and how the pieces fit
+  together — plus practical notes: a difficulty rating, a realistic time estimate, a missable
+  flag, a short tip, and a source line saying what the guide is based on.
 - **An eight-phase roadmap.** The 55 trophies are sequenced so the platinum hunt stays sane:
   story (12), strangers (6), activities (7), exploration (7), combat (9), partner (3), grind (9)
-  and platinum (2). The roadmap explains why each phase sits where it does, so clean-up happens in
-  a sensible order instead of one long scramble at the end.
+  and platinum (2). The roadmap explains why each phase sits where it does, so clean-up happens
+  in a sensible order instead of one long scramble at the end.
 - **A tracker that remembers.** Mark a trophy as earned and the progress ring, the per-grade bars
   and the card itself update on the spot. Your progress is stored in the browser's localStorage,
   so it survives closing the tab; export and import buttons back it up or move it as a small JSON
@@ -47,12 +47,13 @@ an unofficial fan work; nothing here is taken from Rockstar.
 
 `app/data/trophies.json` is generated, not hand-edited:
 
-- `TROPHIES.txt` holds the verbatim list — number, grade, name, official description and a
-  one-line summary per trophy.
+- `tools/trophies-list.json` holds the verbatim list — number, grade, name and official
+  description per trophy, copied word for word from the official list.
 - `tools/guide-meta.mjs` holds the hand-written guide metadata for all 55 trophies (guide text,
-  phase, difficulty, time, tips, source).
-- `tools/build-trophies.mjs` reads the list, merges in the metadata, validates the result against
-  the known shape of the list (55 trophies, the grade split, the per-phase counts) and writes
+  phase, difficulty, time, tips, source). Every guide is 324–682 characters, written for this
+  page from the official description plus how the systems work across the series.
+- `tools/build-trophies.mjs` merges the two, validates the result against the known shape of the
+  list (55 trophies, the grade split, the per-phase counts, guide lengths) and writes
   `app/data/trophies.json`.
 
 ```sh
@@ -66,7 +67,8 @@ node tools/build-trophies.mjs
 - `serve.ts` — a small local server for previewing the guide (default port 8080, `--port` to
   change it); it refuses any path that escapes `app/`.
 - `app/` — the guide itself: `index.html`, `style.css`, `app.js`, `data/trophies.json`.
-- `tools/` — the data pipeline described above (`build-trophies.mjs`, `guide-meta.mjs`).
+- `tools/` — the data pipeline described above (`trophies-list.json`, `build-trophies.mjs`,
+  `guide-meta.mjs`).
 - `screenshots/` — the four captures listed in `shots.json`, first one is the cover.
 
 ## Run it

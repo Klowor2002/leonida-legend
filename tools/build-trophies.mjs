@@ -1,13 +1,13 @@
 // build-trophies.mjs — Leonida Legend data builder.
 //
-// Reads the verbatim trophy list (TROPHIES.txt: number, grade, name,
-// official description, one-line summary), merges each trophy with the
-// hand-written guide metadata in ./guide-meta.mjs, validates the result
-// against the known shape of the list (55 trophies; 1 platinum, 2 gold,
-// 6 silver, 46 bronze; the design's per-phase counts), and writes
-// app/data/trophies.json for the static app to fetch.
+// Merges the verbatim official list (tools/trophies-list.json: id, name,
+// official description, grade — copied word for word from the kit starter
+// list) with the hand-written guide metadata in ./guide-meta.mjs, checks the
+// result against the known shape of the list (55 trophies; 1 platinum,
+// 2 gold, 6 silver, 46 bronze; the design's per-phase counts; every guide
+// 324–682 chars), and writes app/data/trophies.json for the static app.
 //
-// Usage: node tools/build-trophies.mjs [trophiesTxtPath] [outPath]
+// Usage: node tools/build-trophies.mjs [listPath] [outPath]
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -15,13 +15,11 @@ import { fileURLToPath } from "node:url";
 import { GUIDE_META, PHASE_ORDER } from "./guide-meta.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const inPath =
-  process.argv[2] ??
-  join(repoRoot, "..", "gta6-trophy-guide-01", "TROPHIES.txt");
+const listPath = process.argv[2] ?? join(repoRoot, "tools", "trophies-list.json");
 const outPath = process.argv[3] ?? join(repoRoot, "app", "data", "trophies.json");
 
-const EXPECTED_GRADES = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
-const EXPECTED_PHASES = {
+const WANT_GRADES = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
+const WANT_PHASES = {
   story: 12,
   strangers: 6,
   activities: 7,
@@ -31,35 +29,34 @@ const EXPECTED_PHASES = {
   grind: 9,
   platinum: 2,
 };
+const GUIDE_MIN = 324;
+const GUIDE_MAX = 682;
 
-function parseLine(line) {
-  // " 7 [gold    ] You Gotta Know When to Get Off — Complete the final mission. || Finish the final mission (gold)."
-  const m = line.match(
-    /^\s*(\d+)\s+\[\s*(platinum|gold|silver|bronze)\s*\]\s+(.+?) — (.+?) \|\| (.+?)\s*$/,
-  );
-  if (!m) return null;
-  const [, num, grade, name, description, summary] = m;
-  return { id: Number(num), grade, name, description, summary };
+function tally(rows, key) {
+  const counts = {};
+  for (const row of rows) counts[row[key]] = (counts[row[key]] ?? 0) + 1;
+  return counts;
 }
 
-function main() {
-  const raw = readFileSync(inPath, "utf8");
-  const base = raw
-    .split("\n")
-    .map(parseLine)
-    .filter((t) => t !== null);
+function build() {
+  const list = JSON.parse(readFileSync(listPath, "utf8"));
+  const faults = [];
 
-  const problems = [];
-  if (base.length !== 55) problems.push(`expected 55 trophies, parsed ${base.length}`);
+  if (!Array.isArray(list) || list.length !== 55) {
+    faults.push(`verbatim list must hold 55 trophies, found ${list.length}`);
+  }
 
-  const trophies = base.map((t) => {
-    const meta = GUIDE_META[t.name];
+  const trophies = list.map((entry) => {
+    const meta = GUIDE_META[entry.id];
     if (!meta) {
-      problems.push(`no guide metadata for trophy #${t.id} "${t.name}"`);
-      return t;
+      faults.push(`trophy #${entry.id} "${entry.name}" has no guide metadata`);
+      return entry;
     }
     return {
-      ...t,
+      id: entry.id,
+      name: entry.name,
+      description: entry.description,
+      grade: entry.grade,
       guide: meta.guide,
       phase: meta.phase,
       missable: false,
@@ -70,41 +67,44 @@ function main() {
     };
   });
 
-  // Cross-check: every metadata key was consumed (catches renamed trophies).
-  const names = new Set(base.map((t) => t.name));
-  for (const key of Object.keys(GUIDE_META)) {
-    if (!names.has(key)) problems.push(`metadata key not in trophy list: "${key}"`);
+  // Every metadata entry must be used exactly once (catches stale ids).
+  for (const id of Object.keys(GUIDE_META).map(Number)) {
+    if (!list.some((t) => t.id === id)) faults.push(`metadata id ${id} is not in the list`);
   }
 
-  const countBy = (key) =>
-    trophies.reduce((acc, t) => {
-      acc[t[key]] = (acc[t[key]] ?? 0) + 1;
-      return acc;
-    }, {});
-
-  const grades = countBy("grade");
-  for (const [grade, want] of Object.entries(EXPECTED_GRADES)) {
-    if (grades[grade] !== want)
-      problems.push(`grade ${grade}: want ${want}, got ${grades[grade] ?? 0}`);
+  const grades = tally(trophies, "grade");
+  for (const [grade, want] of Object.entries(WANT_GRADES)) {
+    if (grades[grade] !== want) {
+      faults.push(`grade ${grade}: want ${want}, got ${grades[grade] ?? 0}`);
+    }
   }
-  const phases = countBy("phase");
-  for (const [phase, want] of Object.entries(EXPECTED_PHASES)) {
-    if (phases[phase] !== want)
-      problems.push(`phase ${phase}: want ${want}, got ${phases[phase] ?? 0}`);
+  // The phase split is part of the design: the roadmap's step counts are
+  // printed from the data, so a drift here would mislabel the whole page.
+  const phases = tally(trophies, "phase");
+  for (const [phase, want] of Object.entries(WANT_PHASES)) {
+    if (phases[phase] !== want) {
+      faults.push(`phase ${phase}: want ${want}, got ${phases[phase] ?? 0}`);
+    }
   }
   for (const t of trophies) {
-    if (!t.guide || t.guide.length < 250)
-      problems.push(`guide too short for "${t.name}" (${t.guide?.length ?? 0} chars)`);
-    if (t.guide && t.guide.length > 900)
-      problems.push(`guide too long for "${t.name}" (${t.guide.length} chars)`);
-    if (!t.description) problems.push(`empty official description for "${t.name}"`);
-    if (!PHASE_ORDER.includes(t.phase))
-      problems.push(`unknown phase "${t.phase}" for "${t.name}"`);
+    if (!t.description) faults.push(`trophy #${t.id} has no official description`);
+    if (!PHASE_ORDER.includes(t.phase)) {
+      faults.push(`trophy #${t.id} "${t.name}": unknown phase "${t.phase}"`);
+    }
+    if (typeof t.difficulty !== "number" || t.difficulty < 1 || t.difficulty > 5) {
+      faults.push(`trophy #${t.id} "${t.name}": difficulty ${t.difficulty} out of range`);
+    }
+    const len = t.guide ? t.guide.length : 0;
+    if (len < GUIDE_MIN || len > GUIDE_MAX) {
+      faults.push(`trophy #${t.id} "${t.name}": guide is ${len} chars (want ${GUIDE_MIN}–${GUIDE_MAX})`);
+    }
+    if (!t.tips) faults.push(`trophy #${t.id} "${t.name}": missing tip`);
+    if (!t.source) faults.push(`trophy #${t.id} "${t.name}": missing source`);
   }
 
-  if (problems.length) {
+  if (faults.length) {
     console.error("BUILD FAILED:");
-    for (const p of problems) console.error(" - " + p);
+    for (const f of faults) console.error(" - " + f);
     process.exit(1);
   }
 
@@ -119,13 +119,13 @@ function main() {
 
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, JSON.stringify(payload, null, 2) + "\n", "utf8");
-  const avgGuide = Math.round(
+  const mean = Math.round(
     trophies.reduce((sum, t) => sum + t.guide.length, 0) / trophies.length,
   );
   console.log(
     `wrote ${outPath}: ${trophies.length} trophies ` +
-      `(grades ${JSON.stringify(grades)}, phases ${JSON.stringify(phases)}, avg guide ${avgGuide} chars)`,
+      `(grades ${JSON.stringify(grades)}, phases ${JSON.stringify(phases)}, mean guide ${mean} chars)`,
   );
 }
 
-main();
+build();

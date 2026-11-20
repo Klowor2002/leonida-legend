@@ -17,7 +17,7 @@ import { fileURLToPath } from "node:url";
 
 const APP_ROOT = resolve(fileURLToPath(new URL("./app", import.meta.url)));
 
-const CONTENT_TYPES = new Map<string, string>([
+const MIME_TYPES = new Map<string, string>([
   [".html", "text/html; charset=utf-8"],
   [".css", "text/css; charset=utf-8"],
   [".js", "text/javascript; charset=utf-8"],
@@ -32,14 +32,16 @@ const CONTENT_TYPES = new Map<string, string>([
   [".woff2", "font/woff2"],
 ]);
 
-function pickPort(argv: string[]): number {
+function choosePort(argv: string[]): number {
   const at = argv.indexOf("--port");
   const value = at === -1 ? NaN : Number(argv[at + 1]);
   return Number.isInteger(value) && value > 0 && value < 65_536 ? value : 8080;
 }
 
-/** Map a request URL to a file inside APP_ROOT, or null if it escapes. */
-function resolveRequest(url: string): string | null {
+/** Map a request URL to a file inside APP_ROOT, or null if it escapes.
+ *  Directory paths serve index.html; a path that climbs out of the app
+ *  root (for example with "..") is refused outright. */
+function mapRequest(url: string): string | null {
   let pathname: string;
   try {
     pathname = decodeURIComponent(new URL(url, "http://localhost").pathname);
@@ -51,25 +53,25 @@ function resolveRequest(url: string): string | null {
   return file === APP_ROOT || file.startsWith(APP_ROOT + sep) ? file : null;
 }
 
-function reply(res: ServerResponse, status: number, body: string): void {
+function sendText(res: ServerResponse, status: number, body: string): void {
   res.writeHead(status, { "content-type": "text/plain; charset=utf-8" });
   res.end(body);
 }
 
-function handle(req: IncomingMessage, res: ServerResponse): void {
-  const file = resolveRequest(req.url ?? "/");
+function serveOne(req: IncomingMessage, res: ServerResponse): void {
+  const file = mapRequest(req.url ?? "/");
   if (file === null) {
-    reply(res, 400, "bad request");
+    sendText(res, 400, "bad request");
     return;
   }
   stat(file, (err, stats) => {
     if (err || !stats.isFile()) {
-      reply(res, 404, "not found");
+      sendText(res, 404, "not found");
       return;
     }
     res.writeHead(200, {
       "content-type":
-        CONTENT_TYPES.get(extname(file).toLowerCase()) ??
+        MIME_TYPES.get(extname(file).toLowerCase()) ??
         "application/octet-stream",
       "content-length": stats.size,
       "cache-control": "no-store",
@@ -82,8 +84,8 @@ function handle(req: IncomingMessage, res: ServerResponse): void {
   });
 }
 
-const port = pickPort(process.argv.slice(2));
-const server = createServer(handle);
+const port = choosePort(process.argv.slice(2));
+const server = createServer(serveOne);
 server.on("error", (err: NodeJS.ErrnoException) => {
   if (err.code === "EADDRINUSE") {
     console.error(`serve: port ${port} is already in use — try --port <another>`);

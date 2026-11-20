@@ -1,1 +1,43 @@
-[{"bytes":72188,"file":"1-cover.jpg","format":"JPEG","path":"/","viewport":{"height":657,"width":1280}},{"bytes":193156,"file":"2-checklist.jpg","format":"JPEG","path":"/","viewport":{"height":657,"width":1280}},{"bytes":93334,"file":"3-silver.jpg","format":"JPEG","grade":"silver","path":"/","viewport":{"height":657,"width":1280}},{"bytes":114488,"file":"4-sources.jpg","format":"JPEG","path":"/","viewport":{"height":657,"width":1280}}]
+[
+  {
+    "bytes": 52752,
+    "file": "1-cover.jpg",
+    "format": "JPEG",
+    "path": "/",
+    "viewport": {
+      "height": 657,
+      "width": 1280
+    }
+  },
+  {
+    "bytes": 128520,
+    "file": "2-checklist.jpg",
+    "format": "JPEG",
+    "path": "/",
+    "viewport": {
+      "height": 657,
+      "width": 1280
+    }
+  },
+  {
+    "bytes": 122900,
+    "file": "3-silver.jpg",
+    "format": "JPEG",
+    "grade": "silver",
+    "path": "/",
+    "viewport": {
+      "height": 657,
+      "width": 1280
+    }
+  },
+  {
+    "bytes": 93179,
+    "file": "4-sources.jpg",
+    "format": "JPEG",
+    "path": "/",
+    "viewport": {
+      "height": 657,
+      "width": 1280
+    }
+  }
+]
