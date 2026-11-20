@@ -1,733 +1,1188 @@
 {
-  "game": "Grand Theft Auto VI",
-  "title": "Leonida Legend",
-  "note": "Trophy names, grades and official descriptions are verbatim from the official list. Guide text, phases, difficulty and time estimates are this guide's own work.",
-  "phases": [
-    "story",
-    "strangers",
-    "activities",
-    "exploration",
-    "combat",
-    "partner",
-    "grind",
-    "platinum"
+  "game": {
+    "title": "Grand Theft Auto VI",
+    "platform": "PlayStation 5",
+    "setting": "Leonida — Vice City, the Leonida Keys, Mount Kalaga, Port Gellhorn, Ambrosia and the Grassrivers",
+    "heroes": "Lucia Caminos and Jason Duval",
+    "trophyCount": 55,
+    "tiers": { "platinum": 1, "gold": 2, "silver": 6, "bronze": 46 },
+    "estimateHours": "85-110",
+    "difficultyRating": "4/10 — a long hunt, not a hard one; patience is the real requirement",
+    "version": "Round 6 — full rewrite, November 2026"
+  },
+  "roadmap": [
+    {
+      "phase": "story",
+      "title": "Phase 1 — The Campaign",
+      "tagline": "Lucia and Jason, start to finish",
+      "brief": "Play the whole story before you hunt anything else. The campaign unlocks the map district by district, teaches every system the later phases lean on, and hands you twelve trophies for simply reaching the credits. Keep a manual save at every chapter break: two trophies on this list hinge on one-off story moments, and a save from before them is the cheapest insurance in the entire hunt.",
+      "focus": "Finish every chapter and named story mission; bank chapter-break saves."
+    },
+    {
+      "phase": "strangers",
+      "title": "Phase 2 — Strangers of Leonida",
+      "tagline": "Six strands, told in instalments",
+      "brief": "Stranger strands drip-feed: one mission, a wait, then the next marker. Start every strand the moment it appears and let them mature in the background while you work other phases, because the waiting is measured in in-game days, not effort. Finishing all eight strands across the state also feeds the silver Strangers & Freaks counter, so no strand is ever wasted time.",
+      "focus": "Open every strand early; close Andy, Kenton, Billy, Randy and Tyrone."
+    },
+    {
+      "phase": "activities",
+      "title": "Phase 3 — The Activity Circuit",
+      "tagline": "Try everything once, master the range",
+      "brief": "Leonida's pastimes are short, cheap and front-loaded with trophies. Sample each activity type once for the sampler trophy, then stay at the shooting range until every challenge is gold — that silver is the phase's only real skill test. Drone races, street races, fishing and the arcade all fall quickly once you learn their rhythms, and bowling folds into a social evening with the crew.",
+      "focus": "One of everything, gold on every range challenge, a win at every drone course."
+    },
+    {
+      "phase": "exploration",
+      "title": "Phase 4 — See All of Leonida",
+      "tagline": "Every road, beach and backwater",
+      "brief": "Exploration trophies reward coverage, not speed. Uncover the whole map, meditate at every quiet spot, log a hundred vehicles and register ten of them on the Scooter Bros app as you go. Do this phase with a fast car, a boat and a plane on call, and sweep region by region so nothing hides in a grey corner of the map screen.",
+      "focus": "Full map uncovered, all meditation spots, 100 vehicles discovered."
+    },
+    {
+      "phase": "combat",
+      "title": "Phase 5 — Loud Work",
+      "tagline": "Robberies, tanks and clean getaways",
+      "brief": "The combat set is a tour of Leonida's felonies: bank vaults, an armoured truck, one illegal operation per gang, a silent jewellery job, a showroom smashed in classic style. Every one of them is won or lost in the escape, so plan the getaway before the crime — vehicle, route and a change of clothes in the trunk. None of these need repeating once they pop.",
+      "focus": "Five vaults with escapes, one job per gang, one undetected jewellery robbery."
+    },
+    {
+      "phase": "partner",
+      "title": "Phase 6 — Two of Us",
+      "tagline": "Lucia and Jason, together",
+      "brief": "Three trophies only count when both protagonists are on screen together, and they are the easiest to fumble solo. Do them in one deliberate session: raise a four-star heat with your partner riding along and shake it, rob three shops back-to-back without the wanted level ever clearing, and take a partner moment cleanly for the partnership trophy. Short, scripted, done.",
+      "focus": "One partner session: heat escape, the three-shop chain, a clean partner moment."
+    },
+    {
+      "phase": "grind",
+      "title": "Phase 7 — The Long Counters",
+      "tagline": "Stunts, cards, tags and money",
+      "brief": "The grind phase is arithmetic: 250 stunts, 3 full card sets, 100 WAiNK spots, 50 challenges, $250,000 laundered, $100,000 spent, every garage bought. None of it is hard; all of it is faster if you start the habits in Phase 1 — stunt on every drive, grab every card, launder after every job. What remains at the end is a mop-up list, and the stats screen tells you exactly how long it is.",
+      "focus": "Close every counter; keep the two story-moment trophies protected by your saves."
+    },
+    {
+      "phase": "platinum",
+      "title": "Phase 8 — The Legend",
+      "tagline": "100%, then the platinum receipt",
+      "brief": "The endgame is a checklist audit. Open the in-game 100% screen and reconcile it against this tracker category by category until nothing is left unticked anywhere. When A Long Road pops for 100% completion and the last counter closes, Vice Got a Price! — the platinum — lands on its own. Take the screenshot; you earned it.",
+      "focus": "Reconcile the 100% checklist, then collect the platinum."
+    }
   ],
-  "count": 55,
+  "rules": [
+    {
+      "title": "Keep three rolling saves",
+      "text": "One save before each chapter's point of no return, one free-roam save, one untouched backup. Two trophies on this list depend on one-off story moments; a save from five minutes earlier is the difference between a reload and a second playthrough."
+    },
+    {
+      "title": "Start counters on day one",
+      "text": "Stunts, cards, WAiNK spots, laundering and spending all accumulate while you play everything else. A counter started in Phase 1 is a counter that never needs a grinding session in Phase 7."
+    },
+    {
+      "title": "Strands before story's end",
+      "text": "Open every stranger strand as soon as its marker appears. Strands advance on in-game days, so an early start means they finish on their own while you hunt elsewhere — a late start means waiting around at the end."
+    },
+    {
+      "title": "Plan the escape before the crime",
+      "text": "Every robbery trophy is scored on the getaway, not the grab. Park the escape car first, pick the route second, commit the crime last — and never stop to fight a wanted level you can simply outrun."
+    },
+    {
+      "title": "Partner trophies in one session",
+      "text": "The three partner trophies need both protagonists present and are fiddly to set up. Chain them in a single sitting while the pair is together instead of re-staging the situation three separate times."
+    },
+    {
+      "title": "The game wins every argument",
+      "text": "This guide is written against the official trophy list and Rockstar's published material. Where a label, a location or a count in the shipped game differs from this page, trust the game and the in-game stats screen — they are the scoreboard."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can anything on this list be missed permanently?",
+      "a": "Only two trophies carry any risk at all, and both are protected by the rolling-save rule: Actions Speak Louder turns on a one-off story choice, and Bad Luck, I Guess needs a fail-then-succeed sequence at a specific moment. Everything else can be cleaned up in free roam after the credits, and every story mission can be replayed from the mission list."
+    },
+    {
+      "q": "How long is the platinum, honestly?",
+      "a": "Plan for 85-110 hours. The story is roughly a third of that; the rest is the long counters — stunts, cards, WAiNK spots and the money trophies. Players who start the counters during the campaign land near the bottom of the range; players who leave them all to Phase 7 land near the top."
+    },
+    {
+      "q": "Does difficulty setting matter?",
+      "a": "No trophy on the official list names a difficulty requirement. Play on the setting you enjoy; if a combat trophy is giving you trouble, the fix is preparation — armour, a planned escape, the right vehicle — not a settings change."
+    },
+    {
+      "q": "What should I do first on a fresh save?",
+      "a": "Play Gone Fishing, then keep following the story while grabbing every collectible card you pass and stunting whenever the road offers a ramp. Open stranger strands the moment their markers appear. That one habit set quietly completes a quarter of the list."
+    },
+    {
+      "q": "Do I need GTA Online for any of these?",
+      "a": "No. All 55 trophies on the official list are earned in the single-player game. The partner trophies refer to the second protagonist — Lucia or Jason — not to another human player."
+    },
+    {
+      "q": "The tracker lost my ticks — what happened?",
+      "a": "Progress is stored in your browser's localStorage for this page. Clearing site data, switching browsers or using a private window resets it. Use the Export button to keep a small JSON backup of your ticks and Import it wherever you continue the hunt."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official PlayStation 5 trophy list for Grand Theft Auto VI",
+      "note": "Names, descriptions and grades for all 55 trophies, reproduced verbatim in tools/trophies-list.json."
+    },
+    {
+      "label": "Rockstar Games — GTA VI trailers and official pages",
+      "note": "Setting facts: Vice City and the state of Leonida, Ocean Beach, VCIA, the Leonida Keys, and protagonists Lucia Caminos and Jason Duval."
+    },
+    {
+      "label": "Series precedent (GTA V, Red Dead Redemption 2)",
+      "note": "How strands, challenges, collectibles, wanted levels and 100% checklists have behaved across Rockstar's previous games; used only where the official list is silent."
+    },
+    {
+      "label": "The in-game stats and 100% checklist screens",
+      "note": "The authoritative counters for stunts, vehicles, challenges and completion — this guide defers to them wherever they disagree."
+    }
+  ],
   "trophies": [
     {
       "id": 1,
       "name": "Vice Got a Price!",
       "description": "Congratulations! You're a Leonida Legend.",
-      "grade": "platinum",
-      "guide": "This one cannot be aimed at directly: it unlocks the instant the other fifty-four are collected, so treat it as the receipt at the end of the hunt rather than a goal of its own. Follow the roadmap in order — campaign first, then the stranger strands and activities, exploration and combat, the partner trophies, and the slow counters last — and this will arrive by itself. The only discipline it really asks for is honest bookkeeping: tick trophies off the day you earn them, and never rely on memory for a counter the game can show you in a menu.",
+      "tier": "platinum",
+      "type": "milestone",
       "phase": "platinum",
       "missable": false,
       "difficulty": 5,
-      "time": "80+ hours",
-      "tips": "It pops on its own — finish the other 54 and this is the reward.",
-      "source": "Official trophy list; the platinum itself"
+      "time": "85-110 hours total",
+      "strategy": [
+        "Accept from the start that this trophy has no strategy of its own: it is awarded automatically the moment the other fifty-four are all earned, so your real target list is the other fifty-four, worked in the roadmap's order.",
+        "Keep this tracker honest as you play. Tick every trophy the day it pops and reconcile the count against the PlayStation trophy screen once per phase, so a quietly-earned trophy is never hunted twice by mistake.",
+        "Protect the hunt's only two fragile points — a story choice and a fail-then-succeed moment — with the rolling saves described in the rules, and everything else on the list stays permanently available to you.",
+        "When only counters remain, work from the in-game stats screen rather than memory: stunts, cards, WAiNK spots, challenges and money all show exact totals there, and the gap between the screen and this page is your true remaining work.",
+        "The instant the fifty-fourth trophy lands, this platinum follows on its own. There is nothing to press and nothing to claim — just be somewhere you can enjoy the notification, because it closes the whole hunt."
+      ],
+      "tip": "It awards itself — finish the other 54 and the platinum is the receipt."
     },
     {
       "id": 2,
       "name": "Just Like Paradise",
       "description": "Complete Gone Fishing.",
-      "grade": "bronze",
-      "guide": "Gone Fishing opens the game, which makes this the first trophy most players will pick up. There is no preparation and no decision to make: start the story, follow the opening beats, learn the controls as the mission teaches them, and let the scene play to its close. The trophy unlocks when the mission's ending sequence runs. If you ever need it again — a second save, a fresh run — replaying Gone Fishing from the mission list earns it just the same.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 1,
       "time": "15 min",
-      "tips": "Unmissable: just start the story and finish the opening mission.",
-      "source": "Official trophy list; opening mission"
+      "strategy": [
+        "Start a new game and simply play: Gone Fishing is the opening mission, designed as a guided introduction, and the trophy is tied to finishing it rather than to any performance inside it.",
+        "Follow the on-screen prompts as they come. The mission teaches movement, driving and the basics of the wanted system in a safe order, so treat it as the tutorial it is and don't rush past the explanations.",
+        "There are no optional objectives, collectibles or branches to worry about. Nothing you do in this mission can lock you out of anything later, so experiment freely with the controls while the stakes are zero.",
+        "Let the closing sequence play out to the mission-complete screen. The trophy unlocks as the mission wraps, not during the action, so don't reset or skip ahead at the final beat.",
+        "If you ever need it again on a fresh save, the same applies: it is the first mission of the game, and replaying it from the mission list after the story also satisfies the requirement."
+      ],
+      "tip": "The opening mission — just start the story and play it to the end screen."
     },
     {
       "id": 3,
       "name": "Paradise Lost",
       "description": "Complete Chapter 1.",
-      "grade": "bronze",
-      "guide": "Chapter 1 is the first long stretch of the campaign, and this trophy is the line at its end. Missions arrive in order and the story gates your progress, so there is no way to rush ahead or fall behind — simply keep playing the chapter through. Expect a blend of driving, on-foot work and cutscenes that introduce Vice City and the people pulling strings in it. When the chapter's last mission finishes and the next chapter opens, the trophy pops. No special approach is needed; finishing the chain is the whole ask.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 1,
       "time": "4-6 hours",
-      "tips": "Story-gated — play the chapter's missions in order and it arrives.",
-      "source": "Official trophy list; story chapter"
+      "strategy": [
+        "Chapter 1 is a straight corridor of story missions: take them in the order the map offers them and the chapter completes itself. There is no way to skip ahead and no way to fall behind.",
+        "Use this chapter to build the habits the rest of the hunt needs. Grab every collectible card you walk past, stunt whenever a ramp presents itself, and keep a fast, durable car as your default ride.",
+        "Before the chapter's final mission, drop a manual save into a spare slot. Chapter breaks are the hunt's natural insurance points, and this first one costs you ten seconds.",
+        "Play the closing mission at your own pace — checkpoints are generous and failing a section never costs trophy progress. When the chapter ends and the next opens, the trophy unlocks on the transition.",
+        "Afterwards, glance at the stats screen once. You should already see early movement on the stunt, vehicle and challenge counters; if you do, the rest of the platinum is mostly a matter of time."
+      ],
+      "tip": "Story-gated: finish the chapter's mission chain and it pops at the transition."
     },
     {
       "id": 4,
       "name": "T**s Ass Drug Money",
       "description": "Complete Chapter 2.",
-      "grade": "bronze",
-      "guide": "Chapter 2 turns the heat up: bigger jobs, more moving parts, and the first real look at how the campaign's crews and rivalries slot together. Play the mission chain in order, and use the gaps between jobs to restock ammunition and keep a quick, sturdy car close — a reliable ride saves more time than any shortcut. The trophy unlocks at the end of the chapter's closing mission. Like every story trophy it cannot be missed, and any mission can be replayed later if you want another run at it.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
       "time": "6-8 hours",
-      "tips": "Restock ammo and keep a fast car handy between missions; the chapter does the rest.",
-      "source": "Official trophy list; story chapter"
+      "strategy": [
+        "Chapter 2 raises the stakes: the jobs get bigger and the drives get longer. Keep working the mission markers in order, and treat the gaps between missions as logistics time rather than downtime.",
+        "Restock ammunition and body armour after every mission that used them. Walking into a late-chapter set-piece under-supplied is the only real way this chapter slows you down.",
+        "Park a reliable getaway-capable car near mission starts whenever the game lets you choose your ride. A car you trust saves more time across this chapter than any shortcut or trick.",
+        "Save manually at the chapter break, as with Chapter 1. By now stranger markers may also be appearing — open any strand you pass, even if you don't intend to play it yet, so its timer starts.",
+        "Finish the chapter's closing mission and the trophy pops as Chapter 3 opens. Nothing in the requirement looks at how cleanly you played — completion is the entire ask."
+      ],
+      "tip": "Restock after every job and open stranger strands as their markers appear."
     },
     {
       "id": 5,
       "name": "Vice City, Baby!",
       "description": "Complete Chapter 3.",
-      "grade": "bronze",
-      "guide": "Chapter 3 drops you properly into Vice City, and this trophy marks the end of that stretch. The missions start asking for a little planning: read each briefing before you start, choose the approach that suits the gear you carry, and fight from cover instead of sprinting across open ground. The chapter's final mission is the gate — complete it and the trophy unlocks. If a mission beats you, the checkpoint puts you back close by; failing never costs progress toward this trophy.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
       "time": "6-8 hours",
-      "tips": "Read the briefing, fight from cover, and let the checkpoints carry you through.",
-      "source": "Official trophy list; story chapter"
+      "strategy": [
+        "Chapter 3 settles the story into Vice City proper, and its missions start rewarding a moment of planning: read each briefing before you drive to the marker, because several jobs branch on the approach you choose.",
+        "Fight from cover and let enemies come to you in the on-foot sections. Sprinting across open ground is how this chapter's firefights turn expensive; patience is faster than respawning.",
+        "Keep your weapon wheel curated — a reliable rifle, something close-range, and a sidearm you like. Missions here chain driving and shooting with little warning, and fumbling the wheel mid-fight is a needless death.",
+        "Drop your manual save at the chapter break. Also check the map for activity icons you haven't sampled yet; Chapter 3's downtime is a good moment to start the activity circuit in parallel.",
+        "Complete the final mission of the chapter and the trophy unlocks as the story moves on. As ever, the checkpoints mean a failed section costs minutes, never progress."
+      ],
+      "tip": "Read briefings, fight from cover, and keep the weapon wheel curated."
     },
     {
       "id": 6,
       "name": "Top Of The World, Ma",
       "description": "Complete Chapter 4.",
-      "grade": "bronze",
-      "guide": "Chapter 4 is where the campaign starts cashing in its setup, and this trophy rewards seeing it through. Missions here run longer and chain several objectives together, so keep the objective line in view and hold your best weapons for the finales rather than burning them early. Finish the chapter's last mission and the trophy pops as the next chapter opens. There is no optional objective hiding in the requirement — completing the mission chain is everything it asks.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
       "time": "6-8 hours",
-      "tips": "Long chained missions: save your best weapons for the finales.",
-      "source": "Official trophy list; story chapter"
+      "strategy": [
+        "Chapter 4 is where the campaign starts cashing in its setups: missions run longer and chain several objectives without a breather, so arrive at each marker stocked, armoured and in a car you trust.",
+        "Hold your best weapons for finales. Early sections of these missions tempt you to burn heavy ammunition on easy targets; the closing stages are where that ammunition actually decides outcomes.",
+        "Keep the objective line in view during the chained missions — when a mission strings three tasks together, the middle one is the one players most often wander away from mid-flow.",
+        "Save at the chapter break, and use the transition to audit your counters: by the end of Chapter 4, a well-kept hunt shows healthy stunt, card and vehicle totals without a single grinding session.",
+        "Finish the chapter's last mission and the trophy pops as the next chapter opens. There is no hidden optional objective inside the requirement — the mission chain is the whole of it."
+      ],
+      "tip": "Save heavy ammo for finales and audit your counters at the chapter break."
     },
     {
       "id": 7,
       "name": "You Gotta Know When to Get Off",
       "description": "Complete the final mission.",
-      "grade": "gold",
-      "guide": "The final mission is the campaign's last word, and this gold trophy is the prize for reaching it. You only get there after the whole story, so arrive ready: a full weapon wheel, body armour, and a quick escape car parked somewhere sensible before the mission starts. Expect a multi-stage finale — set-pieces, a long firefight, and a closing chase or choice. Take it slowly, lean on the checkpoints, and let the mission's own pacing do the work. When the credits roll, the gold is yours — and with it, the last story trophy of the hunt.",
+      "tier": "gold",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
       "time": "45-60 min",
-      "tips": "Full armour and a getaway car before you start; use every checkpoint.",
-      "source": "Official trophy list; final mission"
+      "strategy": [
+        "This gold is the campaign's finishing line, reachable only after every chapter before it. Before you start the final mission, prepare like it's a heist: full weapon wheel, full armour, snacks if the game offers them, and a quick car staged somewhere sensible.",
+        "Expect a multi-stage finale — set-pieces, a sustained firefight and a closing sequence that mixes driving with on-foot work. There is no single trick; the mission tests everything the campaign taught, in order.",
+        "Play it slowly and lean on the checkpoints. The finale punishes rushing far more than caution, and each checkpoint you reach is permanent progress even if the next section takes three attempts.",
+        "Keep a manual save from before the mission untouched until the credits have rolled. If a one-off moment inside the finale goes wrong, that save is your way back without replaying the campaign.",
+        "When the credits finish, the gold unlocks and the story set is complete. Free roam opens fully from here, and every remaining trophy on the list can now be hunted at your own pace."
+      ],
+      "tip": "Prepare like a heist — full armour, staged car — and let checkpoints carry you."
     },
     {
       "id": 8,
       "name": "Trust",
       "description": "Complete Breakfast Run.",
-      "grade": "bronze",
-      "guide": "Breakfast Run is a story mission, and finishing it is all this trophy wants. It shows up early enough that you will meet it naturally while working through the campaign — no preparation, no optional objective, no route to plan. When its marker appears, head there, follow the objectives as they come, and play it to the end. The trophy pops on the mission's end screen. Like all story trophies it can be replayed from the mission list whenever you like.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 1,
       "time": "20-30 min",
-      "tips": "A story mission — it turns up on its own as you play the campaign.",
-      "source": "Official trophy list; story mission"
+      "strategy": [
+        "Breakfast Run is a named story mission that arrives on the map as the campaign reaches it. There is nothing to unlock or prepare: when its marker appears, go there and start it.",
+        "Play the objectives in the order the mission presents them. It mixes light driving with on-foot beats and introduces characters the story keeps using, so the mission itself is the whole requirement.",
+        "No specific loadout, vehicle or approach is demanded. If a section goes wrong, the checkpoint returns you close to where you failed, and the trophy doesn't care how many attempts a section took.",
+        "The trophy unlocks on the mission-complete screen at the end. Don't skip away early or quit to the map at the last second — the pop is tied to the completion screen itself, not merely to the final objective's checkbox.",
+        "Like every story mission, it can be replayed later from the mission list, so even in the worst case this trophy can never be lost — only postponed."
+      ],
+      "tip": "A story mission that arrives on its own — play it through to the end screen."
     },
     {
       "id": 9,
       "name": "Break the Bank",
       "description": "Complete The Cartel Heist.",
-      "grade": "bronze",
-      "guide": "The Cartel Heist is one of the campaign's big set-pieces, and this trophy is the proof you pulled it off. Heists in this series reward preparation over reflexes: before you trigger the job, stock up on ammo and armour and choose a getaway car you can actually drive under pressure. During the job, follow the plan the mission lays out — the scripted beats carry most of it — and keep moving once the alarm sounds. Finish the heist and the trophy unlocks at the end screen.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
       "time": "40-60 min",
-      "tips": "Ammo, armour and a getaway car first — the plan does the rest.",
-      "source": "Official trophy list; story mission"
+      "strategy": [
+        "The Cartel Heist is one of the campaign's centrepiece jobs, and it rewards preparation over reflexes. Before triggering it, stock ammunition and armour to full and choose a getaway car you can genuinely drive under pressure.",
+        "During the setup beats, pay attention to the plan the mission lays out — entry, roles, exit. The scripted structure carries most of the job; fighting the plan instead of following it is how attempts fall apart.",
+        "Once the alarm sounds, keep moving. Heist escapes in this series are timed by pressure rather than a clock: linger to loot or fight and the response escalates past what the exit route can handle.",
+        "If a stage fails, restart from the checkpoint with the lesson learned — the heist's stages are short, and the trophy only asks for one complete run, however many attempts it takes to get there.",
+        "The trophy unlocks at the heist's end screen. With it done, you've also rehearsed exactly the skills — preparation, discipline, clean escape — that the whole combat phase later demands."
+      ],
+      "tip": "Ammo, armour and a getaway car first; once the alarm sounds, never stop moving."
     },
     {
       "id": 10,
       "name": "Family Matters",
       "description": "Complete Child's Play.",
-      "grade": "bronze",
-      "guide": "Child's Play is a story mission, and completing it earns this trophy. It appears on the map as the campaign reaches it: head to the marker, watch the setup unfold, then work through the objectives in order. Expect a mix of driving and on-foot sections with a few scripted turns, and nothing in it demands a particular loadout. The trophy unlocks when the mission completes. If a section goes wrong, the checkpoint drops you back nearby, so a failure costs minutes, not progress.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
       "time": "25-40 min",
-      "tips": "Work the objectives in order; checkpoints sit close if a section fails.",
-      "source": "Official trophy list; story mission"
+      "strategy": [
+        "Child's Play is a story mission that appears on the map when the campaign reaches it. Head to the marker, watch the setup, and work the objectives in order — the mission is self-explanatory by design.",
+        "Expect a blend of driving and on-foot sections with a couple of scripted turns. Nothing in it demands a particular loadout, but a mid-range rifle and a full armour bar make the harder second half comfortable.",
+        "Stay with the objective marker when the mission branches. Its set-pieces occasionally open up side areas that look explorable; those are for free roam later, not for the mission's clock.",
+        "The trophy unlocks when the mission completes. If a section beats you, the checkpoint drops you back nearby, so a failure costs a few minutes and nothing else.",
+        "As with all story missions, it stays replayable from the mission list forever — this is a when, not an if, on any playthrough that finishes the campaign."
+      ],
+      "tip": "Objectives in order, rifle and armour for the second half, checkpoints do the rest."
     },
     {
       "id": 11,
       "name": "DWNFALL",
       "description": "Complete Headliners.",
-      "grade": "bronze",
-      "guide": "Headliners is a story mission with a show-business flavour, and this trophy is its completion. The mission unlocks on the map as the campaign reaches it — go to the marker and play the sequence through. The opening feels social and calm, but the second half turns harder, so keep a weapon ready even while the scene is still talking. Work the objectives in order and the trophy pops at the end screen. Like every story trophy, it can be replayed later if you ever want another pass.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
       "time": "30-45 min",
-      "tips": "The calm opening turns sharp — keep a weapon ready for the second half.",
-      "source": "Official trophy list; story mission"
+      "strategy": [
+        "Headliners is a story mission with a show-business flavour that unlocks on the map as the campaign reaches it. Go to the marker and play the sequence through from the top.",
+        "The opening stretch feels social and calm, but the second half turns sharp — keep a weapon ready and your armour topped up even while the scene is still talking, so the turn doesn't catch you empty-handed.",
+        "Work the objectives in order and don't chase side rooms during the action beats; the mission's pacing assumes you move with it, and stragglers get punished by its later stages. Treat the quiet stretches as breathing room to reload and re-armour, not as invitations to wander off-mission.",
+        "If the hard second half beats you once, note where the pressure came from and re-enter with that corner covered. The checkpoint structure keeps retries cheap.",
+        "The trophy pops at the mission's end screen. It is story-gated and replayable, so it cannot be missed by anything short of never finishing the campaign."
+      ],
+      "tip": "The calm opening turns sharp — stay armed and armoured for the second half."
     },
     {
       "id": 12,
       "name": "Hi-Jacked",
       "description": "Complete VCIA Takedown.",
-      "grade": "bronze",
-      "guide": "VCIA Takedown takes you into Vice City International Airport for a story mission, and finishing it earns this trophy. The mission opens as the campaign reaches the airport arc: follow the marker, work the objectives, and expect tight corridors and close-quarters fighting inside the terminal areas. Bring a close-range weapon and plenty of ammunition, and hold the chokepoints from cover instead of pushing through them. Complete the mission and the trophy unlocks.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
       "time": "30-45 min",
-      "tips": "Close-range weapon for the terminal corridors; hold chokepoints from cover.",
-      "source": "Official trophy list; story mission"
+      "strategy": [
+        "VCIA Takedown takes the story into Vice City International Airport. The mission opens when the campaign reaches the airport arc — follow the marker and let the briefing set your expectations before you move.",
+        "The fighting is close-quarters: terminal corridors, service passages, chokepoints. Bring a close-range weapon as your primary and keep a rifle for the open apron sections, swapping as the ground changes.",
+        "Hold chokepoints from cover instead of pushing through them. Airport interiors funnel enemies toward you; a doorway you control is worth more than ten metres of aggressive ground.",
+        "Watch your ammunition — long corridor fights burn through it. Loot fallen enemies between waves whenever the mission gives you a breath, and don't start a push on a half-empty magazine.",
+        "Complete the final objective and the trophy unlocks at the end screen. The mission stays replayable, so this is a completion trophy, not a performance one."
+      ],
+      "tip": "Close-range weapon for the terminals; hold doorways, loot between waves."
     },
     {
       "id": 13,
       "name": "Snow Storm",
       "description": "Complete Operation Savage Glory.",
-      "grade": "bronze",
-      "guide": "Operation Savage Glory is a late-campaign story mission, and this trophy marks its completion. By now the campaign expects you to be comfortable with the full toolkit: driving, shooting from cover, and swapping weapons on the move. It runs long, with several stages, so pace yourself, use the checkpoints, and restock at any lull the mission offers. Finish the final stage and the trophy pops. It is story-gated, so there is no way to miss it.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
       "time": "40-60 min",
-      "tips": "A long multi-stage mission: use checkpoints and restock at every lull.",
-      "source": "Official trophy list; story mission"
+      "strategy": [
+        "Operation Savage Glory is a late-campaign mission that assumes you've mastered the full toolkit — driving, cover shooting, weapon swapping on the move. Arrive with everything full: health, armour, ammunition, special ability.",
+        "It runs long, in distinct stages. Treat each stage as its own small mission: clear it, breathe, restock at any lull the game offers, and only then move on to the next stage's opening.",
+        "Pace your heavy weapons across the whole operation rather than the first hard room. The stages escalate, and the last one is where the serious firepower earns its keep.",
+        "Use every checkpoint as a banked save. If a stage is going badly, a deliberate restart from its checkpoint with a better plan is faster than grinding through a doomed attempt.",
+        "Finish the final stage and the trophy pops. It is story-gated, so the only way to miss it is to stop playing the campaign — everything else is persistence."
+      ],
+      "tip": "A long multi-stage operation: restock at every lull, save heavies for the end."
     },
     {
       "id": 14,
       "name": "A Long Road",
       "description": "Attain 100% Completion.",
-      "grade": "gold",
-      "guide": "One hundred percent is the long checklist the game keeps for itself: every story mission, every stranger strand, every activity, every collectible set, every stunt, every scrap of progress the world holds. Open the in-game stats or checklist screen and work it category by category — the roadmap on this page follows the same order for a reason. The last few percent are always the grind: stunts, card sets, WAiNK spots, challenges. When the counter reaches 100%, this gold trophy pops, and the platinum follows right behind it.",
+      "tier": "gold",
+      "type": "milestone",
       "phase": "platinum",
       "missable": false,
       "difficulty": 5,
-      "time": "80+ hours",
-      "tips": "Clear the in-game 100% checklist category by category; the grind is the last 10%.",
-      "source": "Official trophy list; 100% completion checklist"
+      "time": "85-110 hours total",
+      "strategy": [
+        "One hundred percent is the game's own master checklist: story, strands, activities, collectibles, stunts, challenges and exploration all rolled into a single percentage on the stats screen. That screen — not this page — is the authority, so audit against it directly.",
+        "Work category by category rather than chasing the number. Clear whichever category is closest to done first; each completed category removes a whole class of map-sweeping from your remaining work.",
+        "Expect the final ten percent to be the grind phase in disguise: the last stunts, the last card sets, the last WAiNK spots and challenges. By then this tracker will show you exactly which trophies those are.",
+        "When a category seems stuck at 99%, the missing item is almost always a one-off: a single meditation spot, one strand's final step, one undiscovered vehicle class. Sweep that category's map layer specifically instead of re-checking everything.",
+        "When the counter reaches 100%, this gold pops — and since 100% completion entails nearly the whole list, the platinum is usually minutes behind it. This is the hunt's true finishing line."
+      ],
+      "tip": "Audit the in-game 100% screen category by category; the last 10% is the grind."
     },
     {
       "id": 15,
       "name": "Cunning Stunts",
       "description": "Complete 250 Stunts.",
-      "grade": "silver",
-      "guide": "Stunts are the game's jump-and-airtime challenges, tucked wherever a ramp, a hill or a rooftop edge invites a fast car to fly. You need 250 of them, so this is a volume trophy: make stunting a habit rather than a session. Keep a fast car, hit every ramp you pass, and let the counter climb as you travel between other trophies. The stats screen tracks your total, so check it between phases and mop up the remainder late — ramps near the city are the easiest to repeat, and a stunt landed on the way to another trophy still counts.",
+      "tier": "silver",
+      "type": "challenge",
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "6-10 hours",
-      "tips": "Stunt as you travel: every ramp you pass feeds the counter.",
-      "source": "Official trophy list; stunt counter"
+      "time": "6-10 hours spread",
+      "strategy": [
+        "Stunts are the game's jump challenges — ramps, hills, rooftop edges and anywhere else a fast car can get airborne with style. You need 250 completions, which makes this a volume trophy, not a skill one.",
+        "Build the habit during Phase 1: every drive between missions passes ramps, and a stunt landed on the way to another trophy counts exactly the same as one farmed deliberately. Habits turn 250 into a background number.",
+        "Keep a fast, sturdy car as your default. Stunts need speed at the lip and a car that survives the landing; exotic supercars are fast but fragile, so a solid sports car is the better stunt tool.",
+        "Track the total on the stats screen between phases. If you're behind pace at the story's end, the dense city districts are the fastest mop-up ground — ramps cluster there and each run between them is short.",
+        "The last fifty go quickest as a dedicated sweep: pick a district, clear its stunt spots in a loop, move to the next. The trophy pops the moment the counter crosses 250, wherever you happen to be."
+      ],
+      "tip": "Stunt on every drive from day one — volume trophies are won by habits."
     },
     {
       "id": 16,
       "name": "Master of None",
       "description": "Try each type of activity once.",
-      "grade": "bronze",
-      "guide": "Leonida is packed with pastimes — the shooting range, drone races, fishing, the arcade, bowling, races of every kind — and this trophy asks you to try each type once. It is a sampler, not a mastery test: find one of each activity, play a single round, and move on. The map's activity icons show what you have not tried yet, so do this early, while the story is still opening the map. It also points you at the activities other trophies will later ask you to master.",
+      "tier": "bronze",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 1,
       "time": "2-3 hours",
-      "tips": "Do it early: map icons show the activity types you haven't tried yet.",
-      "source": "Official trophy list; activity types"
+      "strategy": [
+        "Leonida is dense with pastimes — shooting range, drone races, fishing, arcade cabinets, bowling, races of several kinds and more — and this trophy asks for exactly one attempt at each type. It is a sampler, not a mastery test.",
+        "Do it early, while the story is still opening the map. The map's activity icons show what exists; anything you haven't tried is a short detour, and trying it now also teaches you the activities later trophies will grade you on.",
+        "One round is enough per type: a single range challenge, one drone race, one fishing outing, one arcade game, one bowling game. Win or lose is irrelevant — participation is the entire requirement.",
+        "Work geographically. When you enter a new district, clear its untried activity icons before moving on, and the sampler finishes itself as a side effect of exploring.",
+        "The trophy pops when the last untried type gets its first attempt. If it doesn't, the map still shows an icon type you haven't touched — find it, try it once, done."
+      ],
+      "tip": "One round of everything, done early — the map icons show what's untried."
     },
     {
       "id": 17,
       "name": "The Shootist",
       "description": "Earn a gold medal in all Shooting Range challenges.",
-      "grade": "silver",
-      "guide": "The Shooting Range runs a set of timed target challenges, and this silver trophy wants a gold medal in every one. Each challenge scores accuracy, speed and target priority, so the trick is not to spray: line up each shot, lead the moving targets slightly, and reload in the gaps between waves. Visit the range between missions to learn the layouts, then chase the golds one challenge at a time — easiest first, to learn how the scoring works. A steady hand beats a fast trigger here.",
+      "tier": "silver",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 4,
       "time": "3-5 hours",
-      "tips": "Aim, don't spray: lead moving targets and reload between waves.",
-      "source": "Official trophy list; shooting range challenges"
+      "strategy": [
+        "The shooting range runs a ladder of timed target challenges, and this silver wants gold in every single one — it is the activity phase's one genuine skill test, so give it a dedicated session rather than squeezing it between missions.",
+        "Learn the scoring before chasing it: challenges grade accuracy, speed and target priority together, which means spraying is mathematically punished. Line up each shot, fire deliberately, and let misses go instead of chasing them.",
+        "Lead moving targets slightly and reload in the gaps between waves, never during one. A reload caught mid-wave costs more time than the two seconds of patience it saves.",
+        "Climb the ladder easiest-first. Early challenges teach the range's rhythm and target patterns at low pressure; by the time you reach the hard ones, the fundamentals are already automatic.",
+        "Gold medals are permanent once earned, so the trophy is a ratchet — every session only moves you forward. When the last challenge turns gold, the silver pops on the results screen."
+      ],
+      "tip": "Deliberate shots beat fast ones: lead movers, reload between waves, climb easiest-first."
     },
     {
       "id": 18,
       "name": "Top Fun",
       "description": "Win a Top Fun Drone Race at every location.",
-      "grade": "bronze",
-      "guide": "Top Fun runs drone races on several courses around Leonida, and this trophy needs a win at every location. Each course has its own shape — tight gates, open straights, changes in altitude — so learn a course before racing it for real: fly a practice lap, note where the gates turn, and stay low through the tight sections. Win one race per location and the trophy pops. If a course keeps beating you, switch drones: the handling differs more than the speed does.",
+      "tier": "bronze",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 3,
       "time": "2-4 hours",
-      "tips": "Practice lap first, stay low through tight gates, try another drone if stuck.",
-      "source": "Official trophy list; Top Fun drone races"
+      "strategy": [
+        "Top Fun runs drone races on set courses around Leonida, and the requirement is one win at every location — not every race type, not a championship, just a victory per course.",
+        "Fly each course once as reconnaissance before racing it seriously. Note where the gates sit, where the course turns, and where it changes altitude; drone races are lost on surprises, not on speed.",
+        "Stay low and smooth through the tight sections. Altitude changes bleed speed, and clipping a gate frame costs more time than the cautious line ever does — clean beats brave on every course here.",
+        "If one course keeps beating you, change drones before changing tactics. The available drones differ more in handling than in top speed, and the one that suits your thumbs is the fastest one for you.",
+        "The trophy pops when your last unwon location falls. The in-game race list shows which locations still owe you a win, so there's never any guessing about what's left."
+      ],
+      "tip": "Recon lap first, stay low through gates, and swap drones if a course won't crack."
     },
     {
       "id": 19,
       "name": "Earn Cash, Not Kudos",
       "description": "Win 20 different races.",
-      "grade": "bronze",
-      "guide": "Twenty different race wins is a breadth test: street races, off-road, water, air — whatever the game counts as a race type, you need a win in twenty of them. The fastest route is variety: take every race you pass, race each type once, and never repeat a race you have already won while a new one sits on the map. A tuned car helps, but clean lines help more — brake early, cut the corner, and let rivals make the mistakes. The in-game race list shows which types you have won.",
+      "tier": "bronze",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 3,
       "time": "5-8 hours",
-      "tips": "Race each type once and never repeat a won race; the list shows what's left.",
-      "source": "Official trophy list; race wins"
+      "strategy": [
+        "Twenty wins sounds like a lot until you notice the word 'different': the trophy counts distinct races won — street, off-road, water, air and every other type the game offers — so breadth, not repetition, is the whole strategy.",
+        "Never repeat a race you've already won while an unwon one sits on the map. Take every race you pass during other phases, bank the win, and move on; the counter grows fastest as a side effect of travelling.",
+        "Driving craft matters more than the car: brake before the corner, not in it; take the clean line; let rivals make the mistakes. Most AI fields beat themselves if you simply stay out of the walls.",
+        "For the races that resist, a tuned car in the right class closes the gap — but tune for acceleration and handling before top speed, because these courses are won in the corners.",
+        "The race list in the menus shows your wins per race. When the distinct-win count reaches twenty, the trophy pops — usually well before you've exhausted the map's race icons."
+      ],
+      "tip": "Win each race once and move on — breadth is the strategy, never repetition."
     },
     {
       "id": 20,
       "name": "Baited My Tackle",
       "description": "Beat Cal in a fishing challenge.",
-      "grade": "bronze",
-      "guide": "Cal is the fishing rival, and this trophy is a straight contest: beat him in a fishing challenge. Fishing here is a timing game — cast where the water moves, watch the line, and reel in steady bursts instead of holding the button down. Cal's score is the bar to clear; play a few rounds first to learn the rhythm of the bites, then fish the challenge for real. Pick a quiet spot, take your time, and remember that a patient retrieve out-scores a frantic one.",
+      "tier": "bronze",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 2,
       "time": "1-2 hours",
-      "tips": "Reel in steady bursts; learn the bite rhythm in practice rounds first.",
-      "source": "Official trophy list; fishing challenge"
+      "strategy": [
+        "Cal is Leonida's fishing rival, and this trophy is a straight contest: enter his fishing challenge and finish with a better result than his. One win is all it takes — but the rhythm takes a few rounds to learn.",
+        "Practise before you challenge him. Fishing here is a timing game: cast where the water shows movement, watch the line, and reel in steady bursts rather than holding the reel down and hoping.",
+        "Patience out-scores panic. A calm, steady retrieve keeps fish hooked; a frantic one loses the big ones, and the big ones are exactly what beat Cal's total.",
+        "Pick your moment: fish the challenge when you've got the rhythm warm from practice rounds, not cold. If an attempt goes badly, the challenge can be re-entered — nothing about a loss is permanent.",
+        "When your catch beats Cal's score at the challenge's end, the trophy pops. It's one of the gentlest trophies on the list once the reeling rhythm clicks."
+      ],
+      "tip": "Practise the reel rhythm first — steady bursts land the fish that beat Cal."
     },
     {
       "id": 21,
       "name": "Stick Fiddler",
       "description": "Complete an arcade game.",
-      "grade": "bronze",
-      "guide": "The arcade is Leonida's noisiest corner, and this trophy asks for one completed game — any cabinet, any game. Walk in, pick a machine, and play it to its end: some games are a single high-score run, others a short level or a timed round. The trophy pops when the game's own end screen appears, win or lose, so there is no skill gate here at all. If the first cabinet confuses you, try another; the arcade's whole point is variety, and the cheapest game in the room counts exactly as much as the hardest.",
+      "tier": "bronze",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 1,
       "time": "15-30 min",
-      "tips": "Any cabinet counts — pick the simplest game and play it to its end screen.",
-      "source": "Official trophy list; arcade games"
+      "strategy": [
+        "Find the arcade, walk in, pick any cabinet and play its game to the end. That's the whole trophy: one completed arcade game, any genre, any cabinet, win or lose.",
+        "Different cabinets define 'complete' differently — a high-score run ending, a short level finished, a timed round expiring. In every case the game's own end screen is the finish line, so play until the machine itself says you're done.",
+        "If the first cabinet you try confuses you, just try another. The arcade's point is variety, and the simplest game in the room satisfies this trophy exactly as well as the hardest.",
+        "Don't quit back to the arcade floor mid-game — leaving early is the only way to fail this, and it fails silently. See the run out, however badly it's going.",
+        "The trophy pops as the game's end screen appears. Total investment is usually under half an hour, which makes this one of the cheapest bronzes in the entire list — quite possibly the cheapest of all fifty-five."
+      ],
+      "tip": "Any cabinet, played to its own end screen — the only failure is quitting early."
     },
     {
       "id": 22,
       "name": "Road to Rehabilitation",
       "description": "Complete the final mission for Andy.",
-      "grade": "bronze",
-      "guide": "Andy is one of the strangers whose missions arrive in stages, and this trophy is the end of his strand. Stranger missions unlock one at a time: finish one, let some in-game time pass, and watch for Andy's next marker to appear. His final mission is the one that counts, and it will be marked like the rest. If a marker goes quiet for a while, sleep or play other content and check back — the strand advances on the game's own schedule, not yours. Finish the last mission and the trophy pops.",
+      "tier": "bronze",
+      "type": "strand",
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1-2 hours",
-      "tips": "Strands advance in stages — if a marker goes quiet, let in-game days pass.",
-      "source": "Official trophy list; stranger mission strand"
+      "time": "1-2 hours spread",
+      "strategy": [
+        "Andy is one of Leonida's strangers, and his missions arrive as a staged strand: one job, a pause while the game world moves on, then the next marker. This trophy is specifically the strand's final mission.",
+        "Start the strand the moment Andy's first marker appears — strands advance on in-game days, so an early start means the waiting happens while you're busy with other trophies anyway.",
+        "Between steps, don't camp on the spot waiting. Sleep, play other content, work other phases; the next marker surfaces on the game's schedule, and hovering doesn't hurry it.",
+        "Recognise the final mission when it comes: strands close with a mission that resolves the stranger's arc, and the game marks it like the rest. Play it through to its end screen.",
+        "The trophy pops as Andy's final mission completes. His strand also counts toward the eight-strand silver, so finishing him is double progress — as every strand is."
+      ],
+      "tip": "Start strands early and let in-game days pass between steps — don't camp markers."
     },
     {
       "id": 23,
       "name": "This Was No Boat Accident",
       "description": "Complete the final mission for Kenton.",
-      "grade": "bronze",
-      "guide": "Kenton's strand works the same way as every stranger's: a chain of missions that appears one step at a time, with gaps while the game waits for the right moment. Take each mission as its marker appears, and between steps do other work — the strand will not hurry for you. His final mission closes the chain and earns this trophy. Keep an eye on the map for his icon after each step, and if nothing shows, advance the in-game clock by sleeping or playing elsewhere.",
+      "tier": "bronze",
+      "type": "strand",
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1-2 hours",
-      "tips": "Take missions as markers appear; sleep or play elsewhere when the strand pauses.",
-      "source": "Official trophy list; stranger mission strand"
+      "time": "1-2 hours spread",
+      "strategy": [
+        "Kenton's strand works like every stranger chain in Leonida: missions appear one at a time, separated by gaps while the story of his life moves on without you. The trophy waits at the chain's end.",
+        "Take each mission as its marker appears, and check the map for his icon after every step — strand markers are easy to miss in a busy district if you're not looking for them. A ten-second map check after each mission saves hours of wondering where the strand went later.",
+        "If a marker goes quiet, the strand isn't broken; it's waiting. Advance the in-game clock by sleeping or go play other phases, and Kenton's next step will surface in its own time.",
+        "His final mission closes the arc and is the one that counts. It plays like the rest of his strand — follow the objectives, let the scenes run, and finish it fully.",
+        "The trophy pops on the final mission's completion, and the strand ticks the eight-strand counter as well. Patience is the only skill this trophy has ever tested."
+      ],
+      "tip": "Markers pause between steps by design — sleep or hunt elsewhere and check back."
     },
     {
       "id": 24,
       "name": "The Lone Rider",
       "description": "Complete the final mission for Billy.",
-      "grade": "bronze",
-      "guide": "Billy's strand is another staged chain of stranger missions, ending in a final mission that earns this trophy. The pattern is familiar by now: accept a mission from its marker, complete it, then wait for the next one to surface — sometimes after an in-game day or two. Do not camp on the spot; play the rest of the game and the marker will come back. Finish Billy's last mission and the trophy pops at its end screen.",
+      "tier": "bronze",
+      "type": "strand",
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1-2 hours",
-      "tips": "Don't camp the marker — play other content and the next step will surface.",
-      "source": "Official trophy list; stranger mission strand"
+      "time": "1-2 hours spread",
+      "strategy": [
+        "Billy's strand is another staged chain: accept a mission from his marker, complete it, then wait — sometimes a day or two of in-game time — for the next one to appear.",
+        "Open the strand as early as it offers itself. Every strand you start early finishes early, because the waiting between steps runs in parallel with everything else you're doing.",
+        "Resist the urge to hover near Billy between steps. The next marker comes when the game decides, and the hours are better spent on activities or exploration than on standing around.",
+        "The chain ends with a final mission that resolves Billy's story. Play it to completion — the trophy is bound to that last mission specifically, not to the strand as a whole.",
+        "On its end screen the trophy pops, and one more strand counts toward Strangers & Freaks. Six named strands plus two more from exploration make the silver; Billy is a sixth of the named work, and his chain is among the shortest of them — a kind one to close early."
+      ],
+      "tip": "Open the strand early, never hover — the final mission is the only one that counts."
     },
     {
       "id": 25,
       "name": "Strangers & Freaks",
       "description": "Complete 8 mission strands for strangers across the state of Leonida.",
-      "grade": "silver",
-      "guide": "Strangers & Freaks is the big stranger trophy: eight complete mission strands across Leonida. Andy, Kenton, Billy, Randy and Tyrone are five of them; the other three belong to strangers you will meet as you explore. Each strand is a staged chain — take missions as their markers appear, let in-game time pass between steps, and finish each strand's final mission. The counter ticks per finished strand, so check the stats screen to see which ones remain. It is a patience trophy, not a skill one.",
+      "tier": "silver",
+      "type": "strand",
       "phase": "strangers",
       "missable": false,
       "difficulty": 3,
-      "time": "8-12 hours",
-      "tips": "Finish whole strands, not single missions; the stats screen shows what's left.",
-      "source": "Official trophy list; stranger mission strands"
+      "time": "8-12 hours spread",
+      "strategy": [
+        "This silver counts complete stranger strands — whole chains, finished end to end — and it wants eight of them. Andy, Kenton, Billy, Randy and Tyrone are five; the other three belong to strangers you'll meet out in the state while exploring.",
+        "Run strands in parallel, always. Each one advances on its own schedule of in-game days, so five strands maturing at once cost no more wall-clock time than one — the only discipline is opening each the day its first marker appears.",
+        "A strand counts when its final mission completes, not before. Half-finished chains are worth nothing to this counter, so when a strand nears its end, prioritise closing it over opening something new.",
+        "Use the stats screen to audit which strands are done. It is easy to lose track across a hundred-hour hunt, and the counter there — not memory — tells you how many of the eight you truly hold.",
+        "The eighth completed strand pops the silver. By then you'll also have banked the five named-strand bronzes along the way, which is why this phase quietly pays out six trophies for one habit."
+      ],
+      "tip": "Finish whole strands, run them in parallel, and audit the count on the stats screen."
     },
     {
       "id": 26,
       "name": "Supply & Demand",
       "description": "Complete the final mission for Randy.",
-      "grade": "bronze",
-      "guide": "Randy's strand is a staged chain of stranger missions, and its final mission earns this trophy. Accept each mission from its marker, complete it, and wait for the next step — the gaps between steps are part of the design, so use them for other trophies. Randy's missions lean on the stranger side of Leonida: odd jobs, odd people, and a payoff that only makes sense at the end of the chain. Finish his last mission and the trophy pops.",
+      "tier": "bronze",
+      "type": "strand",
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1-2 hours",
-      "tips": "Use the gaps between strand steps for other trophies; the chain finishes on its own schedule.",
-      "source": "Official trophy list; stranger mission strand"
+      "time": "1-2 hours spread",
+      "strategy": [
+        "Randy's strand is a staged chain of stranger missions, and its final mission is what this trophy grades. Accept each step from its marker as it appears and let the chain breathe between steps.",
+        "The gaps are part of the design, not a bug: Randy's next move depends on in-game time passing. Fill the gaps with other trophies and the strand will feel like it completed itself.",
+        "His missions lean into the stranger side of Leonida — odd jobs for an odd man, with a payoff that only makes sense at the chain's end. Follow the objectives and let the oddness play out.",
+        "When the final mission arrives, play it through fully. Strands occasionally dangle one last short step after what feels like the finale, so keep an eye out until the trophy confirms it.",
+        "The trophy pops at the true final mission's end, and Randy's strand joins the count toward the eight-strand silver. One more stranger down, in every sense progress."
+      ],
+      "tip": "Let the gaps work for you — fill them with other trophies and close the chain at its end."
     },
     {
       "id": 27,
       "name": "Spin On This!",
       "description": "Complete the final mission for Tyrone.",
-      "grade": "bronze",
-      "guide": "Tyrone's strand closes with a final mission, and completing it earns this trophy. Like the other stranger chains, it arrives in stages: a mission marker, a job, a pause, then the next marker. Follow the chain to its end and the trophy pops at the final mission's end screen. If you are working several strands at once — which the roadmap recommends — Tyrone's markers will interleave with the others, and the Strangers & Freaks counter will tick along with them.",
+      "tier": "bronze",
+      "type": "strand",
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1-2 hours",
-      "tips": "Run strands in parallel — markers interleave and the big stranger trophy ticks along.",
-      "source": "Official trophy list; stranger mission strand"
+      "time": "1-2 hours spread",
+      "strategy": [
+        "Tyrone's strand closes with a final mission, and completing that mission — not the earlier steps — is what earns this trophy. The chain arrives in stages: a marker, a job, a pause, then the next marker.",
+        "Work several strands at once and Tyrone's markers will interleave with the others', which is the efficient way to play this whole phase: no waiting is ever wasted when three chains are maturing together.",
+        "If Tyrone's marker disappears for a while, the strand is waiting on in-game days. Sleep at a safehouse or go hunt something loud; the marker returns on the game's schedule, not yours.",
+        "Play the final mission to its end screen without rushing the closing beats — strand finales sometimes tuck the actual completion flag behind the last scene rather than the last objective.",
+        "The trophy pops as the strand closes, and the eight-strand counter ticks with it. With all five named strands done, the remaining three for the silver are found out in the state."
+      ],
+      "tip": "Run Tyrone alongside other strands — interleaved markers mean zero wasted waiting."
     },
     {
       "id": 28,
       "name": "Positive Mental Attitude",
       "description": "Meditate at every spot across Leonida.",
-      "grade": "bronze",
-      "guide": "Meditation spots are quiet corners scattered across Leonida — clifftops, beaches, wetlands, anywhere the view does the talking. This trophy wants you to meditate at every one of them. The spots are marked once you are near, so the work is travel: sweep the map region by region, sit at each spot, and let the meditation play out. A few spots only reveal themselves after you have explored their area, so finish the exploration phase first and the last spots will already be on your map.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
       "time": "3-5 hours",
-      "tips": "Sweep region by region after exploring; spots reveal themselves once you're near.",
-      "source": "Official trophy list; meditation spots"
+      "strategy": [
+        "Meditation spots are quiet corners scattered across the whole state — clifftops, beaches, wetlands, lookouts — and the trophy wants a meditation at every single one of them.",
+        "Spots reveal themselves when you're near, so the real work is travel coverage. Finish uncovering the map first (or work region by region), and the spots will already be marked as you sweep through.",
+        "At each spot, actually sit and let the meditation play out. Walking through the marker's area isn't the same as using it; the trophy counts completed meditations, not discoveries.",
+        "Sweep systematically: one region per session, spots in a rough loop, ticking them off on this tracker as you go. Random wandering misses the same two or three spots every single time.",
+        "The final spot pops the trophy the moment its meditation ends. If you're one short at the end, it's almost certainly in the wetlands or the Keys — the two regions every route skips."
+      ],
+      "tip": "Sit through each meditation; sweep region by region so no quiet corner hides."
     },
     {
       "id": 29,
       "name": "Fair Game",
       "description": "Hunt a unique animal for Bret.",
-      "grade": "bronze",
-      "guide": "Bret wants a unique animal hunted, and this trophy is the proof. Unique animals are one-of-a-kind creatures tied to specific corners of Leonida — the hunt is about finding the right place and the right moment, not about firepower. Take it seriously: bring a scoped rifle, move slowly, and watch for tracks or calls that mark the animal's ground. One clean, patient hunt is all it takes; rushing it just scares the quarry off. Check Bret's strand for the opening clue.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 3,
       "time": "1-3 hours",
-      "tips": "Scoped rifle, slow approach, watch for tracks — one patient hunt is all it takes.",
-      "source": "Official trophy list; unique animal hunt"
+      "strategy": [
+        "Bret's request is specific: one unique animal — a one-of-a-kind creature tied to a particular corner of Leonida. This is a tracking exercise, not a firepower test, and rushing it is the only way to fail it.",
+        "Start with Bret's opening clue and work the ground it points to. Unique animals leave sign — tracks, calls, disturbed ground — and the hunt is reading that sign until the animal itself shows.",
+        "Gear up properly before the serious attempt: a scoped rifle, a slow approach, and patience. Move quietly, stop often, and watch the area the sign keeps circling back to.",
+        "Take the shot only when it's clean. A rushed shot that wounds and loses the animal costs you the whole stalk; a patient hunter gets one attempt that counts.",
+        "When the unique animal is down and Bret's requirement is satisfied, the trophy pops. One clean, patient hunt is the entire ask — there is no bag limit and no second animal. When it drops, stay a moment and confirm the kill registers before you leave the ground."
+      ],
+      "tip": "Scoped rifle, slow stalk, one clean shot — rushing only scares the quarry off."
     },
     {
       "id": 30,
       "name": "Don't Touch My Deck",
       "description": "Complete 3 Collectible Card sets.",
-      "grade": "silver",
-      "guide": "Collectible cards come in sets, and this silver trophy needs three complete sets. Cards are tucked into shops, hideouts, mission areas and quiet corners all over Leonida — the hunt is mostly thoroughness. Pick up every card you pass from the start, keep a checklist of which sets are close to done, and use the map's collectible hints in the late game to find the stragglers. Three full sets is the line; the rest of the sets are for 100% completion. A set you finish early is progress you never repeat.",
+      "tier": "silver",
+      "type": "collection",
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "5-8 hours",
-      "tips": "Grab every card from the start; finish three sets and late-game hints find the rest.",
-      "source": "Official trophy list; collectible card sets"
+      "time": "5-8 hours spread",
+      "strategy": [
+        "Collectible cards come in themed sets scattered across shops, hideouts, mission areas and quiet corners of Leonida. The silver needs three complete sets — not three cards, three finished sets — so this is a thoroughness trophy.",
+        "Start collecting from the first hour. Every card you pass and grab during the story is progress you'll never have to repeat, and early sets fill surprisingly fast just from playing the game normally.",
+        "Keep a checklist of which sets are close to done, and hunt by set, not by map region: finishing a nearly-complete set is worth more than ten random cards in sets you've barely started.",
+        "Late in the hunt, the game's own collectible hints and your map coverage point at the stragglers. The last card of a set is always in a mission area or a rooftop — somewhere you passed a dozen times without looking up.",
+        "The third completed set pops the silver. The remaining sets still count toward 100% completion, so nothing collected here is wasted even after the trophy lands."
+      ],
+      "tip": "Grab every card from day one and hunt by set — three finished sets, not three cards."
     },
     {
       "id": 31,
       "name": "You WAiNKer!",
       "description": "WAiNK It at 100 locations.",
-      "grade": "silver",
-      "guide": "WAiNK It is the game's tagging or photo-spot system, and this silver trophy wants it done at 100 locations across Leonida. The count is the challenge, not any single spot: treat it as a travel habit. Whenever you enter a new area, look for the WAiNK prompt, do it, and move on. The in-game counter tracks your total, so check it between regions and sweep the thin spots last — the city's dense districts fill fast, while the wetlands and highways take a deliberate pass.",
+      "tier": "silver",
+      "type": "collection",
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "6-9 hours",
-      "tips": "WAiNK everywhere you go; dense districts fill fast, wetlands need a deliberate sweep.",
-      "source": "Official trophy list; WAiNK locations"
+      "time": "6-9 hours spread",
+      "strategy": [
+        "WAiNK is Leonida's tagging system, and this silver wants it done at one hundred locations across the state. No single spot is hard; the count itself is the challenge, which makes this a travel-habit trophy.",
+        "Build the reflex early: whenever you enter a new area for any reason, look for the WAiNK prompt first, tag it, then do what you came for. A hundred locations reached one-at-a-time during other work barely registers as effort.",
+        "Density varies wildly by region. Vice City's districts fill the counter fast, while the wetlands, highways and Keys are sparse — those need a deliberate pass, ideally combined with the exploration sweep.",
+        "The in-game counter is your scoreboard; check it between regions so you know which areas are thin. Guessing your total from memory is how players end up at 96 with no idea where the last four hide.",
+        "The hundredth location pops the trophy on the spot. If you're sweeping late, work the sparse regions first and let the city's density close the count for you at the end."
+      ],
+      "tip": "Tag everywhere you go; save a deliberate sweep for the sparse wetlands and Keys."
     },
     {
       "id": 32,
       "name": "One Last Thing",
       "description": "Complete 50 Challenges.",
-      "grade": "bronze",
-      "guide": "Challenges are the game's side objectives — the small tasks layered over missions, activities and exploration — and this trophy needs 50 of them completed. The fastest route is to let them accumulate: play the story, try every activity, and check the challenges menu often so you know what is close. Some challenges complete themselves while you play; others need a deliberate detour, like a specific stunt or a weapon type. Fifty is a milestone on the way to the full set, so do not grind it early — let it arrive.",
+      "tier": "bronze",
+      "type": "challenge",
       "phase": "grind",
       "missable": false,
       "difficulty": 2,
-      "time": "10-15 hours",
-      "tips": "Check the challenges menu often and let 50 accumulate naturally — don't grind it early.",
-      "source": "Official trophy list; challenge counter"
+      "time": "10-15 hours spread",
+      "strategy": [
+        "Challenges are the game's layered side-objectives — small tasks riding on top of missions, activities and exploration — and this trophy is a milestone: fifty of them completed, on the way to the full set that 100% demands.",
+        "Let them accumulate. A large share complete themselves while you play the story and try every activity, so the fastest route to fifty is a varied game, not a challenges-menu grinding session.",
+        "Check the challenges menu regularly anyway. Knowing which challenges sit one attempt from done lets you finish them opportunistically — a specific stunt, a weapon type, a short detour on a drive you're already making.",
+        "A handful of challenges need deliberate setups rather than luck. Save those for the grind phase, when you can stage them calmly instead of forcing them mid-mission.",
+        "The fiftieth completed challenge pops the trophy whenever it lands. Keep going afterwards if you're chasing 100% — but the bronze itself is strictly a matter of time and variety."
+      ],
+      "tip": "Play varied and check the menu often — fifty accumulates faster than it grinds."
     },
     {
       "id": 33,
       "name": "Hot Together",
       "description": "Lose a 4 star Wanted Level with your partner and escape the heat.",
-      "grade": "bronze",
-      "guide": "This one needs both protagonists together: build a four-star wanted level with your partner beside you, then lose the heat and escape. The partner is the key — the trophy only counts when you are playing as a pair, so start the attempt from a partner activity or a moment when both are present. Once the stars hit four, break line of sight, switch to a fast car, and run the heat off the old-fashioned way: alleys, tunnels, and distance. When the stars clear with your partner still with you, the trophy pops.",
+      "tier": "bronze",
+      "type": "partner",
       "phase": "partner",
       "missable": false,
       "difficulty": 3,
       "time": "30-60 min",
-      "tips": "Only counts as a pair — start from a partner moment, then break line of sight and run.",
-      "source": "Official trophy list; partner wanted level"
+      "strategy": [
+        "This trophy has a strict staging requirement: both protagonists together, a wanted level of four stars, and then a complete escape — the stars must be raised as a pair and lost as a pair.",
+        "Start from a moment when both characters are already together — a partner activity or a shared free-roam session — because the trophy only counts heat earned and shed while the pair is intact.",
+        "Build to four stars deliberately and quickly: sustained, visible crime in a populated area gets you there in a couple of minutes. Once the fourth star lands, stop adding heat and switch entirely to escape mode.",
+        "Break line of sight first, then run: alleys, tunnels, a vehicle swap and distance, in that order. The wanted system forgives what it cannot see, so a hidden thirty seconds is worth more than a mile of straight-line speed.",
+        "When the stars clear with your partner still beside you, the trophy pops. If the pair separates mid-escape, regroup and restage it — the setup takes minutes, and it's one of the three partner trophies best chained in a single session."
+      ],
+      "tip": "Raise four stars as a pair, break line of sight, swap cars and vanish — together."
     },
     {
       "id": 34,
       "name": "Retail Therapy",
       "description": "Rob 3 shops back-to-back with your partner without losing your Wanted Level.",
-      "grade": "bronze",
-      "guide": "Three shops, back to back, with your partner, without ever losing your wanted level — that is the chain this trophy wants. The trick is the route: pick three small shops close together, plan the order before you start, and keep the getaways short. Rob the first, move immediately to the second while the heat is still low, then the third — and do not stop to fight. If the wanted level clears between shops, the chain breaks and you start over. A fast car parked between shops is worth more than a big gun.",
+      "tier": "bronze",
+      "type": "partner",
       "phase": "partner",
       "missable": false,
       "difficulty": 4,
       "time": "30-60 min",
-      "tips": "Three small shops close together, planned route, never stop to fight — a break resets the chain.",
-      "source": "Official trophy list; partner shop robberies"
+      "strategy": [
+        "The chain is the trophy: three shop robberies in a row, with your partner, while your wanted level never fully clears between them. If the stars ever hit zero mid-chain, the count resets — that single rule shapes the whole attempt.",
+        "Scout before you start. Pick three small shops close together — one neighbourhood, short hops — and plan the exact order and driving route between them while the streets are still calm.",
+        "Rob fast and shallow: in, register, out. Lingering for extra loot stretches each stop, and time is what lets a wanted level decay or a response converge; speed is the entire technique.",
+        "Keep a fast car staged for the hops and never stop to fight. Between shops, if the heat feels like it's fading, a quick visible crime on the move tops it up without breaking your rhythm.",
+        "The third shop's robbery, completed with the chain intact, pops the trophy. Failed chains cost nothing but a re-drive of the route — scout it once and most players land it within a few attempts."
+      ],
+      "tip": "Three close shops, one planned route, never let the stars clear mid-chain."
     },
     {
       "id": 35,
       "name": "Whip It Good",
       "description": "Discover 100 vehicles.",
-      "grade": "bronze",
-      "guide": "Discovering a vehicle means sitting in it — or at least getting close enough for the game to log it — and this trophy wants 100 different ones. Leonida's traffic is the catalogue: city streets give you the common cars fast, while the rare ones hide in mission areas, wealthy districts, and the countryside. Make it a habit to hop into anything unfamiliar you pass, and check the stats screen for your count. The last dozen are the hunt; mission vehicles and parked rarities fill the gaps.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
-      "time": "4-6 hours",
-      "tips": "Hop into anything unfamiliar you pass; mission vehicles fill the last dozen.",
-      "source": "Official trophy list; vehicle discovery counter"
+      "time": "4-6 hours spread",
+      "strategy": [
+        "A vehicle counts as discovered when you get in it — or close enough for the game to log it — and the trophy wants one hundred different ones. Leonida's traffic is the catalogue, and most of it drives past you for free.",
+        "Make hopping into unfamiliar vehicles a reflex. Anything you don't recognise — a new shape at a light, an odd truck on a job site — is worth ten seconds, and the stats screen keeps your running total.",
+        "City streets deliver the common cars quickly. The gaps in the catalogue hide in wealthy districts (the exotics), the countryside (work trucks and off-roaders), industrial areas, and inside missions, where scripted vehicles spawn that never appear in traffic.",
+        "Mission vehicles deserve special attention: heists and story jobs park unique models in reach for a few minutes at a time. Sit in everything the mission gives you before the objective moves on.",
+        "The hundredth discovery pops the trophy wherever it happens. If you're stuck in the nineties, sweep the rich districts and the airport — rare spawns cluster where the money is."
+      ],
+      "tip": "Sit in anything unfamiliar; mission vehicles and rich districts fill the last dozen."
     },
     {
       "id": 36,
       "name": "Gunslinger",
       "description": "Take down 5 enemies in a single use of Combat Focus.",
-      "grade": "bronze",
-      "guide": "Combat Focus is the slow-motion aim mode, and this trophy wants five takedowns inside a single use of it. The setup matters more than the aim: find a spot with five enemies close together — a gang hideout or a mission firefight with a cluster — then trigger Combat Focus and work the group methodically, one target at a time, before the meter runs out. A high-capacity weapon helps, but the real trick is picking the right fight. If the group scatters, reset and try a denser spot.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 3,
       "time": "30-60 min",
-      "tips": "Pick a dense group first — a gang hideout — then trigger Focus and work it methodically.",
-      "source": "Official trophy list; Combat Focus"
+      "strategy": [
+        "Combat Focus is the game's slow-motion aim mode, and the requirement is precise: five takedowns inside one single activation. The fight you choose matters far more than the shooting itself.",
+        "Find density first. A gang hideout, a mission firefight with a clustered group, any spot where five enemies stand within a short pan of each other — that's the arena. Sparse fights make the trophy nearly impossible regardless of aim.",
+        "Prepare the activation: full Focus meter, a high-capacity weapon already in hand, and your targets mentally sequenced left to right before you trigger it. Hesitation inside Focus is meter burned.",
+        "Work the group methodically — one target, confirm the takedown, move to the next. Don't chase runners or switch weapons mid-activation; five steady kills beat seven attempted ones.",
+        "The fifth takedown inside the same activation pops the trophy instantly. If the group scatters or the meter dies at four, reset and pick a denser spot — the right crowd makes this a one-attempt trophy."
+      ],
+      "tip": "Pick the crowd before the fight — five clustered enemies, one activation, steady order."
     },
     {
       "id": 37,
       "name": "Catch Me If You Can",
       "description": "Make an unscheduled departure at VCIA.",
-      "grade": "bronze",
-      "guide": "An unscheduled departure at VCIA means leaving the airport in a way the airport did not plan — on foot through a fence, in a stolen vehicle through a gate, or by any route that is not the front door. The trophy is about improvisation: get into the airport grounds, then leave by a route the game treats as an exit it did not schedule. The simplest read is to drive out through a service gate or fence line while the game is tracking your position. Once you are clear of the grounds by an unscheduled route, it pops.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 2,
       "time": "20-40 min",
-      "tips": "Leave VCIA by a service gate or fence line, not the front door.",
-      "source": "Official trophy list; VCIA departure"
+      "strategy": [
+        "VCIA — Vice City International Airport — tracks how people and vehicles leave its grounds, and this trophy wants a departure it didn't schedule: out through a fence line, a service gate, or any route that isn't a legitimate exit.",
+        "Get onto the airport grounds first, by any means — a vehicle through a checkpoint area, on foot over a perimeter, or during the airport story mission, when you're legitimately inside with a car at hand.",
+        "Then leave wrong. Drive out through a service gate or a breakable fence section while the game is registering you as on airport grounds, and keep going until you're clearly off the property.",
+        "A small wanted level may follow; that's fine and expected. The trophy grades the departure, not the escape afterwards, so lose the heat however you like once you're clear.",
+        "The pop lands as the unscheduled departure registers. If an attempt doesn't trigger it, you likely left through a legitimate exit — re-enter and choose a scruffier way out."
+      ],
+      "tip": "Get inside VCIA, then leave through a service gate or fence — not the front door."
     },
     {
       "id": 38,
       "name": "Challenging Tank",
       "description": "Kinda hot in these Rhinos.",
-      "grade": "bronze",
-      "guide": "Rhinos are the tanks of Leonida, and this trophy is about spending time in one — hot, loud, and very hard to stop. Get into a Rhino, then enjoy it: roll through the streets, shrug off the traffic, and let the wanted level climb while you stay inside the armour. The exact trigger is spending time in the tank under pressure, so do not park it and walk away — drive it, use it, and let the heat come to you. Military areas are the obvious place to find one; a wanted level is the obvious way to keep it interesting.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 2,
       "time": "30-60 min",
-      "tips": "Stay in the tank and drive it under pressure — parking it doesn't count.",
-      "source": "Official trophy list; Rhino tank"
+      "strategy": [
+        "The Rhino is Leonida's battle tank, and the trophy is about time spent inside one while things get hot — the description's joke is the requirement: be in the tank, under pressure, and stay there.",
+        "Find one where the military keeps them. A base or convoy is the obvious source; getting in will itself raise attention, which is conveniently part of what the trophy wants.",
+        "Once you're in the driver's seat, drive it like you mean it: roll through traffic, shrug off collisions, and let the wanted level climb while you remain inside the armour. Parking the tank and waiting does nothing — the heat has to be live.",
+        "Use the cannon sparingly if you want the session to last; every escalation shortens how long the army lets you keep your toy. The trophy needs sustained pressure, not maximum destruction.",
+        "After enough hot minutes in the seat, the trophy pops. Climb out whenever you're ready — the Rhino will have done its work, and so will you."
+      ],
+      "tip": "Stay in the Rhino and drive it under a live wanted level — parked time doesn't count."
     },
     {
       "id": 39,
       "name": "Sneakthief",
       "description": "Rob a jewelry store without being detected.",
-      "grade": "bronze",
-      "guide": "A jewellery store, robbed without being detected, is a stealth job — and this trophy is the quiet version of the loud heists elsewhere on the list. Plan it like a burglary: case the store first, learn the camera and guard pattern, and enter when the floor is clear. Move slowly, take the goods without tripping an alarm, and leave before anyone knows you were there. If you are spotted, the attempt fails — abort, lose the heat, and try again. Patience is the whole skill here.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 4,
       "time": "30-60 min",
-      "tips": "Case it first, learn the guard pattern, and abort the moment you're spotted.",
-      "source": "Official trophy list; stealth robbery"
+      "strategy": [
+        "This is the quiet felony: a jewellery store emptied without anyone ever knowing you were there. Detection — not the robbery itself — is the fail state, so the whole attempt is planned around eyes and cameras.",
+        "Case the store first, from outside and in. Learn the guard's patrol loop, the camera positions and their sweep, and the floor layout, before you commit to anything. Two minutes of watching saves the entire attempt.",
+        "Enter when the floor is at its emptiest and move slowly, crouched, in the patrol's blind intervals. Take the goods in the order that keeps you farthest from the guard's route, not the order of value.",
+        "Leave the way the plan says — unhurried. Most stealth jobs in games are blown in the exit rush, not the entry. If you are spotted at any point, the attempt is void: abort cleanly, lose any attention, and re-case it rather than improvising.",
+        "A completed, undetected robbery pops the trophy as you clear the store. Patience is the entire skill here; there is no version of this trophy that rewards speed."
+      ],
+      "tip": "Case it, learn the patrol, move in the blind intervals — abort the second you're seen."
     },
     {
       "id": 40,
       "name": "Maximum Withdrawal",
       "description": "Rob 5 Bank Vaults and escape.",
-      "grade": "silver",
-      "guide": "Bank vaults are the big scores, and this silver trophy wants five of them robbed — and escaped from. Each vault is a full job: get in, crack or breach the vault, grab the take, and then get clear of the response. The escape is half the trophy, so plan it before you go in: a fast car, a route away from the heat, and no stopping to fight. Five vaults, five clean escapes. Do them one at a time between other work, and keep the take for the spending trophies later.",
+      "tier": "silver",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 4,
       "time": "4-6 hours",
-      "tips": "Plan the escape before you go in — five vaults, five clean getaways, one at a time.",
-      "source": "Official trophy list; bank vault robberies"
+      "strategy": [
+        "Bank vaults are the biggest scores in Leonida, and this silver wants five of them — robbed and escaped from. Both halves count: a vault emptied but an escape blown is a vault that doesn't tick the counter.",
+        "Treat each vault as a full job with a written order: entry method, vault approach, grab, and — planned first, not last — the escape. Park the getaway car before you go in, on the route you'll actually drive, facing the way you'll actually leave.",
+        "Inside, work quickly and don't over-loot. The grab has a natural stopping point where extra seconds buy little money and lots of response; learn it once and respect it five times.",
+        "The escape is the trophy. Break line of sight early, swap vehicles if the plan allows, and never stop to fight a response you can outrun. A clean escape also protects your laundered-money pipeline for the economy trophies.",
+        "Five vaults, five escapes, and the silver pops on the fifth getaway. Space the jobs between other phases — the take funds garages and spending, so these robberies quietly pay for two other trophies too."
+      ],
+      "tip": "Plan the escape before the entry — five vaults, five clean getaways, no over-looting."
     },
     {
       "id": 41,
       "name": "A Classic Blitz Play",
       "description": "Rob an Armored Truck and escape.",
-      "grade": "bronze",
-      "guide": "An armoured truck is a moving vault, and this trophy is the classic intercept: stop the truck, get the crew out or the doors open, take the cash, and escape before the response arrives. The intercept itself is the easy part — a roadblock or a well-timed ram — but the escape is where attempts fail, so have your getaway ready before you strike. Pick a quiet stretch of road, hit the truck fast, and be gone before the wanted level climbs past what you can outrun. One clean job is all it takes.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 3,
       "time": "20-40 min",
-      "tips": "Hit it on a quiet road with the getaway ready — the escape is where attempts fail.",
-      "source": "Official trophy list; armoured truck robbery"
+      "strategy": [
+        "An armoured truck is a vault that moves, and the classic blitz play is the intercept: stop it, crack it, take the cash, and be gone before the response organises. One clean job is the whole trophy.",
+        "Choose your ground before you strike — a quiet stretch of road away from patrol density, with an escape route that doesn't cross the truck's own direction of travel. The intercept is easy; the geography decides the escape.",
+        "Stop the truck decisively: a roadblock or a well-timed heavy ram. Half-hearted nudges just start a chase with the vault still locked, which is the worst of both worlds.",
+        "Get the doors open and the cash out fast. Your getaway vehicle should already be running and pointed away; every second at the truck is a second the wanted level spends climbing.",
+        "Escape clean and the trophy pops once you're clear. If the first attempt collapses, nothing is lost — trucks keep circulating, and the second blitz is always cleaner than the first."
+      ],
+      "tip": "Quiet road, decisive stop, getaway already running — the escape is where it's won."
     },
     {
       "id": 42,
       "name": "The Goodtime State",
       "description": "Explore all of Leonida.",
-      "grade": "bronze",
-      "guide": "Explore all of Leonida means exactly that: every region of the map, from Vice City's neon streets to the wetlands, the keys, and the far highways. The game tracks fog-of-war or area discovery, so the work is travel — drive the map edge to edge, take the roads you have never taken, and let the counter climb. A helicopter or a fast boat opens the awkward corners. Check the map screen for the grey patches that remain, and finish them in one deliberate sweep after the story is done.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
       "time": "4-6 hours",
-      "tips": "Drive edge to edge, then sweep the grey patches on the map in one deliberate pass.",
-      "source": "Official trophy list; map exploration"
+      "strategy": [
+        "Exploring all of Leonida means uncovering every region of the map — Vice City's streets, the Keys, the wetlands, the far highways — until no grey is left anywhere on the map screen.",
+        "The game tracks discovery as you travel, so the method is simply coverage: drive the roads you've never taken, cross the water you usually fly over, and walk the corners vehicles can't reach.",
+        "Use the right tool per region. A fast car for the highway web, a boat for the Keys and coast, an aircraft for the awkward interior — each region has a vehicle that makes its sweep trivial.",
+        "Check the map screen regularly and hunt the grey deliberately. The last patches are never where you expect: a dead-end spur, an island, a stretch of swamp road the story never sends you down.",
+        "When the final patch uncovers, the trophy pops. Pair this sweep with the meditation spots and WAiNK locations in the same regions and three trophies share one road trip."
+      ],
+      "tip": "Drive edge to edge, then sweep the grey patches region by region — boat and plane included."
     },
     {
       "id": 43,
       "name": "Pest Control",
       "description": "Rob an Illegal Operation belonging to each gang.",
-      "grade": "bronze",
-      "guide": "Every gang in Leonida runs illegal operations, and this trophy wants one robbed from each of them. The work is identification: learn which gang holds which operation — the game marks them once you are close — then hit each one and get clear. The operations differ in layout and resistance, so do not treat them as identical; case each one, bring the right loadout, and escape cleanly. The counter ticks per gang, so the stats screen shows which gangs are left.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 4,
       "time": "3-5 hours",
-      "tips": "One operation per gang — case each layout first; the stats screen shows gangs left.",
-      "source": "Official trophy list; gang operations"
+      "strategy": [
+        "Every gang in Leonida runs illegal operations, and the trophy wants one robbed from each of them — the counter ticks per gang, not per operation, so variety of victim is the whole requirement.",
+        "First, learn the map of power: which gang holds which operation. Operations identify themselves once you're close, and the stats screen tracks which gangs you've already hit, so work from that list rather than memory.",
+        "Case each operation individually. Layouts and resistance differ by gang — one is an open yard, another a guarded interior — and treating them as identical is how attempts get expensive.",
+        "Bring the loadout the scouting suggests, rob the place, and escape cleanly. The escape rules never change: pre-parked car, planned route, no heroic last stands.",
+        "When the last unhit gang's operation falls, the trophy pops. Done alongside the vault robberies, this phase turns Leonida's entire criminal economy into your trophy cabinet."
+      ],
+      "tip": "One operation per gang — case each layout; the stats screen lists the gangs remaining."
     },
     {
       "id": 44,
       "name": "In The Beginning…",
       "description": "Enjoy a cocktail with a view on Ocean Beach.",
-      "grade": "bronze",
-      "guide": "Ocean Beach is Vice City's postcard, and this trophy is a quiet moment on it: find a bar or spot with a view over the water, order a cocktail, and enjoy it. There is no skill here and no rush — the trophy is the game's way of asking you to stop and look at the place. Walk the beachfront until a venue offers the prompt, sit down, and let the scene play. It is the easiest trophy on the list and one of the nicest; do it early, when the city is still new.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 1,
       "time": "10-20 min",
-      "tips": "Walk the beachfront until a venue offers the prompt — do it early, while the city is new.",
-      "source": "Official trophy list; Ocean Beach"
+      "strategy": [
+        "Ocean Beach is Vice City's postcard strip, and this trophy is a deliberate pause: find a beachfront venue with a view over the water, order a cocktail, and enjoy it. That's all. That's the trophy.",
+        "Walk the beachfront until a bar or terrace offers the interaction prompt. Venues with seating facing the ocean are the ones that count — the view is part of the requirement, not decoration.",
+        "Sit down and let the scene play out fully. The trophy is tied to enjoying the drink, so don't skip the moment the game is asking you to take; it resolves in under a minute. Watch the water, breathe, and let Vice City show off a little while the glass is in hand.",
+        "Do it early, while the city is still new to you. The game places this trophy as an invitation to look at the world it built, and it lands best before the hunt turns into checklists.",
+        "The pop arrives as the scene completes. It is, by a comfortable margin, the easiest trophy on the entire list — and one of the most pleasant."
+      ],
+      "tip": "Walk Ocean Beach until a venue offers the prompt, sit, and let the scene finish."
     },
     {
       "id": 45,
       "name": "Capital Offense",
       "description": "Smash your way out of a vehicle showroom in classic style.",
-      "grade": "bronze",
-      "guide": "A vehicle showroom, smashed your way out of, in classic style — this trophy is pure chaos with a wink. The idea is the old-school escape: get inside a showroom, make a mess, and drive straight out through the glass in a display car. The game rewards the spectacle, so commit to it: pick a fast car on the floor, aim for the front, and do not brake. If the attempt fizzles, walk out, lose any heat, and try another showroom. One good smash is all it takes.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 2,
       "time": "20-40 min",
-      "tips": "Pick a fast display car, aim for the front glass, and don't brake.",
-      "source": "Official trophy list; vehicle showroom"
+      "strategy": [
+        "The requirement is pure theatre: get inside a vehicle showroom, take one of the display cars, and drive straight out through the glass in classic style. The game is grading the spectacle, so commit to it.",
+        "Pick the right car on the floor — something fast with a clear run at the front glazing. A slow car that stalls against the glass turns a felony into an embarrassment, and the trophy wants the smash, not a fender-bend.",
+        "Line up before you launch: straight run, full throttle, no braking at the glass. Momentum is the whole technique; hesitation at the window is the only way this fails.",
+        "Expect a wanted level on the way out. Lose it however you like afterwards — the trophy grades the exit, not the escape, so the heat is just applause.",
+        "One clean smash through the front pops the trophy. If an attempt fizzles, walk out, let things cool down, and take another showroom — the city has more than one, and the second run is always braver."
+      ],
+      "tip": "Fast display car, straight line, full throttle through the front glass — don't brake."
     },
     {
       "id": 46,
       "name": "Let’s Go Bowling",
       "description": "Follow-through at the Kolt & Associates' bowling alley.",
-      "grade": "bronze",
-      "guide": "Kolt & Associates runs a bowling alley, and this trophy is about the follow-through — finishing a game there properly. Bowling in this series is a timing mini-game: line up the shot, judge the power, and release cleanly. Play a full game, frame by frame, and the trophy pops at the end of it. It does not ask for a high score or a strike, just a completed game with the follow-through the description calls out. A quiet evening's diversion that also counts toward the activities sampler.",
+      "tier": "bronze",
+      "type": "activity",
       "phase": "activities",
       "missable": false,
       "difficulty": 1,
       "time": "20-40 min",
-      "tips": "Play a full game frame by frame — no score needed, just finish it.",
-      "source": "Official trophy list; bowling alley"
+      "strategy": [
+        "Kolt & Associates runs Leonida's bowling alley, and the trophy asks for a game played properly there — the follow-through in the description is the bowling motion itself, frame by frame, to the end of a full game.",
+        "Bowling here is a timing mini-game: set your line, judge the power, release cleanly. The trophy doesn't demand a score, a strike or a win — it demands a completed game played the way the alley intends.",
+        "Play all frames without quitting back to the lobby. As with the arcade trophy, leaving mid-game is the only real failure mode, and it's a silent one.",
+        "Use the game to learn the timing anyway — bowling also counts toward the activity sampler, so a full game here is two trophies' worth of progress in twenty minutes.",
+        "The trophy pops at the game's end. Bring a protagonist's friend along if the game offers it; the alley is a social space, and the evening costs you nothing either way. Ten frames, one trophy, zero stress — bowling night is the hunt's easiest appointment."
+      ],
+      "tip": "Play the full game frame by frame — no score needed, just finish with follow-through."
     },
     {
       "id": 47,
       "name": "Personal Best",
       "description": "A partnership with mass appeal.",
-      "grade": "bronze",
-      "guide": "A partnership with mass appeal is the payoff of the two-protagonist system: a job or moment where the pair's combined presence draws a crowd, a payout, or a reputation boost. The trigger is a partner activity done well — the game measures how the pair performs together, not either one alone. Look for partner moments on the map, take them with both protagonists, and play them cleanly. When the partnership's appeal lands — the crowd, the payout, the reaction — the trophy pops.",
+      "tier": "bronze",
+      "type": "partner",
       "phase": "partner",
       "missable": false,
       "difficulty": 2,
       "time": "30-60 min",
-      "tips": "Take partner moments with both protagonists and play them cleanly — the pair is judged together.",
-      "source": "Official trophy list; partner play"
+      "strategy": [
+        "This trophy grades the pair, not the person: it's the payoff of the two-protagonist system, a partner moment where Lucia and Jason's combined presence lands — a crowd drawn, a payout earned, a reputation made.",
+        "Look for partner moments on the map — the jobs and events flagged for both protagonists. Take them with the pair together, because a partner activity attempted solo is just an activity.",
+        "Play the moment cleanly. The trigger is the partnership performing well as a unit: objectives completed together, no chaos that scatters the pair, the job finished as a team rather than as two soloists sharing a postcode.",
+        "If a first attempt feels flat, try a different partner moment rather than repeating the same one — the game offers several, and the one that suits how you play the pair is the one that will land.",
+        "When the partnership's appeal registers — the crowd, the payout, the reaction — the trophy pops. It's the gentlest of the three partner trophies and a good one to open the partner session with."
+      ],
+      "tip": "Take partner moments with both protagonists and play them cleanly, as a pair."
     },
     {
       "id": 48,
       "name": "Actions Speak Louder",
       "description": "Choices made (for better or worse).",
-      "grade": "bronze",
-      "guide": "Choices made, for better or worse — this trophy is the story's way of marking a decision point. Somewhere in the campaign a choice will present itself, and this trophy records that you made it. There is no right answer to find and no preparation to do: play the story, and when a decision arrives, choose. The trophy pops on the choice itself, not on its outcome, so do not agonise over it — pick the option that fits your run and keep playing. The story continues either way.",
+      "tier": "bronze",
+      "type": "story",
       "phase": "grind",
-      "missable": false,
+      "missable": true,
       "difficulty": 1,
-      "time": "Story",
-      "tips": "No right answer — when a story choice arrives, just choose and keep playing.",
-      "source": "Official trophy list; story choice"
+      "time": "Story — one moment",
+      "strategy": [
+        "Somewhere in the campaign, the story stops and asks you to choose — and this trophy records the choosing. It is one of only two trophies on this list flagged missable, so treat the moment with respect even though the act itself is simple.",
+        "Protect it with the rolling-save rule: keep a manual save from before the campaign's major decision points, especially chapter finales. If the moment passes in a way you didn't intend, that save is a five-minute rewind instead of a new playthrough.",
+        "When the choice arrives, understand what the trophy actually grades: the decision itself, not its outcome. There is no hidden correct answer to research and no branch that pays better — the trophy pops on the act of choosing.",
+        "So choose the option that fits your Lucia and Jason, and keep playing without agonising. The story continues either way, and second-guessing a choice the game designed to be unranked is wasted worry.",
+        "The trophy pops as the choice registers. If you ever suspect you blew past the moment unawares, your pre-chapter save is the audit trail — reload, replay the short stretch, and choose deliberately this time."
+      ],
+      "tip": "MISSABLE — keep a save before story decision points; the trophy grades choosing, not the choice."
     },
     {
       "id": 49,
       "name": "Bad Luck, I Guess",
       "description": "Second time's the charm.",
-      "grade": "bronze",
-      "guide": "Second time's the charm — this trophy is about a retry. Somewhere in the game there is a task, a jump, a shot or a stunt that is meant to be attempted more than once, and the trophy pops on the successful second try. The honest way to earn it is to keep playing and let it happen: fail something, try again, and succeed. If you are chasing it deliberately, pick a repeatable challenge — a stunt, a race, a range target — and treat the first attempt as the warm-up. The second one counts.",
+      "tier": "bronze",
+      "type": "challenge",
       "phase": "grind",
-      "missable": false,
+      "missable": true,
       "difficulty": 1,
       "time": "30 min",
-      "tips": "Fail something, try again, succeed — a repeatable challenge is the cleanest route.",
-      "source": "Official trophy list; retry"
+      "strategy": [
+        "This trophy is built on a retry: somewhere in Leonida there's an attempt the game expects you to fail first — a jump, a shot, a stunt, a moment — and the trophy pops when the second try succeeds where the first didn't.",
+        "It's flagged missable because the sequence matters: succeed cleanly the very first time at the key moment and there's no failure for the second time to redeem. That's why the rolling saves matter — a save from before the moment lets you stage the sequence properly.",
+        "The honest route is to let it happen naturally. Across a hundred hours you will fail things and retry them constantly; when the game's designated moment is among them, the trophy lands without any staging at all.",
+        "If you're chasing it deliberately, use a repeatable challenge — a stunt, a race, a range target — and treat attempt one as the warm-up: fail it genuinely, then complete attempt two. Deliberate, controlled, done.",
+        "The successful second attempt pops the trophy on the spot. If it doesn't, the moment you picked isn't the designated one — keep playing, keep retrying things, and protect the hunt with saves as always."
+      ],
+      "tip": "MISSABLE — it needs a fail then a success at the right moment; saves let you stage it."
     },
     {
       "id": 50,
       "name": "The Truth Is Out There",
       "description": "What the hell just happened?",
-      "grade": "bronze",
-      "guide": "What the hell just happened? — this trophy is the game's nod to its strangest corner: an event, a sighting, or an encounter that does not fit the rest of Leonida. The trigger is finding it, and finding it means exploring the odd places after dark — the wetlands, the empty highways, the corners of the map where the game hides its jokes. Keep an eye out while you sweep the map for exploration, and when something genuinely weird happens, the trophy pops. It is a discovery, not a task.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
       "time": "1-3 hours",
-      "tips": "Explore the odd corners after dark while sweeping the map — it's a discovery, not a task.",
-      "source": "Official trophy list; hidden encounter"
+      "strategy": [
+        "Every Rockstar map hides something genuinely strange, and this trophy is Leonida's: an encounter or sighting that doesn't fit the rest of the state, found by being in the odd place at the odd hour.",
+        "You cannot schedule it, but you can court it. Explore the map's forgotten corners after dark — the deep wetlands, the empty highway stretches, the places the story never sends you — because the game hides its jokes where players rarely linger.",
+        "Fold the hunt into the exploration sweep rather than making it a separate pilgrimage. While you're uncovering regions and hunting meditation spots, take the detours that look pointless; pointless is the genre.",
+        "When something truly weird happens — and you'll know it when it does — stay for it. Let the encounter play out instead of driving away from the strangest thing in the state.",
+        "The trophy pops as the encounter registers. It's a discovery, not a task: no counter, no checklist, just proof you were somewhere interesting when Leonida got strange."
+      ],
+      "tip": "Wander the odd corners after dark during the exploration sweep — it's found, not tasked."
     },
     {
       "id": 51,
       "name": "Ten Pin",
       "description": "Bowl 'em over with a melee drive-by.",
-      "grade": "bronze",
-      "guide": "A melee drive-by is exactly what it sounds like: striking a target with a melee weapon from a moving vehicle — and this trophy wants ten pins, bowling style. The setup is the hard part: a slow vehicle, a clear stretch with pedestrians or targets, and a melee weapon with reach. Drive past at low speed, swing as you pass, and keep the run going. It is deliberately silly and deliberately hard to do cleanly, so expect a few attempts. A quiet street and a patient driver beat a fast car here.",
+      "tier": "bronze",
+      "type": "combat",
       "phase": "combat",
       "missable": false,
       "difficulty": 3,
       "time": "30-60 min",
-      "tips": "Slow vehicle, clear stretch, swing as you pass — patience beats speed here.",
-      "source": "Official trophy list; melee drive-by"
+      "strategy": [
+        "A melee drive-by is exactly what it sounds like: striking a target with a melee weapon from a moving vehicle. 'Ten Pin' wants the bowling version — a drive-by that bowls targets over, pins scattered like the alley's.",
+        "The setup is the hard part, not the swing. You need a slow vehicle, a clear stretch with suitable targets, and a melee weapon with genuine reach equipped before you start rolling.",
+        "Speed discipline decides everything: too fast and you blast past the swing window, too slow and you're just parked next to your target. A steady crawl — jogging pace in a car — is the sweet spot.",
+        "Swing as you pass, and keep the run going rather than circling back in a panic. Expect a few ugly attempts; the trophy is deliberately silly and the game knows it, so the attempts are cheap.",
+        "When the drive-by connects the way the trophy wants, it pops mid-run. A quiet street and a patient driver beat a fast car and enthusiasm every single time here."
+      ],
+      "tip": "Slow vehicle, clear stretch, swing on the pass — patience beats speed, deliberately."
     },
     {
       "id": 52,
       "name": "Dime on the Dollar",
       "description": "Earn $250,000 laundering Marked Bills through your contacts.",
-      "grade": "bronze",
-      "guide": "Marked Bills are dirty money, and laundering them through your contacts turns them clean — this trophy wants $250,000 of it washed. The loop is the economy itself: earn marked bills from jobs, pass them to a contact, and take the clean cut. The amount is the grind, so launder steadily from the start instead of hoarding bills for one big session, and watch the cut: contacts take their share, so the bills you feed in are always more than the clean total. Keep a contact in mind after every paying job, and the counter will climb on its own. The clean money then funds the spending trophy too.",
+      "tier": "bronze",
+      "type": "economy",
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "8-12 hours",
-      "tips": "Launder after every paying job from the start — hoarding bills for one session wastes time.",
-      "source": "Official trophy list; money laundering"
+      "time": "8-12 hours spread",
+      "strategy": [
+        "Marked Bills are dirty money from jobs, and laundering them through your contacts turns them into clean, spendable cash. The trophy counts $250,000 successfully laundered — the amount is the grind, so the system matters more than any single session.",
+        "Launder steadily from the start. After every paying job, pass the marked bills to a contact as part of your routine, the same way you restock ammo. Hoarding bills for one giant session wastes the hours the routine gives you for free.",
+        "Watch the cut: contacts take their share, so the bills you feed in always exceed the clean total you get back. The trophy counts the laundered amount, which means your gross earnings need to be comfortably above $250,000.",
+        "Feed the pipeline with the combat phase. Vault robberies and operations generate exactly the kind of money that needs washing, so the loud trophies and this quiet one advance together if you route the money properly.",
+        "The counter on the stats screen reaches $250,000 and the trophy pops. The clean money it produced then funds the spending trophy and the garages — one economy, three trophies."
+      ],
+      "tip": "Launder after every paying job from day one — steady flow beats one big session."
     },
     {
       "id": 53,
       "name": "Treat Yo Self",
       "description": "Spend $100,000 across all shops.",
-      "grade": "bronze",
-      "guide": "Spend $100,000 across all shops and this trophy is yours. It is the economy's other half: everything you buy — clothes, weapons, ammo, food, cars, upgrades — counts toward the same total. The honest route is to spend as you play, not to save and splurge: buy the gear the other trophies need, upgrade the cars you actually drive, and let the counter climb. By the late game the total will be close; a final shopping run closes the gap. Keep the receipts in the stats screen.",
+      "tier": "bronze",
+      "type": "economy",
       "phase": "grind",
       "missable": false,
       "difficulty": 2,
       "time": "Across the game",
-      "tips": "Spend as you play — gear for other trophies counts too; a final shopping run closes the gap.",
-      "source": "Official trophy list; shop spending"
+      "strategy": [
+        "Spend $100,000 across all shops — clothes, weapons, ammunition, food, vehicles, upgrades, everything with a till — and this trophy is yours. It is the economy's other half: the spending twin of the laundering trophy.",
+        "Spend as you play rather than saving for a splurge. Buy the gear the other trophies genuinely need — armour before heists, ammunition before operations, cars you'll actually drive — and the counter climbs on purchases you'd make anyway.",
+        "Don't hoard cash out of habit. Money sitting in the account earns nothing and counts toward nothing; money spent on upgrades makes the combat phase easier while it feeds this total.",
+        "Track the running spend on the stats screen. Most players are surprised how close they are by the late game; the gap between your total and $100,000 is usually one deliberate shopping run.",
+        "Close it out in one trip if needed: a vehicle, a wardrobe refresh, weapon upgrades and full ammunition in a single circuit of the city's shops. The hundredth thousand pops the trophy at the till."
+      ],
+      "tip": "Spend on what the hunt needs anyway; check the total late and close the gap in one run."
     },
     {
       "id": 54,
       "name": "Little Boxes",
       "description": "Purchase all garage properties.",
-      "grade": "bronze",
-      "guide": "Garage properties are the safehouses of the car collector, and this trophy wants every one of them bought. Properties appear on the map as you progress and earn money — buy each one as it becomes available rather than saving them for the end, because the later garages cost real money and the early ones are cheap. Owning them all also gives you somewhere to keep the rare vehicles the discovery trophy needs. When the last deed is signed, the trophy pops.",
+      "tier": "bronze",
+      "type": "economy",
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "6-10 hours",
-      "tips": "Buy each garage as it appears — early ones are cheap, and they store the rare cars too.",
-      "source": "Official trophy list; garage properties"
+      "time": "6-10 hours spread",
+      "strategy": [
+        "Garage properties are the car collector's infrastructure, and the trophy wants every one of them bought — every deed in the state signed over to you, however humble the box it describes.",
+        "Buy each garage as it becomes available rather than saving them for a final property spree. Early garages are cheap and later ones cost real money, so spreading the purchases across the hunt matches them to your income as it grows.",
+        "The garages pay rent in usefulness: they're where the rare vehicles from the discovery trophy get kept, and a garage near your current hunting ground saves hours of driving across the whole platinum.",
+        "Fund them from the economy loop — robberies produce marked bills, contacts launder them clean, and clean money signs deeds. The combat, laundering and property trophies are one system wearing three hats.",
+        "The last deed signed pops the trophy. If one garage eludes you, it's gated behind story or strand progress — finish opening the map and every property in the state will offer itself for sale."
+      ],
+      "tip": "Buy each garage as it appears — early ones are cheap and they store the rare cars."
     },
     {
       "id": 55,
       "name": "On the Spot",
       "description": "Register 10 vehicles to the Scooter Bros app.",
-      "grade": "bronze",
-      "guide": "The Scooter Bros app is Leonida's vehicle registry, and this trophy wants ten vehicles registered on it. Registration is a small interaction: find a vehicle, open the app, and log it. Any ten count, so register the cars you actually drive — your daily driver, the mission vehicles, anything you spend time in. The app's list shows what is already registered, so there is no guessing. Ten registrations, done in an afternoon of normal driving, and the trophy pops.",
+      "tier": "bronze",
+      "type": "exploration",
       "phase": "exploration",
       "missable": false,
       "difficulty": 1,
       "time": "1-2 hours",
-      "tips": "Register the cars you actually drive — the app lists what's already logged.",
-      "source": "Official trophy list; Scooter Bros app"
+      "strategy": [
+        "The Scooter Bros app is Leonida's vehicle registry, and registering a vehicle is a small, deliberate act: be with the vehicle, open the app, log it. Ten registrations is the whole trophy.",
+        "Register the vehicles you actually use — your daily driver, the mission cars, anything you spend real time in. Ten vehicles pass through any player's hands in an afternoon of normal driving.",
+        "The app's own list shows what's already registered, so there's no guesswork and no duplicates wasted. If you're not sure whether a car counts, the list settles it in seconds.",
+        "Pair it with the discovery trophy: every unfamiliar vehicle you sit in for Whip It Good is a registration candidate for this one. Two counters, same ten seconds of effort, all hunt long.",
+        "The tenth registration pops the trophy immediately. It's one of the lightest bronzes on the list — the only way to make it slow is to forget the app exists, so register early and forget it done."
+      ],
+      "tip": "Register the cars you already drive — the app lists what's logged, no guessing."
     }
   ]
 }
