@@ -19,12 +19,12 @@
       "name": "Vice Got a Price!",
       "description": "Congratulations! You're a Leonida Legend.",
       "grade": "platinum",
-      "guide": "There is no shortcut: this trophy pops the moment the other 54 are yours. Treat it as the receipt for the whole hunt, not a task of its own. Work the phases in the order the roadmap gives — story first, then strangers and activities, exploration and combat, partner play, and the slow counters last — and this will land on its own. The only real advice is bookkeeping: keep the checklist honest, tick trophies the day you earn them, and never trust memory for a counter you can check in a menu.",
+      "guide": "This one cannot be aimed at directly: it unlocks the instant the other fifty-four are collected, so treat it as the receipt at the end of the hunt rather than a goal of its own. Follow the roadmap in order — campaign first, then the stranger strands and activities, exploration and combat, the partner trophies, and the slow counters last — and this will arrive by itself. The only discipline it really asks for is honest bookkeeping: tick trophies off the day you earn them, and never rely on memory for a counter the game can show you in a menu.",
       "phase": "platinum",
       "missable": false,
       "difficulty": 5,
       "time": "80+ hours",
-      "tips": "It pops automatically — your job is finishing the other 54, not chasing this one.",
+      "tips": "It pops on its own — finish the other 54 and this is the reward.",
       "source": "Official trophy list; the platinum itself"
     },
     {
@@ -32,12 +32,12 @@
       "name": "Just Like Paradise",
       "description": "Complete Gone Fishing.",
       "grade": "bronze",
-      "guide": "Gone Fishing is the opening mission, so this is the first trophy most players will earn. Follow the opening beats: meet the cast, learn the basic controls, and let the mission carry you to its end. There is nothing to prepare and nothing to miss — just play the story from the start and the trophy unlocks when the mission's closing scene plays. If you skipped the opening once, replaying Gone Fishing from the mission menu counts too.",
+      "guide": "Gone Fishing opens the game, which makes this the first trophy most players will pick up. There is no preparation and no decision to make: start the story, follow the opening beats, learn the controls as the mission teaches them, and let the scene play to its close. The trophy unlocks when the mission's ending sequence runs. If you ever need it again — a second save, a fresh run — replaying Gone Fishing from the mission list earns it just the same.",
       "phase": "story",
       "missable": false,
       "difficulty": 1,
       "time": "15 min",
-      "tips": "Unmissable: it is the opening mission, so simply start the story.",
+      "tips": "Unmissable: just start the story and finish the opening mission.",
       "source": "Official trophy list; opening mission"
     },
     {
@@ -45,12 +45,12 @@
       "name": "Paradise Lost",
       "description": "Complete Chapter 1.",
       "grade": "bronze",
-      "guide": "Chapter 1 is the first full stretch of the campaign, and this trophy is its finishing line. Play the chapter's missions in order — the story gates progress, so there is no way to skip ahead or fall behind. Expect a mix of driving, on-foot action and cutscenes that introduce Vice City and the people you will be working for. When the chapter's final mission ends and the next chapter card appears, the trophy pops. Nothing here needs a special approach: keep playing.",
+      "guide": "Chapter 1 is the first long stretch of the campaign, and this trophy is the line at its end. Missions arrive in order and the story gates your progress, so there is no way to rush ahead or fall behind — simply keep playing the chapter through. Expect a blend of driving, on-foot work and cutscenes that introduce Vice City and the people pulling strings in it. When the chapter's last mission finishes and the next chapter opens, the trophy pops. No special approach is needed; finishing the chain is the whole ask.",
       "phase": "story",
       "missable": false,
       "difficulty": 1,
-      "time": "4–6 hours",
-      "tips": "Story-gated — progress through the missions and it arrives on its own.",
+      "time": "4-6 hours",
+      "tips": "Story-gated — play the chapter's missions in order and it arrives.",
       "source": "Official trophy list; story chapter"
     },
     {
@@ -58,12 +58,12 @@
       "name": "T**s Ass Drug Money",
       "description": "Complete Chapter 2.",
       "grade": "bronze",
-      "guide": "Chapter 2 raises the stakes and the heat: more moving parts, bigger jobs, and the first real sense of how the campaign's crews and rivalries fit together. Work through the chapter's mission chain in order, using the time between missions to restock ammo and keep a decent car handy — a fast, sturdy ride saves more time than any shortcut. The trophy unlocks when the chapter's closing mission ends. As with every story trophy, it cannot be missed; replaying missions is always an option.",
+      "guide": "Chapter 2 turns the heat up: bigger jobs, more moving parts, and the first real look at how the campaign's crews and rivalries slot together. Play the mission chain in order, and use the gaps between jobs to restock ammunition and keep a quick, sturdy car close — a reliable ride saves more time than any shortcut. The trophy unlocks at the end of the chapter's closing mission. Like every story trophy it cannot be missed, and any mission can be replayed later if you want another run at it.",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
-      "time": "6–8 hours",
-      "tips": "Keep a fast car and full ammo between missions; the chapter does the rest.",
+      "time": "6-8 hours",
+      "tips": "Restock ammo and keep a fast car handy between missions; the chapter does the rest.",
       "source": "Official trophy list; story chapter"
     },
     {
@@ -71,12 +71,12 @@
       "name": "Vice City, Baby!",
       "description": "Complete Chapter 3.",
       "grade": "bronze",
-      "guide": "By Chapter 3 you are properly in Vice City, and this trophy marks the end of that stretch of the story. Expect the missions to lean harder on planning: read each briefing, pick the approach that fits your loadout, and use cover rather than sprinting through open ground. The chapter's final mission is the gate — finish it and the trophy unlocks. If a mission gives you trouble, the retry checkpoint is generous; failing a mission never costs progress toward this trophy.",
+      "guide": "Chapter 3 drops you properly into Vice City, and this trophy marks the end of that stretch. The missions start asking for a little planning: read each briefing before you start, choose the approach that suits the gear you carry, and fight from cover instead of sprinting across open ground. The chapter's final mission is the gate — complete it and the trophy unlocks. If a mission beats you, the checkpoint puts you back close by; failing never costs progress toward this trophy.",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
-      "time": "6–8 hours",
-      "tips": "Read each briefing and fight from cover; retries never cost you the trophy.",
+      "time": "6-8 hours",
+      "tips": "Read the briefing, fight from cover, and let the checkpoints carry you through.",
       "source": "Official trophy list; story chapter"
     },
     {
@@ -84,12 +84,12 @@
       "name": "Top Of The World, Ma",
       "description": "Complete Chapter 4.",
       "grade": "bronze",
-      "guide": "Chapter 4 is where the campaign starts paying off its setup, and this trophy is the reward for seeing it through. The missions here tend to be longer and to chain several objectives, so keep an eye on the objective line and save a solid weapon loadout for the finales. Finish the chapter's last mission and the trophy pops as the next chapter opens. There is no optional objective to worry about — completion of the mission chain is the whole requirement.",
+      "guide": "Chapter 4 is where the campaign starts cashing in its setup, and this trophy rewards seeing it through. Missions here run longer and chain several objectives together, so keep the objective line in view and hold your best weapons for the finales rather than burning them early. Finish the chapter's last mission and the trophy pops as the next chapter opens. There is no optional objective hiding in the requirement — completing the mission chain is everything it asks.",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
-      "time": "6–8 hours",
-      "tips": "Long chained missions: watch the objective line and save your best weapons for the end.",
+      "time": "6-8 hours",
+      "tips": "Long chained missions: save your best weapons for the finales.",
       "source": "Official trophy list; story chapter"
     },
     {
@@ -97,12 +97,12 @@
       "name": "You Gotta Know When to Get Off",
       "description": "Complete the final mission.",
       "grade": "gold",
-      "guide": "The final mission is the campaign's last word, and this gold trophy is its prize. You will only reach it after the full story, so arrive prepared: a full weapon wheel, body armour, and a fast escape vehicle parked somewhere sensible. The mission itself is a multi-stage finale — expect set-pieces, a long firefight, and a closing choice or chase. Take it slowly, use checkpoints, and let the mission's own pacing carry you. When the credits roll, the gold is yours.",
+      "guide": "The final mission is the campaign's last word, and this gold trophy is the prize for reaching it. You only get there after the whole story, so arrive ready: a full weapon wheel, body armour, and a quick escape car parked somewhere sensible before the mission starts. Expect a multi-stage finale — set-pieces, a long firefight, and a closing chase or choice. Take it slowly, lean on the checkpoints, and let the mission's own pacing do the work. When the credits roll, the gold is yours — and with it, the last story trophy of the hunt.",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
-      "time": "45–60 min",
-      "tips": "Arrive with full armour and a fast getaway car; use the checkpoints, don't rush the finale.",
+      "time": "45-60 min",
+      "tips": "Full armour and a getaway car before you start; use every checkpoint.",
       "source": "Official trophy list; final mission"
     },
     {
@@ -110,12 +110,12 @@
       "name": "Trust",
       "description": "Complete Breakfast Run.",
       "grade": "bronze",
-      "guide": "Breakfast Run is a story mission, and this trophy is simply its completion. It sits early enough that you will meet it naturally while playing the campaign — no special preparation, no optional objective, no route to take. Just start the mission from its marker when it appears, follow the objectives, and finish it. The trophy pops at the mission's end screen. Like all story trophies, it can be replayed from the mission list if you ever need to.",
+      "guide": "Breakfast Run is a story mission, and finishing it is all this trophy wants. It shows up early enough that you will meet it naturally while working through the campaign — no preparation, no optional objective, no route to plan. When its marker appears, head there, follow the objectives as they come, and play it to the end. The trophy pops on the mission's end screen. Like all story trophies it can be replayed from the mission list whenever you like.",
       "phase": "story",
       "missable": false,
       "difficulty": 1,
-      "time": "20–30 min",
-      "tips": "Story mission — it arrives on its own as you play the campaign.",
+      "time": "20-30 min",
+      "tips": "A story mission — it turns up on its own as you play the campaign.",
       "source": "Official trophy list; story mission"
     },
     {
@@ -123,12 +123,12 @@
       "name": "Break the Bank",
       "description": "Complete The Cartel Heist.",
       "grade": "bronze",
-      "guide": "The Cartel Heist is one of the campaign's big set-pieces, and this trophy marks the day you pull it off. Heists in this series reward preparation more than reflexes: before you start, stock up on ammo and armour, and pick a getaway vehicle you can actually drive under pressure. During the job, follow the plan the mission lays out — the scripted beats do the heavy lifting — and keep moving when the alarm goes up. Finish the heist and the trophy unlocks at the end screen.",
+      "guide": "The Cartel Heist is one of the campaign's big set-pieces, and this trophy is the proof you pulled it off. Heists in this series reward preparation over reflexes: before you trigger the job, stock up on ammo and armour and choose a getaway car you can actually drive under pressure. During the job, follow the plan the mission lays out — the scripted beats carry most of it — and keep moving once the alarm sounds. Finish the heist and the trophy unlocks at the end screen.",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
-      "time": "40–60 min",
-      "tips": "Stock ammo and armour first, and have a getaway car ready before you trigger the job.",
+      "time": "40-60 min",
+      "tips": "Ammo, armour and a getaway car first — the plan does the rest.",
       "source": "Official trophy list; story mission"
     },
     {
@@ -136,12 +136,12 @@
       "name": "Family Matters",
       "description": "Complete Child's Play.",
       "grade": "bronze",
-      "guide": "Child's Play is a story mission, and completing it is all this trophy asks. It will appear on your map as the campaign reaches it — head to the marker, watch the setup play out, and work through the mission's objectives in order. Expect a mix of driving and on-foot sections with a few scripted turns; nothing in it demands a particular loadout. The trophy unlocks when the mission completes. If you fail a section, the checkpoint drops you back in close by.",
+      "guide": "Child's Play is a story mission, and completing it earns this trophy. It appears on the map as the campaign reaches it: head to the marker, watch the setup unfold, then work through the objectives in order. Expect a mix of driving and on-foot sections with a few scripted turns, and nothing in it demands a particular loadout. The trophy unlocks when the mission completes. If a section goes wrong, the checkpoint drops you back nearby, so a failure costs minutes, not progress.",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
-      "time": "25–40 min",
-      "tips": "Follow the objectives in order; checkpoints are close if a section goes wrong.",
+      "time": "25-40 min",
+      "tips": "Work the objectives in order; checkpoints sit close if a section fails.",
       "source": "Official trophy list; story mission"
     },
     {
@@ -149,12 +149,12 @@
       "name": "DWNFALL",
       "description": "Complete Headliners.",
       "grade": "bronze",
-      "guide": "Headliners is a story mission with a show-business edge, and this trophy is its completion. The mission will unlock on the map as the campaign progresses — go to its marker and play through the sequence. Expect the mission to mix social set-up with a harder second half, so keep a weapon handy even when the opening feels calm. Work the objectives in order and the trophy pops at the end screen. Like every story trophy, it can be replayed later if needed.",
+      "guide": "Headliners is a story mission with a show-business flavour, and this trophy is its completion. The mission unlocks on the map as the campaign reaches it — go to the marker and play the sequence through. The opening feels social and calm, but the second half turns harder, so keep a weapon ready even while the scene is still talking. Work the objectives in order and the trophy pops at the end screen. Like every story trophy, it can be replayed later if you ever want another pass.",
       "phase": "story",
       "missable": false,
       "difficulty": 2,
-      "time": "30–45 min",
-      "tips": "Keep a weapon ready even when the opening feels calm — the second half bites.",
+      "time": "30-45 min",
+      "tips": "The calm opening turns sharp — keep a weapon ready for the second half.",
       "source": "Official trophy list; story mission"
     },
     {
@@ -162,12 +162,12 @@
       "name": "Hi-Jacked",
       "description": "Complete VCIA Takedown.",
       "grade": "bronze",
-      "guide": "VCIA Takedown takes you into Vice City International Airport for a story mission, and finishing it earns this trophy. The mission appears as the campaign reaches the airport arc — follow its marker, work the objectives, and expect tight corridors and close-quarters fighting inside the terminal areas. Bring a close-range weapon and plenty of ammo, and use cover at the chokepoints rather than pushing through them. Complete the mission and the trophy unlocks.",
+      "guide": "VCIA Takedown takes you into Vice City International Airport for a story mission, and finishing it earns this trophy. The mission opens as the campaign reaches the airport arc: follow the marker, work the objectives, and expect tight corridors and close-quarters fighting inside the terminal areas. Bring a close-range weapon and plenty of ammunition, and hold the chokepoints from cover instead of pushing through them. Complete the mission and the trophy unlocks.",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
-      "time": "30–45 min",
-      "tips": "Bring a close-range weapon for the terminal corridors and fight from cover.",
+      "time": "30-45 min",
+      "tips": "Close-range weapon for the terminal corridors; hold chokepoints from cover.",
       "source": "Official trophy list; story mission"
     },
     {
@@ -175,11 +175,11 @@
       "name": "Snow Storm",
       "description": "Complete Operation Savage Glory.",
       "grade": "bronze",
-      "guide": "Operation Savage Glory is a late-campaign story mission, and this trophy marks its completion. By this point the campaign expects you to be comfortable with the full toolkit: driving, shooting from cover, and switching weapons on the move. The mission is a long one with several stages, so pace yourself, use the checkpoints, and restock at any lull the mission gives you. Finish the final stage and the trophy pops. It is story-gated, so it cannot be missed.",
+      "guide": "Operation Savage Glory is a late-campaign story mission, and this trophy marks its completion. By now the campaign expects you to be comfortable with the full toolkit: driving, shooting from cover, and swapping weapons on the move. It runs long, with several stages, so pace yourself, use the checkpoints, and restock at any lull the mission offers. Finish the final stage and the trophy pops. It is story-gated, so there is no way to miss it.",
       "phase": "story",
       "missable": false,
       "difficulty": 3,
-      "time": "40–60 min",
+      "time": "40-60 min",
       "tips": "A long multi-stage mission: use checkpoints and restock at every lull.",
       "source": "Official trophy list; story mission"
     },
@@ -188,12 +188,12 @@
       "name": "A Long Road",
       "description": "Attain 100% Completion.",
       "grade": "gold",
-      "guide": "100% completion is the long checklist the game itself keeps: every story mission, every stranger strand, every activity, every collectible set, every stunt jump, every hidden package of progress the world holds. Open the in-game stats or checklist screen and work through it category by category — the roadmap on this page follows the same order for a reason. The last few percent are always the grind: stunts, card sets, WAiNK spots, challenges. When the counter hits 100%, this gold trophy pops — and the platinum follows.",
+      "guide": "One hundred percent is the long checklist the game keeps for itself: every story mission, every stranger strand, every activity, every collectible set, every stunt, every scrap of progress the world holds. Open the in-game stats or checklist screen and work it category by category — the roadmap on this page follows the same order for a reason. The last few percent are always the grind: stunts, card sets, WAiNK spots, challenges. When the counter reaches 100%, this gold trophy pops, and the platinum follows right behind it.",
       "phase": "platinum",
       "missable": false,
       "difficulty": 5,
       "time": "80+ hours",
-      "tips": "Use the in-game 100% checklist and clear it category by category; the grind is the last 10%.",
+      "tips": "Clear the in-game 100% checklist category by category; the grind is the last 10%.",
       "source": "Official trophy list; 100% completion checklist"
     },
     {
@@ -201,12 +201,12 @@
       "name": "Cunning Stunts",
       "description": "Complete 250 Stunts.",
       "grade": "silver",
-      "guide": "Stunts are the game's jump-and-airtime challenges, scattered across Leonida wherever a ramp, a hill or a rooftop edge invites a fast car to fly. You need 250 of them, so this is a volume trophy: make stunting a habit, not a session. Keep a fast car, hit every ramp you pass, and let the counter climb as you travel. The in-game stats screen tracks your total, so check it between phases and mop up the remainder late — ramps near the city are the easiest to repeat, and a stunt you land while travelling to another trophy still counts.",
+      "guide": "Stunts are the game's jump-and-airtime challenges, tucked wherever a ramp, a hill or a rooftop edge invites a fast car to fly. You need 250 of them, so this is a volume trophy: make stunting a habit rather than a session. Keep a fast car, hit every ramp you pass, and let the counter climb as you travel between other trophies. The stats screen tracks your total, so check it between phases and mop up the remainder late — ramps near the city are the easiest to repeat, and a stunt landed on the way to another trophy still counts.",
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "6–10 hours",
-      "tips": "Stunt as you travel: hit every ramp you pass and the counter climbs on its own.",
+      "time": "6-10 hours",
+      "tips": "Stunt as you travel: every ramp you pass feeds the counter.",
       "source": "Official trophy list; stunt counter"
     },
     {
@@ -214,12 +214,12 @@
       "name": "Master of None",
       "description": "Try each type of activity once.",
       "grade": "bronze",
-      "guide": "Leonida is full of pastimes — the shooting range, drone races, fishing, the arcade, bowling, races of every kind — and this trophy asks you to try each type once. It is a sampler, not a mastery test: find one of each activity, play a single round, and move on. Use the map's activity icons to find what you have not tried yet, and do this early, while the story is still opening the map — it also points you at the activities other trophies will ask you to master later.",
+      "guide": "Leonida is packed with pastimes — the shooting range, drone races, fishing, the arcade, bowling, races of every kind — and this trophy asks you to try each type once. It is a sampler, not a mastery test: find one of each activity, play a single round, and move on. The map's activity icons show what you have not tried yet, so do this early, while the story is still opening the map. It also points you at the activities other trophies will later ask you to master.",
       "phase": "activities",
       "missable": false,
       "difficulty": 1,
-      "time": "2–3 hours",
-      "tips": "Do it early: the map's activity icons show what you haven't tried yet.",
+      "time": "2-3 hours",
+      "tips": "Do it early: map icons show the activity types you haven't tried yet.",
       "source": "Official trophy list; activity types"
     },
     {
@@ -227,12 +227,12 @@
       "name": "The Shootist",
       "description": "Earn a gold medal in all Shooting Range challenges.",
       "grade": "silver",
-      "guide": "The Shooting Range runs a set of timed target challenges, and this silver trophy wants a gold medal in every one of them. Each challenge scores accuracy, speed and target priority, so the trick is not spraying: line up shots, lead moving targets slightly, and reload during the gaps between waves. Visit the range between missions to learn the layouts, then chase golds one challenge at a time — the easiest first, to learn the scoring. A steady hand beats a fast trigger here.",
+      "guide": "The Shooting Range runs a set of timed target challenges, and this silver trophy wants a gold medal in every one. Each challenge scores accuracy, speed and target priority, so the trick is not to spray: line up each shot, lead the moving targets slightly, and reload in the gaps between waves. Visit the range between missions to learn the layouts, then chase the golds one challenge at a time — easiest first, to learn how the scoring works. A steady hand beats a fast trigger here.",
       "phase": "activities",
       "missable": false,
       "difficulty": 4,
-      "time": "3–5 hours",
-      "tips": "Aim, don't spray: lead moving targets and reload between waves; easiest challenge first.",
+      "time": "3-5 hours",
+      "tips": "Aim, don't spray: lead moving targets and reload between waves.",
       "source": "Official trophy list; shooting range challenges"
     },
     {
@@ -240,12 +240,12 @@
       "name": "Top Fun",
       "description": "Win a Top Fun Drone Race at every location.",
       "grade": "bronze",
-      "guide": "Top Fun runs drone races at several courses around Leonida, and this trophy needs a win at every location. Each course has its own shape — tight gates, open straights, altitude changes — so learn a course before racing it for real: fly a practice lap, note where the gates turn, and keep the drone low through the tight sections. Win one race per location and the trophy pops. If a course keeps beating you, switch drones: handling differs more than speed does.",
+      "guide": "Top Fun runs drone races on several courses around Leonida, and this trophy needs a win at every location. Each course has its own shape — tight gates, open straights, changes in altitude — so learn a course before racing it for real: fly a practice lap, note where the gates turn, and stay low through the tight sections. Win one race per location and the trophy pops. If a course keeps beating you, switch drones: the handling differs more than the speed does.",
       "phase": "activities",
       "missable": false,
       "difficulty": 3,
-      "time": "2–4 hours",
-      "tips": "Fly a practice lap first, keep low through tight gates, and try a different drone if stuck.",
+      "time": "2-4 hours",
+      "tips": "Practice lap first, stay low through tight gates, try another drone if stuck.",
       "source": "Official trophy list; Top Fun drone races"
     },
     {
@@ -253,12 +253,12 @@
       "name": "Earn Cash, Not Kudos",
       "description": "Win 20 different races.",
       "grade": "bronze",
-      "guide": "Twenty different race wins is a breadth test: street races, off-road, water, air — whatever the game counts as a race type, you need a win in twenty of them. The fastest route is variety: take every race you pass, race each type once, and do not repeat a won race when a new one is on the map. A tuned car helps, but clean lines help more — brake early, cut the corner, and let rivals make the mistakes. The in-game race list shows which types you have won.",
+      "guide": "Twenty different race wins is a breadth test: street races, off-road, water, air — whatever the game counts as a race type, you need a win in twenty of them. The fastest route is variety: take every race you pass, race each type once, and never repeat a race you have already won while a new one sits on the map. A tuned car helps, but clean lines help more — brake early, cut the corner, and let rivals make the mistakes. The in-game race list shows which types you have won.",
       "phase": "activities",
       "missable": false,
       "difficulty": 3,
-      "time": "5–8 hours",
-      "tips": "Race each type once and never repeat a won race; the race list shows what is left.",
+      "time": "5-8 hours",
+      "tips": "Race each type once and never repeat a won race; the list shows what's left.",
       "source": "Official trophy list; race wins"
     },
     {
@@ -266,12 +266,12 @@
       "name": "Baited My Tackle",
       "description": "Beat Cal in a fishing challenge.",
       "grade": "bronze",
-      "guide": "Cal is the fishing rival, and this trophy is a straight contest: beat him in a fishing challenge. Fishing here is a timing game — cast where the water moves, watch the line, and reel in steady bursts instead of holding the button down. Cal's score is the bar; play a few rounds to learn the rhythm of the bites, then fish the challenge for real. Pick a quiet spot, take your time, and remember that a patient retrieve out-scores a frantic one.",
+      "guide": "Cal is the fishing rival, and this trophy is a straight contest: beat him in a fishing challenge. Fishing here is a timing game — cast where the water moves, watch the line, and reel in steady bursts instead of holding the button down. Cal's score is the bar to clear; play a few rounds first to learn the rhythm of the bites, then fish the challenge for real. Pick a quiet spot, take your time, and remember that a patient retrieve out-scores a frantic one.",
       "phase": "activities",
       "missable": false,
       "difficulty": 2,
-      "time": "1–2 hours",
-      "tips": "Reel in steady bursts, don't hold the button; learn the bite rhythm in practice rounds.",
+      "time": "1-2 hours",
+      "tips": "Reel in steady bursts; learn the bite rhythm in practice rounds first.",
       "source": "Official trophy list; fishing challenge"
     },
     {
@@ -279,11 +279,11 @@
       "name": "Stick Fiddler",
       "description": "Complete an arcade game.",
       "grade": "bronze",
-      "guide": "The arcade is Leonida's noisiest corner, and this trophy asks for one completed game — any cabinet, any game. Walk in, pick a machine, and play it to its end: some games are a single high-score run, others a short level or a timed round. The trophy pops when the game's own end screen appears, win or lose, so there is no skill gate here at all. If the first cabinet confuses you, try another; the arcade's whole point is variety, and the cheapest game in the room counts just as much as the hardest.",
+      "guide": "The arcade is Leonida's noisiest corner, and this trophy asks for one completed game — any cabinet, any game. Walk in, pick a machine, and play it to its end: some games are a single high-score run, others a short level or a timed round. The trophy pops when the game's own end screen appears, win or lose, so there is no skill gate here at all. If the first cabinet confuses you, try another; the arcade's whole point is variety, and the cheapest game in the room counts exactly as much as the hardest.",
       "phase": "activities",
       "missable": false,
       "difficulty": 1,
-      "time": "15–30 min",
+      "time": "15-30 min",
       "tips": "Any cabinet counts — pick the simplest game and play it to its end screen.",
       "source": "Official trophy list; arcade games"
     },
@@ -296,8 +296,8 @@
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1–2 hours",
-      "tips": "Strands advance in stages — if a marker goes quiet, let in-game days pass and check back.",
+      "time": "1-2 hours",
+      "tips": "Strands advance in stages — if a marker goes quiet, let in-game days pass.",
       "source": "Official trophy list; stranger mission strand"
     },
     {
@@ -309,7 +309,7 @@
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1–2 hours",
+      "time": "1-2 hours",
       "tips": "Take missions as markers appear; sleep or play elsewhere when the strand pauses.",
       "source": "Official trophy list; stranger mission strand"
     },
@@ -322,7 +322,7 @@
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1–2 hours",
+      "time": "1-2 hours",
       "tips": "Don't camp the marker — play other content and the next step will surface.",
       "source": "Official trophy list; stranger mission strand"
     },
@@ -331,12 +331,12 @@
       "name": "Strangers & Freaks",
       "description": "Complete 8 mission strands for strangers across the state of Leonida.",
       "grade": "silver",
-      "guide": "Strangers & Freaks is the big stranger trophy: eight complete mission strands across Leonida. Andy, Kenton, Billy, Randy and Tyrone are five of them; the remaining three are other strangers you will meet as you explore. Each strand is a staged chain — take missions as their markers appear, let in-game time pass between steps, and finish each strand's final mission. The counter ticks per finished strand, so check the stats screen to see which ones remain. It is a patience trophy, not a skill one.",
+      "guide": "Strangers & Freaks is the big stranger trophy: eight complete mission strands across Leonida. Andy, Kenton, Billy, Randy and Tyrone are five of them; the other three belong to strangers you will meet as you explore. Each strand is a staged chain — take missions as their markers appear, let in-game time pass between steps, and finish each strand's final mission. The counter ticks per finished strand, so check the stats screen to see which ones remain. It is a patience trophy, not a skill one.",
       "phase": "strangers",
       "missable": false,
       "difficulty": 3,
-      "time": "8–12 hours",
-      "tips": "Finish whole strands, not single missions; the stats screen shows which strands remain.",
+      "time": "8-12 hours",
+      "tips": "Finish whole strands, not single missions; the stats screen shows what's left.",
       "source": "Official trophy list; stranger mission strands"
     },
     {
@@ -348,7 +348,7 @@
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1–2 hours",
+      "time": "1-2 hours",
       "tips": "Use the gaps between strand steps for other trophies; the chain finishes on its own schedule.",
       "source": "Official trophy list; stranger mission strand"
     },
@@ -361,7 +361,7 @@
       "phase": "strangers",
       "missable": false,
       "difficulty": 2,
-      "time": "1–2 hours",
+      "time": "1-2 hours",
       "tips": "Run strands in parallel — markers interleave and the big stranger trophy ticks along.",
       "source": "Official trophy list; stranger mission strand"
     },
@@ -374,7 +374,7 @@
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
-      "time": "3–5 hours",
+      "time": "3-5 hours",
       "tips": "Sweep region by region after exploring; spots reveal themselves once you're near.",
       "source": "Official trophy list; meditation spots"
     },
@@ -383,11 +383,11 @@
       "name": "Fair Game",
       "description": "Hunt a unique animal for Bret.",
       "grade": "bronze",
-      "guide": "Bret wants a unique animal hunted, and this trophy is the proof. Unique animals are one-of-a-kind creatures tied to specific corners of Leonida — the hunt is about finding the right place and the right moment, not about firepower. Take the hunt seriously: bring a scoped rifle, move slowly, and watch for tracks or calls that mark the animal's ground. One clean, patient hunt is all it takes; rushing it just scares the quarry off. Check Bret's strand for the opening clue.",
+      "guide": "Bret wants a unique animal hunted, and this trophy is the proof. Unique animals are one-of-a-kind creatures tied to specific corners of Leonida — the hunt is about finding the right place and the right moment, not about firepower. Take it seriously: bring a scoped rifle, move slowly, and watch for tracks or calls that mark the animal's ground. One clean, patient hunt is all it takes; rushing it just scares the quarry off. Check Bret's strand for the opening clue.",
       "phase": "exploration",
       "missable": false,
       "difficulty": 3,
-      "time": "1–3 hours",
+      "time": "1-3 hours",
       "tips": "Scoped rifle, slow approach, watch for tracks — one patient hunt is all it takes.",
       "source": "Official trophy list; unique animal hunt"
     },
@@ -400,8 +400,8 @@
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "5–8 hours",
-      "tips": "Grab every card from the start; finish three sets and the late-game hints find the rest.",
+      "time": "5-8 hours",
+      "tips": "Grab every card from the start; finish three sets and late-game hints find the rest.",
       "source": "Official trophy list; collectible card sets"
     },
     {
@@ -413,7 +413,7 @@
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "6–9 hours",
+      "time": "6-9 hours",
       "tips": "WAiNK everywhere you go; dense districts fill fast, wetlands need a deliberate sweep.",
       "source": "Official trophy list; WAiNK locations"
     },
@@ -426,7 +426,7 @@
       "phase": "grind",
       "missable": false,
       "difficulty": 2,
-      "time": "10–15 hours",
+      "time": "10-15 hours",
       "tips": "Check the challenges menu often and let 50 accumulate naturally — don't grind it early.",
       "source": "Official trophy list; challenge counter"
     },
@@ -435,11 +435,11 @@
       "name": "Hot Together",
       "description": "Lose a 4 star Wanted Level with your partner and escape the heat.",
       "grade": "bronze",
-      "guide": "This one needs both protagonists together: build a four-star wanted level with your partner beside you, then lose the heat and escape. The partner is the key — the trophy only counts when you are playing as a pair, so start the attempt from a partner activity or a co-op moment. Once the stars hit four, break line of sight, switch to a fast car, and run the heat off the old-fashioned way: alleys, tunnels, and distance. When the stars clear with your partner still with you, the trophy pops.",
+      "guide": "This one needs both protagonists together: build a four-star wanted level with your partner beside you, then lose the heat and escape. The partner is the key — the trophy only counts when you are playing as a pair, so start the attempt from a partner activity or a moment when both are present. Once the stars hit four, break line of sight, switch to a fast car, and run the heat off the old-fashioned way: alleys, tunnels, and distance. When the stars clear with your partner still with you, the trophy pops.",
       "phase": "partner",
       "missable": false,
       "difficulty": 3,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Only counts as a pair — start from a partner moment, then break line of sight and run.",
       "source": "Official trophy list; partner wanted level"
     },
@@ -452,7 +452,7 @@
       "phase": "partner",
       "missable": false,
       "difficulty": 4,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Three small shops close together, planned route, never stop to fight — a break resets the chain.",
       "source": "Official trophy list; partner shop robberies"
     },
@@ -465,7 +465,7 @@
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
-      "time": "4–6 hours",
+      "time": "4-6 hours",
       "tips": "Hop into anything unfamiliar you pass; mission vehicles fill the last dozen.",
       "source": "Official trophy list; vehicle discovery counter"
     },
@@ -478,7 +478,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 3,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Pick a dense group first — a gang hideout — then trigger Focus and work it methodically.",
       "source": "Official trophy list; Combat Focus"
     },
@@ -491,7 +491,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 2,
-      "time": "20–40 min",
+      "time": "20-40 min",
       "tips": "Leave VCIA by a service gate or fence line, not the front door.",
       "source": "Official trophy list; VCIA departure"
     },
@@ -504,7 +504,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 2,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Stay in the tank and drive it under pressure — parking it doesn't count.",
       "source": "Official trophy list; Rhino tank"
     },
@@ -517,7 +517,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 4,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Case it first, learn the guard pattern, and abort the moment you're spotted.",
       "source": "Official trophy list; stealth robbery"
     },
@@ -530,7 +530,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 4,
-      "time": "4–6 hours",
+      "time": "4-6 hours",
       "tips": "Plan the escape before you go in — five vaults, five clean getaways, one at a time.",
       "source": "Official trophy list; bank vault robberies"
     },
@@ -543,7 +543,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 3,
-      "time": "20–40 min",
+      "time": "20-40 min",
       "tips": "Hit it on a quiet road with the getaway ready — the escape is where attempts fail.",
       "source": "Official trophy list; armoured truck robbery"
     },
@@ -556,7 +556,7 @@
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
-      "time": "4–6 hours",
+      "time": "4-6 hours",
       "tips": "Drive edge to edge, then sweep the grey patches on the map in one deliberate pass.",
       "source": "Official trophy list; map exploration"
     },
@@ -569,7 +569,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 4,
-      "time": "3–5 hours",
+      "time": "3-5 hours",
       "tips": "One operation per gang — case each layout first; the stats screen shows gangs left.",
       "source": "Official trophy list; gang operations"
     },
@@ -582,7 +582,7 @@
       "phase": "exploration",
       "missable": false,
       "difficulty": 1,
-      "time": "10–20 min",
+      "time": "10-20 min",
       "tips": "Walk the beachfront until a venue offers the prompt — do it early, while the city is new.",
       "source": "Official trophy list; Ocean Beach"
     },
@@ -595,7 +595,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 2,
-      "time": "20–40 min",
+      "time": "20-40 min",
       "tips": "Pick a fast display car, aim for the front glass, and don't brake.",
       "source": "Official trophy list; vehicle showroom"
     },
@@ -608,7 +608,7 @@
       "phase": "activities",
       "missable": false,
       "difficulty": 1,
-      "time": "20–40 min",
+      "time": "20-40 min",
       "tips": "Play a full game frame by frame — no score needed, just finish it.",
       "source": "Official trophy list; bowling alley"
     },
@@ -621,7 +621,7 @@
       "phase": "partner",
       "missable": false,
       "difficulty": 2,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Take partner moments with both protagonists and play them cleanly — the pair is judged together.",
       "source": "Official trophy list; partner play"
     },
@@ -660,7 +660,7 @@
       "phase": "exploration",
       "missable": false,
       "difficulty": 2,
-      "time": "1–3 hours",
+      "time": "1-3 hours",
       "tips": "Explore the odd corners after dark while sweeping the map — it's a discovery, not a task.",
       "source": "Official trophy list; hidden encounter"
     },
@@ -673,7 +673,7 @@
       "phase": "combat",
       "missable": false,
       "difficulty": 3,
-      "time": "30–60 min",
+      "time": "30-60 min",
       "tips": "Slow vehicle, clear stretch, swing as you pass — patience beats speed here.",
       "source": "Official trophy list; melee drive-by"
     },
@@ -686,7 +686,7 @@
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "8–12 hours",
+      "time": "8-12 hours",
       "tips": "Launder after every paying job from the start — hoarding bills for one session wastes time.",
       "source": "Official trophy list; money laundering"
     },
@@ -712,7 +712,7 @@
       "phase": "grind",
       "missable": false,
       "difficulty": 3,
-      "time": "6–10 hours",
+      "time": "6-10 hours",
       "tips": "Buy each garage as it appears — early ones are cheap, and they store the rare cars too.",
       "source": "Official trophy list; garage properties"
     },
@@ -725,7 +725,7 @@
       "phase": "exploration",
       "missable": false,
       "difficulty": 1,
-      "time": "1–2 hours",
+      "time": "1-2 hours",
       "tips": "Register the cars you actually drive — the app lists what's already logged.",
       "source": "Official trophy list; Scooter Bros app"
     }

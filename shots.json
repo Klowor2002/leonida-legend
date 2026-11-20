@@ -1,6 +1,6 @@
 [
   {
-    "bytes": 52752,
+    "bytes": 57433,
     "file": "1-cover.jpg",
     "format": "JPEG",
     "path": "/",
@@ -10,7 +10,7 @@
     }
   },
   {
-    "bytes": 128520,
+    "bytes": 103685,
     "file": "2-checklist.jpg",
     "format": "JPEG",
     "path": "/",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "bytes": 122900,
+    "bytes": 101773,
     "file": "3-silver.jpg",
     "format": "JPEG",
     "grade": "silver",
@@ -31,7 +31,7 @@
     }
   },
   {
-    "bytes": 93179,
+    "bytes": 98510,
     "file": "4-sources.jpg",
     "format": "JPEG",
     "path": "/",

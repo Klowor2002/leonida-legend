@@ -4,44 +4,44 @@
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/Klowor2002/leonida-legend/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-**Leonida Legend** is a trophy guide and progress tracker for Grand Theft Auto VI on PlayStation 5.
-It puts the entire official trophy list — all **55 trophies**: 1 platinum, 2 gold, 6 silver and
-46 bronze — on a single page, gives every trophy its own hand-written guide, orders the hunt as
-an eight-phase roadmap, and remembers what you have earned. The look is a dark neon "Vice City
-Nights" theme: deep purple, hot pink, electric cyan.
+**Leonida Legend** is a complete trophy companion for Grand Theft Auto VI on PlayStation 5.
+The full official list — **55 trophies** in total: 1 platinum, 2 gold, 6 silver and 46 bronze —
+sits on one page, each trophy with its own hand-written guide, the whole hunt arranged as an
+eight-phase roadmap, and your progress remembered as you go. The look is a dark neon "Vice City
+Nights" theme: deep purple skies, hot pink and electric cyan.
 
-The app is plain static files. Once the page has loaded its one data file it needs no network at
-all, so the guide keeps working offline — on a flight, in a cabin, anywhere.
+The app is plain static files. After the page loads its single data file it needs no network
+at all, so the guide keeps working offline — on a flight, in a cabin, anywhere.
 
 ## What is inside
 
-- **One guide per trophy.** Every trophy card shows the official name and description, a full
-  guide written for this page — the steps in order, what to expect, and how the pieces fit
-  together — plus practical notes: a difficulty rating, a realistic time estimate, a missable
-  flag, a short tip, and a source line saying what the guide is based on.
-- **An eight-phase roadmap.** The 55 trophies are sequenced so the platinum hunt stays sane:
+- **A guide on every card.** Each trophy card shows the official name and description, a full
+  guide written for this page — the order of operations, what to expect, and how the pieces fit
+  together — plus the practical notes: a difficulty rating, a realistic time estimate, a
+  missable flag, a short tip, and a source line saying what the guide rests on.
+- **A roadmap in eight phases.** The 55 trophies are sequenced so the platinum hunt stays sane:
   story (12), strangers (6), activities (7), exploration (7), combat (9), partner (3), grind (9)
-  and platinum (2). The roadmap explains why each phase sits where it does, so clean-up happens
-  in a sensible order instead of one long scramble at the end.
-- **A tracker that remembers.** Mark a trophy as earned and the progress ring, the per-grade bars
-  and the card itself update on the spot. Your progress is stored in the browser's localStorage,
-  so it survives closing the tab; export and import buttons back it up or move it as a small JSON
-  file, and reset clears it (with a confirmation first).
-- **Finding things fast.** A search box matches names, descriptions and guide text. Filters narrow
-  the list by grade, by roadmap phase or by earned status, a missable-only toggle isolates the
-  trophies that need care, and sorting can follow roadmap order, grade, difficulty or time
-  estimate.
-- **Spoilers stay hidden until you ask.** Story-phase guide text is blurred by default, so you can
-  plan the hunt without reading plot details; click a blurred guide to reveal just that one.
+  and platinum (2). Each phase explains why it sits where it does, so the clean-up lands in a
+  sensible order instead of one long scramble at the end.
+- **A tracker that keeps score.** Mark a trophy as earned and the progress ring, the per-grade
+  bars and the card itself update on the spot. Progress lives in the browser's localStorage, so
+  it survives closing the tab; export and import buttons back it up or move it as a small JSON
+  file, and reset clears it (after a confirmation).
+- **Finding things fast.** The search box matches names, descriptions and guide text. Filters
+  narrow the list by grade, by roadmap phase or by earned status, a missable-only toggle
+  isolates the trophies that need care, and sorting can follow roadmap order, grade, difficulty
+  or time estimate.
+- **Spoilers stay blurred until you ask.** Story-phase guide text is hidden by default, so you
+  can plan the hunt without reading plot details; click a blurred guide to reveal just that one.
 
 ## Where the data comes from
 
 Trophy names, descriptions and grades are the official PlayStation 5 list. The guide text is
-written for this page, and each trophy's source line names what its guide rests on; setting facts
-(Vice City, Ocean Beach, VCIA, Lucia and Jason) come from Rockstar's official trailers and pages.
-GTA VI launches on 26 May 2026, so exact in-game labels and locations are written to be confirmed
-against the shipped game — where this guide and the in-game menu disagree, the game wins. This is
-an unofficial fan work; nothing here is taken from Rockstar.
+written for this page, and each trophy's source line names what its guide rests on; the setting
+facts (Vice City, Ocean Beach, VCIA, Lucia and Jason) come from Rockstar's official trailers
+and pages. GTA VI launches on 26 May 2026, so exact in-game labels and locations are written to
+be confirmed against the shipped game — where this guide and the in-game menu disagree, the game
+wins. This is an unofficial fan work; nothing here is taken from Rockstar.
 
 ## How the data file is built
 

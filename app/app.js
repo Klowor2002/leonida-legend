@@ -7,7 +7,7 @@
 
 const STORE_KEY = "leonida-legend-earned-v1";
 const RING_CIRC = 2 * Math.PI * 63; // matches r=63 in the ring SVG
-const GRADE_ORDER = { platinum: 0, gold: 1, silver: 2, bronze: 3 };
+const GRADE_RANK = { platinum: 0, gold: 1, silver: 2, bronze: 3 };
 
 const PHASE_LABELS = {
   story: "Story",
@@ -61,10 +61,10 @@ const els = {
 };
 
 let allTrophies = [];
-const earned = readEarned();
+const earned = loadEarned();
 const revealed = new Set();
 
-function readEarned() {
+function loadEarned() {
   try {
     const parsed = JSON.parse(localStorage.getItem(STORE_KEY) ?? "[]");
     const ids = Array.isArray(parsed) ? parsed : parsed.earned;
@@ -74,18 +74,18 @@ function readEarned() {
   }
 }
 
-function writeEarned() {
+function saveEarned() {
   localStorage.setItem(STORE_KEY, JSON.stringify([...earned].sort((a, b) => a - b)));
 }
 
-function minutesFrom(timeText) {
+function minutesOf(timeText) {
   const m = /(\d+(?:\.\d+)?)\s*(h|min)/i.exec(timeText ?? "");
   if (!m) return Number.MAX_SAFE_INTEGER;
   return m[2].toLowerCase() === "h" ? Number(m[1]) * 60 : Number(m[1]);
 }
 
-function starsFor(difficulty) {
-  // Difficulty 1–5 maps to filled stars; the rest stay hollow.
+function starRow(difficulty) {
+  // Difficulty 1-5 maps to filled stars; the rest stay hollow.
   return "★".repeat(difficulty) + "☆".repeat(5 - difficulty);
 }
 
@@ -143,7 +143,7 @@ function paintRoadmap() {
   );
 }
 
-function activeFilters() {
+function currentFilters() {
   return {
     q: els.search.value.trim().toLowerCase(),
     grade: els.grade.value,
@@ -155,7 +155,7 @@ function activeFilters() {
   };
 }
 
-function applyFilters(f) {
+function filterAndSort(f) {
   const kept = allTrophies.filter((t) => {
     if (f.grade && t.grade !== f.grade) return false;
     if (f.phase && t.phase !== f.phase) return false;
@@ -170,9 +170,9 @@ function applyFilters(f) {
   });
   const sorters = {
     guide: (a, b) => a.id - b.id,
-    grade: (a, b) => GRADE_ORDER[a.grade] - GRADE_ORDER[b.grade] || a.id - b.id,
+    grade: (a, b) => GRADE_RANK[a.grade] - GRADE_RANK[b.grade] || a.id - b.id,
     difficulty: (a, b) => a.difficulty - b.difficulty || a.id - b.id,
-    time: (a, b) => minutesFrom(a.time) - minutesFrom(b.time) || a.id - b.id,
+    time: (a, b) => minutesOf(a.time) - minutesOf(b.time) || a.id - b.id,
   };
   return kept.sort(sorters[f.sort]);
 }
@@ -236,7 +236,7 @@ function buildCard(t, hideSpoilers) {
   box.dataset.earnFor = String(t.id);
   const stars = document.createElement("span");
   stars.className = "stars";
-  stars.textContent = starsFor(t.difficulty);
+  stars.textContent = starRow(t.difficulty);
   label.append(box, document.createTextNode("Mark earned "), stars);
   markRow.append(label);
 
@@ -245,8 +245,8 @@ function buildCard(t, hideSpoilers) {
 }
 
 function render() {
-  const f = activeFilters();
-  const list = applyFilters(f);
+  const f = currentFilters();
+  const list = filterAndSort(f);
   els.cards.replaceChildren(...list.map((t) => buildCard(t, f.hideSpoilers)));
   els.empty.hidden = list.length !== 0;
   els.showing.textContent = `${list.length} of ${allTrophies.length} trophies shown.`;
@@ -263,7 +263,7 @@ els.cards.addEventListener("change", (event) => {
   const id = Number(box.dataset.earnFor);
   if (box.checked) earned.add(id);
   else earned.delete(id);
-  writeEarned();
+  saveEarned();
   render();
 });
 
@@ -288,6 +288,15 @@ els.search.addEventListener("keydown", (event) => {
     els.search.value = "";
     render();
   }
+});
+
+// Pressing "/" anywhere on the page jumps straight to the search box.
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "/") return;
+  const tag = document.activeElement?.tagName;
+  if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
+  event.preventDefault();
+  els.search.focus();
 });
 
 $("#ll-export").addEventListener("click", () => {
@@ -315,7 +324,7 @@ els.importFile.addEventListener("change", async () => {
     if (!Array.isArray(ids)) throw new Error("no earned list");
     earned.clear();
     for (const id of ids) if (Number.isInteger(id)) earned.add(id);
-    writeEarned();
+    saveEarned();
     render();
     els.notice.textContent = `Imported ${earned.size} earned trophies.`;
   } catch {
@@ -327,7 +336,7 @@ els.importFile.addEventListener("change", async () => {
 $("#ll-reset").addEventListener("click", () => {
   if (!window.confirm("Clear every earned tick on this device?")) return;
   earned.clear();
-  writeEarned();
+  saveEarned();
   render();
   els.notice.textContent = "Progress reset. Fresh run, clean slate.";
 });
