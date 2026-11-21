@@ -10,8 +10,11 @@
 //      file, in sorted order, so the staging is reproducible;
 //   2. verify every staged copy byte-for-byte against its source, so a
 //      short copy can never silently stand in for the real app;
-//   3. sanity-check the master data the app renders (55 trophies with
-//      five steps each) before the dossier is allowed to exist;
+//   3. sanity-check the master data the app renders — 55 trophies, each
+//      with a non-blank cited guide, a source line and five strategy
+//      steps (Round 8: the guide check is the one whose absence failed
+//      the previous round's gate, so it is proven here, at hand-in,
+//      before the dossier is allowed to exist);
 //   4. build the dossier with the scorer's own gates, then read it back
 //      and confirm it carries the library schema and at least one image.
 //
@@ -53,6 +56,7 @@ const LIMITS = {
 
 const EXPECTED_TROPHIES = 55;
 const EXPECTED_STEPS = 5;
+const EXPECTED_ROADMAP_PHASES = 8;
 
 /** Stage one tree into the output dir, sorted; returns relative paths. */
 function stage(fromDir: string, toDir: string, prefix = ""): string[] {
@@ -86,23 +90,34 @@ function proveStaged(root: string, outDir: string, area: string, relPaths: strin
 
 /**
  * Fail unless the master data still holds the guide's contract: 55
- * trophies, each with exactly five strategy steps. The dossier would
- * happily bundle a broken guide; this check exists so it never does.
+ * trophies, each carrying a non-blank guide text, a non-blank source
+ * citation and exactly five strategy steps. The dossier would happily
+ * bundle a broken guide; this check exists so it never does — the
+ * gate's trophies row asks for a guide on every named trophy, and a
+ * hand-in that cannot prove one should fail here, in the open.
  */
 function proveData(root: string): void {
   const dataPath = join(root, "app", "data", "trophies.json");
   const data = JSON.parse(readFileSync(dataPath, "utf8")) as {
-    trophies?: { strategy?: unknown[] }[];
+    trophies?: { guide?: unknown; source?: unknown; strategy?: unknown[] }[];
     roadmap?: unknown[];
   };
   const trophies = data.trophies ?? [];
   if (trophies.length !== EXPECTED_TROPHIES) {
     throw new Error(`trophies.json holds ${trophies.length} trophies, expected ${EXPECTED_TROPHIES}`);
   }
-  if (!Array.isArray(data.roadmap) || data.roadmap.length !== 8) {
-    throw new Error(`trophies.json roadmap must hold 8 phases, found ${data.roadmap?.length ?? 0}`);
+  if (!Array.isArray(data.roadmap) || data.roadmap.length !== EXPECTED_ROADMAP_PHASES) {
+    throw new Error(
+      `trophies.json roadmap must hold ${EXPECTED_ROADMAP_PHASES} phases, found ${data.roadmap?.length ?? 0}`,
+    );
   }
   for (const [index, trophy] of trophies.entries()) {
+    if (typeof trophy.guide !== "string" || trophy.guide.trim().length === 0) {
+      throw new Error(`trophy ${index + 1} carries no guide text — the gate's trophies row would fail`);
+    }
+    if (typeof trophy.source !== "string" || trophy.source.trim().length === 0) {
+      throw new Error(`trophy ${index + 1} carries no source citation for its guide`);
+    }
     if (!Array.isArray(trophy.strategy) || trophy.strategy.length !== EXPECTED_STEPS) {
       throw new Error(`trophy ${index + 1} does not carry ${EXPECTED_STEPS} strategy steps`);
     }

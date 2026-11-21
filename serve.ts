@@ -5,11 +5,13 @@
 //
 //   node serve.ts [--port <n>]        (default 8080)
 //
-// Deliberately small surface: GET and HEAD only, directory paths resolve
-// to index.html, the MIME table covers only what the app ships, every
-// response carries nosniff and no-store, and any path that would resolve
-// outside app/ is refused. It is a development convenience, not a
-// production server.
+// Deliberately small surface: GET and HEAD only, directory paths
+// resolve to index.html, the MIME table covers only what the app
+// ships, every response carries nosniff and no-store, and any path
+// that would resolve outside app/ is refused outright. It exists so a
+// hunter can read the guide locally, guides and sources rendered from
+// the same data the dossier ships — a development convenience, not a
+// production server, and it never touches the dossier.
 
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";

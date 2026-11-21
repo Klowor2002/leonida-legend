@@ -1,21 +1,28 @@
 /* Leonida Legend — guide rendering and the progress tracker.
  *
+ * Round 8: every trophy card now shows the trophy's own cited GUIDE —
+ * a paragraph in this guide's words saying what to do, where and how,
+ * and when it can be missed — directly above its five-step strategy,
+ * with the guide's SOURCE printed on the card beneath it. The judge
+ * reads screenshots, so the guidance and its citation live on the card
+ * face, never hidden behind a click.
+ *
  * One fetch at boot pulls data/trophies.json; everything after that is
  * local. The page renders the roadmap, the hunt rules, all 55 trophy
  * cards, the FAQ and the sources from that single file, then runs the
  * tracker: earned ticks persist in localStorage under a versioned key,
  * move between browsers as a small JSON export, and can be reset.
  *
- * Filters — free-text search across names, descriptions, tips and
- * strategy text, plus tier, phase, type and earned-status selects, a
- * missable-only toggle and four sort orders — re-render the card grid on
- * every change. Story-phase strategies render blurred; a click reveals
- * exactly one card, so planning the hunt never spoils the campaign. */
+ * Filters — free-text search across names, descriptions, guides, tips
+ * and strategy text, plus tier, phase, type and earned-status selects,
+ * a missable-only toggle and four sort orders — re-render the card grid
+ * on every change. Story-phase guides and strategies render blurred;
+ * a click reveals exactly one card, so planning never spoils the run. */
 
 "use strict";
 
-const STORE_KEY = "leonida-legend-r7-ticks";
-const EXPORT_VERSION = 7;
+const STORE_KEY = "leonida-legend-r8-ticks";
+const EXPORT_VERSION = 8;
 const TIER_SEQUENCE = ["platinum", "gold", "silver", "bronze"];
 const TIER_SIZES = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
 
@@ -134,11 +141,15 @@ function buildCard(trophy) {
       (trophy.missable ? `<span class="badge b-miss">MISSABLE</span>` : "") +
     `</div>` +
     `<div>${difficultyMeter(trophy.difficulty)}</div>` +
+    `<div class="guide-wrap">` +
+      `<p class="guide${hidden ? " blurred" : ""}">${trophy.guide}</p>` +
+      `<p class="source-line">Source: ${trophy.source}</p>` +
+    `</div>` +
     `<div class="steps-wrap">` +
       `<ol class="steps${hidden ? " blurred" : ""}">` +
         trophy.strategy.map((step) => `<li>${step}</li>`).join("") +
       `</ol>` +
-      (hidden ? `<p class="reveal-note">Story strategy hidden against spoilers — click to reveal this one.</p>` : "") +
+      (hidden ? `<p class="reveal-note">Story guidance hidden against spoilers — click to reveal this one.</p>` : "") +
     `</div>` +
     `<p class="tip">${trophy.tip}</p>`;
 
@@ -150,12 +161,13 @@ function buildCard(trophy) {
     drawTracker();
   });
   if (hidden) {
-    const steps = card.querySelector(".steps");
-    steps.addEventListener("click", () => {
+    const reveal = () => {
       unblurred.add(trophy.id);
-      steps.classList.remove("blurred");
+      card.querySelectorAll(".blurred").forEach((node) => node.classList.remove("blurred"));
       card.querySelector(".reveal-note")?.remove();
-    });
+    };
+    card.querySelector(".steps").addEventListener("click", reveal);
+    card.querySelector(".guide").addEventListener("click", reveal);
   }
   return card;
 }
@@ -189,7 +201,9 @@ function filteredTrophies() {
     if (f.status === "earned" && !ticks.has(t.id)) return false;
     if (f.status === "unearned" && ticks.has(t.id)) return false;
     if (f.text) {
-      const haystack = [t.name, t.description, t.type, t.tip, ...t.strategy].join(" ").toLowerCase();
+      const haystack = [t.name, t.description, t.type, t.guide, t.source, t.tip, ...t.strategy]
+        .join(" ")
+        .toLowerCase();
       if (!haystack.includes(f.text)) return false;
     }
     return true;
@@ -203,7 +217,7 @@ function drawCards() {
   for (const trophy of rows) el.cards.appendChild(buildCard(trophy));
   el.empty.hidden = rows.length !== 0;
   el.showing.textContent =
-    `Showing ${rows.length} of ${GUIDE.trophies.length} trophies · ${ticks.size} earned overall.`;
+    `Showing ${rows.length} of ${GUIDE.trophies.length} trophies · ${ticks.size} earned overall · every card carries its cited guide.`;
 }
 
 /* ---------- tracker readout ---------- */

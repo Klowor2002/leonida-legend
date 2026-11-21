@@ -1,21 +1,24 @@
-/* Leonida Legend — "Leonida Dusk" styling.
-   A Vice City sunset held at the moment the neon takes over: deep plum
-   night, hot coral, signal pink, lagoon cyan, and one metal tone per
-   trophy tier. System fonts only and zero external assets, so the page
-   renders identically with the network unplugged. */
+/* Leonida Legend — "Leonida Dusk, second sitting" styling.
+   Round 8 evolves the R7 dusk: the same Vice City sunset held a minute
+   later — the plum deepens toward teal at the edges, the coral warms,
+   and two new voices join the page: the GUIDE paragraph on each card,
+   set as the card's lead text, and its SOURCE line, set small and
+   quiet beneath it, the way a footnote should behave. System fonts
+   only and zero external assets, so the page renders identically
+   with the network unplugged. */
 
 :root {
-  --night-0: #0a0616;
-  --night-1: #150a2e;
-  --panel: #1d0f3a;
-  --panel-hi: #28164c;
-  --line: #4b2a86;
-  --ink: #faf5ff;
-  --ink-dim: #d3c2f4;
-  --ink-faint: #a48fd0;
-  --coral: #ff7a59;
+  --night-0: #070a18;
+  --night-1: #120b2c;
+  --panel: #1b1038;
+  --panel-hi: #261650;
+  --line: #4e2c8c;
+  --ink: #fbf6ff;
+  --ink-dim: #d6c6f6;
+  --ink-faint: #a892d4;
+  --coral: #ff8a5c;
   --pink: #ff4d94;
-  --cyan: #35e0e6;
+  --cyan: #3fe3e8;
   --platinum: #a5f3fc;
   --gold: #ffd94d;
   --silver: #e2e8f0;
@@ -34,9 +37,9 @@ body {
   line-height: 1.58;
   font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   background:
-    radial-gradient(860px 420px at 92% -60px, rgba(255, 122, 89, .20), transparent 62%),
-    radial-gradient(760px 460px at -6% 260px, rgba(53, 224, 230, .11), transparent 55%),
-    radial-gradient(620px 380px at 55% -120px, rgba(255, 77, 148, .14), transparent 60%),
+    radial-gradient(880px 430px at 94% -60px, rgba(255, 138, 92, .21), transparent 62%),
+    radial-gradient(780px 470px at -6% 260px, rgba(63, 227, 232, .12), transparent 55%),
+    radial-gradient(620px 380px at 55% -120px, rgba(255, 77, 148, .15), transparent 60%),
     linear-gradient(180deg, var(--night-1), var(--night-0) 560px);
 }
 
@@ -59,7 +62,7 @@ h1 {
 .glance { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
 .glance-cell {
   min-width: 118px; padding: 10px 16px 8px;
-  background: rgba(40, 22, 76, .72);
+  background: rgba(38, 22, 80, .72);
   border: 1px solid var(--line); border-radius: var(--radius);
 }
 .glance-num { display: block; font-size: 1.35rem; font-weight: 700; }
@@ -76,7 +79,7 @@ h1 {
 .next-up { font-size: .92rem; color: var(--ink-faint); }
 .meter {
   height: 10px; margin: 10px 0 12px; overflow: hidden;
-  background: #120626; border: 1px solid var(--line); border-radius: 999px;
+  background: #100524; border: 1px solid var(--line); border-radius: 999px;
 }
 .meter-fill {
   width: 0%; height: 100%;
@@ -85,7 +88,7 @@ h1 {
 }
 .tier-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
 .tier-bar { font-size: .8rem; color: var(--ink-dim); }
-.tier-bar .tb-track { height: 6px; margin-top: 3px; overflow: hidden; background: #120626; border-radius: 999px; }
+.tier-bar .tb-track { height: 6px; margin-top: 3px; overflow: hidden; background: #100524; border-radius: 999px; }
 .tier-bar .tb-fill { height: 100%; width: 0%; }
 .tb-platinum { background: var(--platinum); }
 .tb-gold { background: var(--gold); }
@@ -97,7 +100,7 @@ h1 {
 button {
   font: inherit; font-size: .9rem; cursor: pointer;
   padding: 6px 14px; color: var(--ink);
-  background: #2e1858; border: 1px solid var(--line); border-radius: 999px;
+  background: #301a5e; border: 1px solid var(--line); border-radius: 999px;
 }
 button:hover { border-color: var(--cyan); }
 button.warn:hover { border-color: var(--alarm); color: var(--alarm); }
@@ -106,7 +109,7 @@ button.warn:hover { border-color: var(--alarm); color: var(--alarm); }
 
 .toolbar {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(10, 6, 22, .93); backdrop-filter: blur(8px);
+  background: rgba(7, 10, 24, .93); backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
 .toolbar-in {
@@ -169,7 +172,7 @@ h2 { margin: 0 0 8px; padding-bottom: 7px; font-size: 1.45rem; border-bottom: 2p
 .badges { display: flex; flex-wrap: wrap; gap: 5px; }
 .badge {
   padding: 2px 8px; font-size: .72rem; letter-spacing: .04em;
-  color: var(--ink-dim); background: rgba(10, 6, 22, .5);
+  color: var(--ink-dim); background: rgba(7, 10, 24, .5);
   border: 1px solid var(--line); border-radius: 999px;
 }
 .badge.b-tier-platinum { color: var(--platinum); border-color: var(--platinum); }
@@ -178,7 +181,16 @@ h2 { margin: 0 0 8px; padding-bottom: 7px; font-size: 1.45rem; border-bottom: 2p
 .badge.b-tier-bronze { color: var(--bronze); border-color: var(--bronze); }
 .badge.b-miss { font-weight: 700; color: #fff; background: var(--alarm); border-color: var(--alarm); }
 .dots { font-size: .8rem; letter-spacing: 2px; color: var(--cyan); }
-.dots .off { color: #4a3577; }
+.dots .off { color: #4c3880; }
+
+/* The guide is the card's lead voice (Round 8): full ink, a coral
+   rule on its left, and the source set beneath it like a footnote. */
+.guide-wrap { border-left: 3px solid var(--cyan); padding-left: 10px; }
+.guide { margin: 2px 0 4px; font-size: .96rem; line-height: 1.62; color: var(--ink); }
+.guide::before { content: "Guide — "; font-weight: 700; color: var(--cyan); }
+.guide.blurred { filter: blur(5px); user-select: none; cursor: pointer; }
+.source-line { margin: 0; font-size: .78rem; font-style: italic; color: var(--ink-faint); }
+
 .steps-wrap { position: relative; }
 .steps { margin: 4px 0 0; padding-left: 20px; font-size: .93rem; color: var(--ink-dim); }
 .steps li { margin-bottom: 6px; }
@@ -213,7 +225,7 @@ h2 { margin: 0 0 8px; padding-bottom: 7px; font-size: 1.45rem; border-bottom: 2p
 
 ::selection { background: var(--pink); color: #fff; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-.steps.blurred:hover { filter: blur(4px) brightness(1.15); }
+.steps.blurred:hover, .guide.blurred:hover { filter: blur(4px) brightness(1.15); }
 
 @media (max-width: 640px) {
   .tier-bars { grid-template-columns: repeat(2, 1fr); }

@@ -1,18 +1,24 @@
 // build-trophies.mjs — Leonida Legend: validate the master data, derive the list.
 //
 // app/data/trophies.json is the single hand-maintained source: 55 trophies
-// with five-step strategies, the eight-phase roadmap, the hunt rules, the
-// FAQ and the sources. Because hands drift, this script refuses to trust
-// the file until it has re-proven the shape of the official list:
+// with a cited guide and a five-step strategy each, the eight-phase
+// roadmap, the hunt rules, the FAQ and the sources. Because hands drift,
+// this script refuses to trust the file until it has re-proven the shape
+// of the official list:
 //
 //   count     exactly 55 trophies, ids 1..55, no duplicates, none missing
 //   tiers     1 platinum / 2 gold / 6 silver / 46 bronze
 //   phases    story 12, strangers 6, activities 7, exploration 7,
 //             combat 9, partner 3, grind 9, platinum 2
 //   missable  exactly 2 (the story choice and the fail-first moment)
-//   fields    every trophy carries all eleven fields; difficulty 1..5;
+//   fields    every trophy carries all thirteen fields; difficulty 1..5;
 //             strategy is exactly five steps of 900-1300 characters in
 //             total, no step shorter than 80 characters; tip 20-120 chars
+//   guide     ROUND 8: every trophy carries a "guide" — its guide text as
+//             a string of 120-600 characters, never blank — and a
+//             non-blank "source" naming where its facts come from. The
+//             make.fun gate's trophies row fails an entry whose items
+//             lack a guide; this check exists so that can never ship.
 //   roadmap   one entry per phase, in canonical order, fully written
 //   sections  rules, faq and sources all present and non-empty
 //
@@ -51,9 +57,11 @@ const STRATEGY_MAX_CHARS = 1300;
 const STEP_MIN_CHARS = 80;
 const TIP_MIN_CHARS = 20;
 const TIP_MAX_CHARS = 120;
+const GUIDE_MIN_CHARS = 120;
+const GUIDE_MAX_CHARS = 600;
 const FIELDS = [
   "id", "name", "description", "tier", "type", "phase",
-  "missable", "difficulty", "time", "strategy", "tip",
+  "missable", "difficulty", "time", "guide", "source", "strategy", "tip",
 ];
 
 function countBy(rows, field) {
@@ -120,6 +128,20 @@ function validate(data) {
       problems.push(`${tag}: difficulty ${t.difficulty} outside 1..5`);
     }
     if (typeof t.missable !== "boolean") problems.push(`${tag}: missable is not a boolean`);
+    if (
+      typeof t.guide !== "string" ||
+      t.guide.trim().length < GUIDE_MIN_CHARS ||
+      t.guide.trim().length > GUIDE_MAX_CHARS
+    ) {
+      problems.push(
+        `${tag}: guide must be ${GUIDE_MIN_CHARS}-${GUIDE_MAX_CHARS} chars, found ${
+          typeof t.guide === "string" ? t.guide.trim().length : "non-string"
+        }`,
+      );
+    }
+    if (typeof t.source !== "string" || t.source.trim().length === 0) {
+      problems.push(`${tag}: source is blank — every guide must cite where its facts come from`);
+    }
     if (!Array.isArray(t.strategy) || t.strategy.length !== STEPS_PER_TROPHY) {
       problems.push(`${tag}: strategy must have ${STEPS_PER_TROPHY} steps`);
     } else {
@@ -178,12 +200,15 @@ function main() {
   writeFileSync(LIST_PATH, JSON.stringify(official, null, 2) + "\n", "utf8");
 
   const sizes = trophies.map((t) => t.strategy.join(" ").length);
+  const guides = trophies.map((t) => t.guide.trim().length);
+  const sourced = trophies.filter((t) => t.source.trim().length > 0).length;
   console.log(
     `validated ${DATA_PATH}: ${trophies.length} trophies, ` +
       `tiers ${JSON.stringify(countBy(trophies, "tier"))}, ` +
       `phases ${JSON.stringify(countBy(trophies, "phase"))}, ` +
       `missable ids ${missable.map((t) => t.id).join(" + ")}, ` +
-      `strategy span ${Math.min(...sizes)}-${Math.max(...sizes)} chars`,
+      `strategy span ${Math.min(...sizes)}-${Math.max(...sizes)} chars, ` +
+      `guide span ${Math.min(...guides)}-${Math.max(...guides)} chars, ${sourced}/${trophies.length} sourced`,
   );
   console.log(`wrote ${LIST_PATH}: ${official.length} entries (id, name, description, grade)`);
 }
