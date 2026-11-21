@@ -1,244 +1,254 @@
-/* Leonida Legend — guide and tracker behaviour.
+/* Leonida Legend — guide rendering and the progress tracker.
  *
- * Loads data/trophies.json once, renders the roadmap, rules, trophy cards,
- * FAQ and sources from it, and then runs entirely offline. Earned ticks are
- * kept in localStorage under a versioned key and can be exported to and
- * imported from a small JSON file. Filters (search, tier, phase, type,
- * status, missable-only) and four sort orders are applied client-side on
- * every control change. Story-phase strategies start blurred against
- * spoilers; clicking one reveals only that card's guide. */
+ * One fetch at boot pulls data/trophies.json; everything after that is
+ * local. The page renders the roadmap, the hunt rules, all 55 trophy
+ * cards, the FAQ and the sources from that single file, then runs the
+ * tracker: earned ticks persist in localStorage under a versioned key,
+ * move between browsers as a small JSON export, and can be reset.
+ *
+ * Filters — free-text search across names, descriptions, tips and
+ * strategy text, plus tier, phase, type and earned-status selects, a
+ * missable-only toggle and four sort orders — re-render the card grid on
+ * every change. Story-phase strategies render blurred; a click reveals
+ * exactly one card, so planning the hunt never spoils the campaign. */
 
 "use strict";
 
-const STORE_KEY = "leonida-legend-r6-ticks";
-const TIER_ORDER = ["platinum", "gold", "silver", "bronze"];
-const TIER_TOTALS = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
+const STORE_KEY = "leonida-legend-r7-ticks";
+const EXPORT_VERSION = 7;
+const TIER_SEQUENCE = ["platinum", "gold", "silver", "bronze"];
+const TIER_SIZES = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
 
-const els = {};
-let DATA = null;
-let earned = loadTicks();
-const revealed = new Set();
+const el = {};
+let GUIDE = null;
+let ticks = readTicks();
+const unblurred = new Set();
 
-function loadTicks() {
+function readTicks() {
   try {
-    const raw = localStorage.getItem(STORE_KEY);
-    const ids = raw ? JSON.parse(raw) : [];
-    return new Set(Array.isArray(ids) ? ids.filter(Number.isInteger) : []);
+    const parsed = JSON.parse(localStorage.getItem(STORE_KEY) ?? "[]");
+    return new Set(Array.isArray(parsed) ? parsed.filter((n) => Number.isInteger(n)) : []);
   } catch {
     return new Set();
   }
 }
 
-function saveTicks() {
+function persistTicks() {
   try {
-    localStorage.setItem(STORE_KEY, JSON.stringify([...earned].sort((a, b) => a - b)));
+    localStorage.setItem(STORE_KEY, JSON.stringify([...ticks].sort((a, b) => a - b)));
   } catch {
-    note("This browser refused to save progress (private window?). Ticks will last for this visit only.");
+    flash("This browser would not save progress (private window?). Ticks last for this visit only.");
   }
 }
 
-function note(msg) {
-  els.notice.textContent = msg;
-  if (msg) setTimeout(() => { if (els.notice.textContent === msg) els.notice.textContent = ""; }, 6000);
+let flashTimer = null;
+function flash(message) {
+  el.notice.textContent = message;
+  if (!message) return;
+  clearTimeout(flashTimer);
+  flashTimer = setTimeout(() => { el.notice.textContent = ""; }, 6000);
 }
 
-function phaseIndex(phase) {
-  return DATA.roadmap.findIndex((r) => r.phase === phase);
+function phasePosition(phase) {
+  return GUIDE.roadmap.findIndex((entry) => entry.phase === phase);
 }
 
-function phaseTitle(phase) {
-  const entry = DATA.roadmap.find((r) => r.phase === phase);
+function phaseShortName(phase) {
+  const entry = GUIDE.roadmap.find((r) => r.phase === phase);
   return entry ? entry.title.replace(/^Phase \d+ — /, "") : phase;
 }
 
-/* ---------------- rendering: static sections ---------------- */
+/* ---------- one-shot sections: roadmap, rules, faq, sources ---------- */
 
-function renderRoadmap() {
-  els.roadmap.innerHTML = "";
-  for (const entry of DATA.roadmap) {
-    const count = DATA.trophies.filter((t) => t.phase === entry.phase).length;
+function drawRoadmap() {
+  el.roadmap.replaceChildren();
+  for (const entry of GUIDE.roadmap) {
+    const size = GUIDE.trophies.filter((t) => t.phase === entry.phase).length;
     const card = document.createElement("article");
     card.className = "phase-card";
-    card.innerHTML = `
-      <span class="phase-count">${count} trophies</span>
-      <h3>${entry.title}</h3>
-      <p class="phase-tag">${entry.tagline}</p>
-      <p>${entry.brief}</p>
-      <p class="phase-focus">${entry.focus}</p>`;
-    els.roadmap.appendChild(card);
+    card.innerHTML =
+      `<span class="phase-count">${size} trophies</span>` +
+      `<h3>${entry.title}</h3>` +
+      `<p class="phase-tag">${entry.tagline}</p>` +
+      `<p>${entry.brief}</p>` +
+      `<p class="phase-focus">${entry.focus}</p>`;
+    el.roadmap.appendChild(card);
   }
 }
 
-function renderRules() {
-  els.rules.innerHTML = "";
-  for (const rule of DATA.rules) {
+function drawRules() {
+  el.rules.replaceChildren();
+  for (const rule of GUIDE.rules) {
     const card = document.createElement("article");
     card.className = "rule-card";
     card.innerHTML = `<h3>${rule.title}</h3><p>${rule.text}</p>`;
-    els.rules.appendChild(card);
+    el.rules.appendChild(card);
   }
 }
 
-function renderFaq() {
-  els.faq.innerHTML = "";
-  for (const item of DATA.faq) {
-    const d = document.createElement("details");
-    d.innerHTML = `<summary>${item.q}</summary><p>${item.a}</p>`;
-    els.faq.appendChild(d);
+function drawFaq() {
+  el.faq.replaceChildren();
+  for (const item of GUIDE.faq) {
+    const block = document.createElement("details");
+    block.innerHTML = `<summary>${item.q}</summary><p>${item.a}</p>`;
+    el.faq.appendChild(block);
   }
 }
 
-function renderSources() {
-  els.sources.innerHTML = "";
-  for (const s of DATA.sources) {
+function drawSources() {
+  el.sources.replaceChildren();
+  for (const source of GUIDE.sources) {
     const row = document.createElement("div");
     row.className = "source-row";
-    row.innerHTML = `<strong>${s.label}</strong><span>${s.note}</span>`;
-    els.sources.appendChild(row);
+    row.innerHTML = `<strong>${source.label}</strong><span>${source.note}</span>`;
+    el.sources.appendChild(row);
   }
 }
 
-/* ---------------- rendering: trophy cards ---------------- */
+/* ---------- trophy cards ---------- */
 
-function difficultyDots(level) {
-  let out = "";
-  for (let i = 1; i <= 5; i += 1) out += i <= level ? "●" : '<span class="off">●</span>';
-  return `<span class="dots" title="Difficulty ${level} of 5">${out}</span>`;
+function difficultyMeter(level) {
+  let dots = "";
+  for (let i = 1; i <= 5; i += 1) {
+    dots += i <= level ? "●" : `<span class="off">●</span>`;
+  }
+  return `<span class="dots" title="Difficulty ${level} of 5">${dots}</span>`;
 }
 
-function cardFor(t) {
+function buildCard(trophy) {
   const card = document.createElement("article");
-  card.className = `card t-${t.tier}${earned.has(t.id) ? " earned" : ""}`;
-  card.dataset.id = String(t.id);
+  const done = ticks.has(trophy.id);
+  const hidden = trophy.phase === "story" && !unblurred.has(trophy.id);
+  card.className = `card t-${trophy.tier}${done ? " earned" : ""}`;
+  card.dataset.id = String(trophy.id);
+  card.innerHTML =
+    `<div class="card-head">` +
+      `<input type="checkbox" ${done ? "checked" : ""} aria-label="Mark ${trophy.name} as earned">` +
+      `<div><h3 class="tname">${trophy.name}</h3><p class="tdesc">${trophy.description}</p></div>` +
+    `</div>` +
+    `<div class="badges">` +
+      `<span class="badge b-tier-${trophy.tier}">${trophy.tier}</span>` +
+      `<span class="badge">${phaseShortName(trophy.phase)}</span>` +
+      `<span class="badge">${trophy.type}</span>` +
+      `<span class="badge">${trophy.time}</span>` +
+      (trophy.missable ? `<span class="badge b-miss">MISSABLE</span>` : "") +
+    `</div>` +
+    `<div>${difficultyMeter(trophy.difficulty)}</div>` +
+    `<div class="steps-wrap">` +
+      `<ol class="steps${hidden ? " blurred" : ""}">` +
+        trophy.strategy.map((step) => `<li>${step}</li>`).join("") +
+      `</ol>` +
+      (hidden ? `<p class="reveal-note">Story strategy hidden against spoilers — click to reveal this one.</p>` : "") +
+    `</div>` +
+    `<p class="tip">${trophy.tip}</p>`;
 
-  const blur = t.phase === "story" && !revealed.has(t.id);
-  const steps = t.strategy.map((s) => `<li>${s}</li>`).join("");
-  card.innerHTML = `
-    <div class="card-head">
-      <input type="checkbox" ${earned.has(t.id) ? "checked" : ""}
-             aria-label="Mark ${t.name} as earned">
-      <div>
-        <h3 class="tname">${t.name}</h3>
-        <p class="tdesc">${t.description}</p>
-      </div>
-    </div>
-    <div class="badges">
-      <span class="badge b-tier-${t.tier}">${t.tier}</span>
-      <span class="badge">${phaseTitle(t.phase)}</span>
-      <span class="badge">${t.type}</span>
-      <span class="badge">${t.time}</span>
-      ${t.missable ? '<span class="badge b-miss">MISSABLE</span>' : ""}
-    </div>
-    <div>${difficultyDots(t.difficulty)}</div>
-    <div class="steps-wrap">
-      <ol class="steps${blur ? " blurred" : ""}">${steps}</ol>
-      ${blur ? '<p class="reveal-note">Story strategy hidden — click to reveal.</p>' : ""}
-    </div>
-    <p class="tip">${t.tip}</p>`;
-
-  card.querySelector('input[type="checkbox"]').addEventListener("change", (ev) => {
-    if (ev.target.checked) earned.add(t.id); else earned.delete(t.id);
-    saveTicks();
-    card.classList.toggle("earned", ev.target.checked);
-    renderTracker();
+  card.querySelector('input[type="checkbox"]').addEventListener("change", (event) => {
+    if (event.target.checked) ticks.add(trophy.id);
+    else ticks.delete(trophy.id);
+    persistTicks();
+    card.classList.toggle("earned", event.target.checked);
+    drawTracker();
   });
-  const stepsEl = card.querySelector(".steps");
-  if (blur) {
-    stepsEl.addEventListener("click", () => {
-      revealed.add(t.id);
-      stepsEl.classList.remove("blurred");
+  if (hidden) {
+    const steps = card.querySelector(".steps");
+    steps.addEventListener("click", () => {
+      unblurred.add(trophy.id);
+      steps.classList.remove("blurred");
       card.querySelector(".reveal-note")?.remove();
     });
   }
   return card;
 }
 
-function currentFilters() {
+function activeFilters() {
   return {
-    q: els.fQuery.value.trim().toLowerCase(),
-    tier: els.fTier.value,
-    phase: els.fPhase.value,
-    type: els.fType.value,
-    status: els.fStatus.value,
-    missable: els.fMissable.checked,
-    sort: els.fSort.value,
+    text: el.fQuery.value.trim().toLowerCase(),
+    tier: el.fTier.value,
+    phase: el.fPhase.value,
+    type: el.fType.value,
+    status: el.fStatus.value,
+    missableOnly: el.fMissable.checked,
+    sort: el.fSort.value,
   };
 }
 
-function visibleTrophies() {
-  const f = currentFilters();
-  let rows = DATA.trophies.filter((t) => {
+const SORTERS = {
+  roadmap: (a, b) => phasePosition(a.phase) - phasePosition(b.phase) || a.id - b.id,
+  tier: (a, b) => TIER_SEQUENCE.indexOf(a.tier) - TIER_SEQUENCE.indexOf(b.tier) || a.name.localeCompare(b.name),
+  difficulty: (a, b) => b.difficulty - a.difficulty || a.id - b.id,
+  name: (a, b) => a.name.localeCompare(b.name),
+};
+
+function filteredTrophies() {
+  const f = activeFilters();
+  const rows = GUIDE.trophies.filter((t) => {
     if (f.tier !== "all" && t.tier !== f.tier) return false;
     if (f.phase !== "all" && t.phase !== f.phase) return false;
     if (f.type !== "all" && t.type !== f.type) return false;
-    if (f.missable && !t.missable) return false;
-    if (f.status === "earned" && !earned.has(t.id)) return false;
-    if (f.status === "unearned" && earned.has(t.id)) return false;
-    if (f.q) {
-      const hay = [t.name, t.description, t.type, t.tip, ...t.strategy].join(" ").toLowerCase();
-      if (!hay.includes(f.q)) return false;
+    if (f.missableOnly && !t.missable) return false;
+    if (f.status === "earned" && !ticks.has(t.id)) return false;
+    if (f.status === "unearned" && ticks.has(t.id)) return false;
+    if (f.text) {
+      const haystack = [t.name, t.description, t.type, t.tip, ...t.strategy].join(" ").toLowerCase();
+      if (!haystack.includes(f.text)) return false;
     }
     return true;
   });
-  const by = {
-    roadmap: (a, b) => phaseIndex(a.phase) - phaseIndex(b.phase) || a.id - b.id,
-    tier: (a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier) || a.name.localeCompare(b.name),
-    difficulty: (a, b) => b.difficulty - a.difficulty || a.id - b.id,
-    name: (a, b) => a.name.localeCompare(b.name),
-  };
-  return rows.sort(by[f.sort] ?? by.roadmap);
+  return rows.sort(SORTERS[f.sort] ?? SORTERS.roadmap);
 }
 
-function renderCards() {
-  const rows = visibleTrophies();
-  els.cards.innerHTML = "";
-  for (const t of rows) els.cards.appendChild(cardFor(t));
-  els.empty.hidden = rows.length > 0;
-  els.showing.textContent = `Showing ${rows.length} of ${DATA.trophies.length} trophies · ${earned.size} earned overall.`;
+function drawCards() {
+  const rows = filteredTrophies();
+  el.cards.replaceChildren();
+  for (const trophy of rows) el.cards.appendChild(buildCard(trophy));
+  el.empty.hidden = rows.length !== 0;
+  el.showing.textContent =
+    `Showing ${rows.length} of ${GUIDE.trophies.length} trophies · ${ticks.size} earned overall.`;
 }
 
-/* ---------------- tracker ---------------- */
+/* ---------- tracker readout ---------- */
 
-function renderTracker() {
-  const total = DATA.trophies.length;
-  const pct = Math.round((earned.size / total) * 100);
-  els.pct.textContent = `${pct}%`;
-  els.earnedCount.textContent = String(earned.size);
-  els.meterFill.style.width = `${pct}%`;
+function drawTracker() {
+  const total = GUIDE.trophies.length;
+  const percent = Math.round((ticks.size / total) * 100);
+  el.pct.textContent = `${percent}%`;
+  el.earnedCount.textContent = String(ticks.size);
+  el.meterFill.style.width = `${percent}%`;
 
-  els.tierBars.innerHTML = "";
-  for (const tier of TIER_ORDER) {
-    const have = DATA.trophies.filter((t) => t.tier === tier && earned.has(t.id)).length;
-    const wrap = document.createElement("div");
-    wrap.className = "tier-bar";
-    wrap.innerHTML = `${tier}: ${have}/${TIER_TOTALS[tier]}
-      <div class="tb-track"><div class="tb-fill tb-${tier}" style="width:${(have / TIER_TOTALS[tier]) * 100}%"></div></div>`;
-    els.tierBars.appendChild(wrap);
+  el.tierBars.replaceChildren();
+  for (const tier of TIER_SEQUENCE) {
+    const have = GUIDE.trophies.filter((t) => t.tier === tier && ticks.has(t.id)).length;
+    const bar = document.createElement("div");
+    bar.className = "tier-bar";
+    bar.innerHTML =
+      `${tier}: ${have}/${TIER_SIZES[tier]}` +
+      `<div class="tb-track"><div class="tb-fill tb-${tier}" style="width:${(have / TIER_SIZES[tier]) * 100}%"></div></div>`;
+    el.tierBars.appendChild(bar);
   }
 
-  const next = DATA.trophies
+  const next = GUIDE.trophies
     .slice()
-    .sort((a, b) => phaseIndex(a.phase) - phaseIndex(b.phase) || a.id - b.id)
-    .find((t) => !earned.has(t.id));
-  els.nextUp.textContent = next
-    ? `Next on the road: ${next.name} (${phaseTitle(next.phase)}).`
-    : "Every trophy earned. You're a Leonida Legend.";
+    .sort(SORTERS.roadmap)
+    .find((t) => !ticks.has(t.id));
+  el.nextUp.textContent = next
+    ? `Next on the road: ${next.name} (${phaseShortName(next.phase)}).`
+    : "Every trophy earned. You are a Leonida Legend.";
 }
 
-/* ---------------- export / import / reset ---------------- */
+/* ---------- export, import, reset ---------- */
 
 function exportTicks() {
   const payload = JSON.stringify(
-    { app: "leonida-legend", version: 6, earned: [...earned].sort((a, b) => a - b) },
-    null, 2,
+    { app: "leonida-legend", version: EXPORT_VERSION, earned: [...ticks].sort((a, b) => a - b) },
+    null,
+    2,
   );
-  const url = URL.createObjectURL(new Blob([payload], { type: "application/json" }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "leonida-legend-progress.json";
-  a.click();
-  URL.revokeObjectURL(url);
-  note(`Exported ${earned.size} earned trophies.`);
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(new Blob([payload], { type: "application/json" }));
+  link.download = "leonida-legend-progress.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+  flash(`Exported ${ticks.size} earned trophies.`);
 }
 
 function importTicks(file) {
@@ -246,80 +256,99 @@ function importTicks(file) {
     try {
       const parsed = JSON.parse(text);
       const ids = Array.isArray(parsed) ? parsed : parsed.earned;
-      if (!Array.isArray(ids)) throw new Error("no earned list");
-      earned = new Set(ids.filter((id) => DATA.trophies.some((t) => t.id === id)));
-      saveTicks();
-      renderCards();
-      renderTracker();
-      note(`Imported ${earned.size} earned trophies.`);
+      if (!Array.isArray(ids)) throw new Error("no earned list in file");
+      ticks = new Set(ids.filter((id) => GUIDE.trophies.some((t) => t.id === id)));
+      persistTicks();
+      drawCards();
+      drawTracker();
+      flash(`Imported ${ticks.size} earned trophies.`);
     } catch {
-      note("That file doesn't look like a Leonida Legend progress export.");
+      flash("That file does not look like a Leonida Legend progress export.");
     }
   });
 }
 
-/* ---------------- wiring ---------------- */
+function resetTicks() {
+  if (!confirm("Clear every tick and start the hunt from zero?")) return;
+  ticks = new Set();
+  persistTicks();
+  drawCards();
+  drawTracker();
+  flash("Progress reset. The road to the platinum starts again.");
+}
 
-function fillSelect(select, values, labelOf) {
-  for (const v of values) {
-    const opt = document.createElement("option");
-    opt.value = v;
-    opt.textContent = labelOf(v);
-    select.appendChild(opt);
+/* ---------- boot ---------- */
+
+function grabElements() {
+  const ids = [
+    "pct", "earned-count", "next-up", "meter-fill", "tier-bars", "notice",
+    "roadmap", "rules", "faq", "sources", "cards", "empty", "showing",
+    "f-query", "f-tier", "f-phase", "f-type", "f-status", "f-sort", "f-missable",
+    "btn-export", "btn-import", "btn-reset", "file-import",
+  ];
+  for (const id of ids) {
+    el[id.replace(/-([a-z])/g, (_, ch) => ch.toUpperCase())] = document.getElementById(id);
   }
 }
 
-function applyUrlParams() {
-  const p = new URLSearchParams(location.search);
-  if (p.get("tier") && TIER_ORDER.includes(p.get("tier"))) els.fTier.value = p.get("tier");
-  if (p.get("phase")) els.fPhase.value = p.get("phase");
-  if (p.get("missable") === "1") els.fMissable.checked = true;
+function addOptions(select, values, label) {
+  for (const value of values) {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label(value);
+    select.appendChild(option);
+  }
+}
+
+function applyQueryString() {
+  const params = new URLSearchParams(location.search);
+  if (TIER_SEQUENCE.includes(params.get("tier"))) el.fTier.value = params.get("tier");
+  if (params.get("phase")) el.fPhase.value = params.get("phase");
+  if (params.get("missable") === "1") el.fMissable.checked = true;
 }
 
 async function boot() {
-  for (const id of ["pct", "earned-count", "next-up", "meter-fill", "tier-bars", "notice",
-    "roadmap", "rules", "faq", "sources", "cards", "empty", "showing",
-    "f-query", "f-tier", "f-phase", "f-type", "f-status", "f-sort", "f-missable",
-    "btn-export", "btn-import", "btn-reset", "file-import"]) {
-    els[id.replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = document.getElementById(id);
-  }
+  grabElements();
   try {
-    const res = await fetch("data/trophies.json");
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    DATA = await res.json();
+    const response = await fetch("data/trophies.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    GUIDE = await response.json();
   } catch (err) {
-    els.showing.textContent = `Could not load the trophy data (${err.message}). Serve the app folder over HTTP — see the README.`;
+    el.showing.textContent =
+      `Could not load the trophy data (${err.message}). Serve the app folder over HTTP — see the README.`;
     return;
   }
 
-  fillSelect(els.fPhase, DATA.roadmap.map((r) => r.phase), phaseTitle);
-  fillSelect(els.fType, [...new Set(DATA.trophies.map((t) => t.type))].sort(), (v) => v);
+  addOptions(el.fPhase, GUIDE.roadmap.map((r) => r.phase), phaseShortName);
+  addOptions(el.fType, [...new Set(GUIDE.trophies.map((t) => t.type))].sort(), (v) => v);
 
-  renderRoadmap();
-  renderRules();
-  renderFaq();
-  renderSources();
-  applyUrlParams();
-  renderCards();
-  renderTracker();
+  drawRoadmap();
+  drawRules();
+  drawFaq();
+  drawSources();
+  applyQueryString();
+  drawCards();
+  drawTracker();
 
-  for (const el of [els.fQuery, els.fTier, els.fPhase, els.fType, els.fStatus, els.fSort, els.fMissable]) {
-    el.addEventListener("input", renderCards);
-    el.addEventListener("change", renderCards);
+  for (const control of [el.fQuery, el.fTier, el.fPhase, el.fType, el.fStatus, el.fSort, el.fMissable]) {
+    control.addEventListener("input", drawCards);
+    control.addEventListener("change", drawCards);
   }
-  els.btnExport.addEventListener("click", exportTicks);
-  els.btnImport.addEventListener("click", () => els.fileImport.click());
-  els.fileImport.addEventListener("change", () => {
-    if (els.fileImport.files[0]) importTicks(els.fileImport.files[0]);
-    els.fileImport.value = "";
+  el.btnExport.addEventListener("click", exportTicks);
+  el.btnImport.addEventListener("click", () => el.fileImport.click());
+  el.fileImport.addEventListener("change", () => {
+    if (el.fileImport.files[0]) importTicks(el.fileImport.files[0]);
+    el.fileImport.value = "";
   });
-  els.btnReset.addEventListener("click", () => {
-    if (!confirm("Clear every tick and start the hunt from zero?")) return;
-    earned = new Set();
-    saveTicks();
-    renderCards();
-    renderTracker();
-    note("Progress reset. The road to the platinum starts again.");
+  el.btnReset.addEventListener("click", resetTicks);
+
+  document.addEventListener("keydown", (event) => {
+    const typing = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement?.tagName ?? "");
+    if (event.key === "/" && !typing) {
+      event.preventDefault();
+      el.fQuery.focus();
+      el.fQuery.scrollIntoView({ block: "center" });
+    }
   });
 }
 

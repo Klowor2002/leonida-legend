@@ -1,40 +1,39 @@
-// build-trophies.mjs — Leonida Legend data validator and list generator.
+// build-trophies.mjs — Leonida Legend: validate the master data, derive the list.
 //
-// The master data file is app/data/trophies.json: all 55 trophies with
-// their full five-step strategies, plus the roadmap, the hunt rules, the
-// FAQ and the sources. That file is written by hand and edited directly,
-// so this script exists to prove it still matches the known shape of the
-// official PlayStation 5 list before the app (or a judge) trusts it:
+// app/data/trophies.json is the single hand-maintained source: 55 trophies
+// with five-step strategies, the eight-phase roadmap, the hunt rules, the
+// FAQ and the sources. Because hands drift, this script refuses to trust
+// the file until it has re-proven the shape of the official list:
 //
-//   - exactly 55 trophies, ids 1..55, each present exactly once
-//   - the tier split of the official list: 1 platinum, 2 gold, 6 silver,
-//     46 bronze
-//   - the roadmap's per-phase counts: story 12, strangers 6, activities 7,
-//     exploration 7, combat 9, partner 3, grind 9, platinum 2
-//   - every trophy carries every required field, a difficulty of 1..5,
-//     exactly five strategy steps totalling 900-1300 characters, and a tip
-//   - exactly two trophies flagged missable (the two story moments)
-//   - the roadmap holds one entry per phase, in phase order, and every
-//     trophy's phase exists in it
+//   count     exactly 55 trophies, ids 1..55, no duplicates, none missing
+//   tiers     1 platinum / 2 gold / 6 silver / 46 bronze
+//   phases    story 12, strangers 6, activities 7, exploration 7,
+//             combat 9, partner 3, grind 9, platinum 2
+//   missable  exactly 2 (the story choice and the fail-first moment)
+//   fields    every trophy carries all eleven fields; difficulty 1..5;
+//             strategy is exactly five steps of 900-1300 characters in
+//             total, no step shorter than 80 characters; tip 20-120 chars
+//   roadmap   one entry per phase, in canonical order, fully written
+//   sections  rules, faq and sources all present and non-empty
 //
-// On success it also derives tools/trophies-list.json — the slim official
-// list (id, name, official description, grade) extracted from the master
-// file, so the verbatim list never has to be maintained by hand in two
-// places at once.
+// Only a file that passes every check earns its derived artifact:
+// tools/trophies-list.json, the slim official list (id, name, description,
+// grade) that the README and the sources section point at.
 //
-// Usage: node tools/build-trophies.mjs [dataPath] [listPath]
+//   node tools/build-trophies.mjs [dataPath] [listPath]
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const DATA = process.argv[2] ?? join(ROOT, "app", "data", "trophies.json");
-const LIST_OUT = process.argv[3] ?? join(ROOT, "tools", "trophies-list.json");
+const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(HERE, "..");
+const DATA_PATH = process.argv[2] ?? join(ROOT, "app", "data", "trophies.json");
+const LIST_PATH = process.argv[3] ?? join(ROOT, "tools", "trophies-list.json");
 
-const EXPECTED_COUNT = 55;
-const EXPECTED_TIERS = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
-const EXPECTED_PHASES = {
+const TOTAL = 55;
+const TIER_SPLIT = { platinum: 1, gold: 2, silver: 6, bronze: 46 };
+const PHASE_SPLIT = {
   story: 12,
   strangers: 6,
   activities: 7,
@@ -44,155 +43,149 @@ const EXPECTED_PHASES = {
   grind: 9,
   platinum: 2,
 };
-const PHASE_ORDER = Object.keys(EXPECTED_PHASES);
-const EXPECTED_MISSABLES = 2;
-const STRATEGY_STEPS = 5;
-const STRATEGY_MIN = 900;
-const STRATEGY_MAX = 1300;
-const REQUIRED_FIELDS = [
-  "id",
-  "name",
-  "description",
-  "tier",
-  "type",
-  "phase",
-  "missable",
-  "difficulty",
-  "time",
-  "strategy",
-  "tip",
+const PHASES = Object.keys(PHASE_SPLIT);
+const MISSABLE_TOTAL = 2;
+const STEPS_PER_TROPHY = 5;
+const STRATEGY_MIN_CHARS = 900;
+const STRATEGY_MAX_CHARS = 1300;
+const STEP_MIN_CHARS = 80;
+const TIP_MIN_CHARS = 20;
+const TIP_MAX_CHARS = 120;
+const FIELDS = [
+  "id", "name", "description", "tier", "type", "phase",
+  "missable", "difficulty", "time", "strategy", "tip",
 ];
 
-function tally(rows, key) {
-  const out = {};
-  for (const row of rows) out[row[key]] = (out[row[key]] ?? 0) + 1;
-  return out;
+function countBy(rows, field) {
+  const table = {};
+  for (const row of rows) table[row[field]] = (table[row[field]] ?? 0) + 1;
+  return table;
 }
 
-function checkSplit(problems, label, actual, expected) {
-  for (const [key, want] of Object.entries(expected)) {
-    if (actual[key] !== want) {
-      problems.push(`${label} "${key}": want ${want}, got ${actual[key] ?? 0}`);
+function compareSplit(problems, label, actual, expected) {
+  for (const key of Object.keys(expected)) {
+    if (actual[key] !== expected[key]) {
+      problems.push(`${label} split, ${key}: expected ${expected[key]}, found ${actual[key] ?? 0}`);
     }
   }
   for (const key of Object.keys(actual)) {
-    if (!(key in expected)) problems.push(`${label}: unexpected "${key}" (${actual[key]})`);
+    if (!(key in expected)) problems.push(`${label} split: surprise key ${key} (${actual[key]})`);
   }
 }
 
-function main() {
-  const problems = [];
-  let data;
+function loadMaster(path) {
   try {
-    data = JSON.parse(readFileSync(DATA, "utf8"));
+    return JSON.parse(readFileSync(path, "utf8"));
   } catch (err) {
-    console.error(`BUILD FAILED: cannot read ${DATA}: ${err.message}`);
+    console.error(`BUILD FAILED: cannot parse ${path}: ${err.message}`);
     process.exit(1);
   }
+}
 
-  const trophies = Array.isArray(data.trophies) ? data.trophies : [];
-  if (trophies.length !== EXPECTED_COUNT) {
-    problems.push(`trophy count: want ${EXPECTED_COUNT}, got ${trophies.length}`);
+function validate(data) {
+  const problems = [];
+  const trophies = Array.isArray(data?.trophies) ? data.trophies : [];
+
+  if (trophies.length !== TOTAL) {
+    problems.push(`trophy count: expected ${TOTAL}, found ${trophies.length}`);
   }
-
-  // Ids must be exactly 1..55, once each.
-  const seen = new Set();
+  const ids = new Set();
+  const names = new Set();
   for (const t of trophies) {
-    if (seen.has(t.id)) problems.push(`duplicate trophy id ${t.id}`);
-    seen.add(t.id);
+    if (ids.has(t.id)) problems.push(`id ${t.id} appears twice`);
+    ids.add(t.id);
+    if (names.has(t.name)) problems.push(`name "${t.name}" appears twice`);
+    names.add(t.name);
   }
-  for (let id = 1; id <= EXPECTED_COUNT; id += 1) {
-    if (!seen.has(id)) problems.push(`missing trophy id ${id}`);
+  for (let id = 1; id <= TOTAL; id += 1) {
+    if (!ids.has(id)) problems.push(`id ${id} is missing`);
   }
 
-  checkSplit(problems, "tier", tally(trophies, "tier"), EXPECTED_TIERS);
-  checkSplit(problems, "phase", tally(trophies, "phase"), EXPECTED_PHASES);
+  compareSplit(problems, "tier", countBy(trophies, "tier"), TIER_SPLIT);
+  compareSplit(problems, "phase", countBy(trophies, "phase"), PHASE_SPLIT);
 
-  const missables = trophies.filter((t) => t.missable === true);
-  if (missables.length !== EXPECTED_MISSABLES) {
-    problems.push(`missable trophies: want ${EXPECTED_MISSABLES}, got ${missables.length}`);
+  const missable = trophies.filter((t) => t.missable === true);
+  if (missable.length !== MISSABLE_TOTAL) {
+    problems.push(`missable count: expected ${MISSABLE_TOTAL}, found ${missable.length}`);
   }
 
   for (const t of trophies) {
-    const tag = `trophy #${t.id} "${t.name ?? "?"}"`;
-    for (const field of REQUIRED_FIELDS) {
-      if (t[field] === undefined || t[field] === "") {
-        problems.push(`${tag}: missing field "${field}"`);
-      }
+    const tag = `#${t.id} ${t.name ?? "(unnamed)"}`;
+    for (const field of FIELDS) {
+      if (t[field] === undefined || t[field] === "") problems.push(`${tag}: field ${field} is empty`);
     }
-    if (!PHASE_ORDER.includes(t.phase)) {
-      problems.push(`${tag}: unknown phase "${t.phase}"`);
-    }
-    if (!Object.hasOwn(EXPECTED_TIERS, t.tier)) {
-      problems.push(`${tag}: unknown tier "${t.tier}"`);
-    }
+    if (!PHASES.includes(t.phase)) problems.push(`${tag}: phase ${t.phase} is not a roadmap phase`);
+    if (!(t.tier in TIER_SPLIT)) problems.push(`${tag}: tier ${t.tier} is not an official grade`);
     if (!Number.isInteger(t.difficulty) || t.difficulty < 1 || t.difficulty > 5) {
-      problems.push(`${tag}: difficulty ${t.difficulty} out of range 1..5`);
+      problems.push(`${tag}: difficulty ${t.difficulty} outside 1..5`);
     }
-    if (typeof t.missable !== "boolean") {
-      problems.push(`${tag}: missable must be a boolean`);
-    }
-    if (!Array.isArray(t.strategy) || t.strategy.length !== STRATEGY_STEPS) {
-      problems.push(
-        `${tag}: strategy must hold ${STRATEGY_STEPS} steps, got ${Array.isArray(t.strategy) ? t.strategy.length : "none"}`,
-      );
+    if (typeof t.missable !== "boolean") problems.push(`${tag}: missable is not a boolean`);
+    if (!Array.isArray(t.strategy) || t.strategy.length !== STEPS_PER_TROPHY) {
+      problems.push(`${tag}: strategy must have ${STEPS_PER_TROPHY} steps`);
     } else {
-      const chars = t.strategy.join(" ").length;
-      if (chars < STRATEGY_MIN || chars > STRATEGY_MAX) {
-        problems.push(`${tag}: strategy is ${chars} chars (want ${STRATEGY_MIN}-${STRATEGY_MAX})`);
+      const joined = t.strategy.join(" ").length;
+      if (joined < STRATEGY_MIN_CHARS || joined > STRATEGY_MAX_CHARS) {
+        problems.push(`${tag}: strategy totals ${joined} chars (allowed ${STRATEGY_MIN_CHARS}-${STRATEGY_MAX_CHARS})`);
       }
-      if (t.strategy.some((s) => typeof s !== "string" || s.trim().length < 80)) {
-        problems.push(`${tag}: a strategy step is empty or trivially short`);
-      }
+      t.strategy.forEach((step, i) => {
+        if (typeof step !== "string" || step.trim().length < STEP_MIN_CHARS) {
+          problems.push(`${tag}: step ${i + 1} is under ${STEP_MIN_CHARS} chars`);
+        }
+      });
+    }
+    if (typeof t.tip !== "string" || t.tip.length < TIP_MIN_CHARS || t.tip.length > TIP_MAX_CHARS) {
+      problems.push(`${tag}: tip length ${typeof t.tip === "string" ? t.tip.length : "?"} outside ${TIP_MIN_CHARS}-${TIP_MAX_CHARS}`);
     }
   }
 
-  // Roadmap: one entry per phase, in the canonical order, each complete.
-  const roadmap = Array.isArray(data.roadmap) ? data.roadmap : [];
-  if (roadmap.length !== PHASE_ORDER.length) {
-    problems.push(`roadmap: want ${PHASE_ORDER.length} phases, got ${roadmap.length}`);
+  const roadmap = Array.isArray(data?.roadmap) ? data.roadmap : [];
+  if (roadmap.length !== PHASES.length) {
+    problems.push(`roadmap: expected ${PHASES.length} phases, found ${roadmap.length}`);
   }
   roadmap.forEach((entry, i) => {
-    if (entry.phase !== PHASE_ORDER[i]) {
-      problems.push(`roadmap[${i}]: want phase "${PHASE_ORDER[i]}", got "${entry.phase}"`);
+    if (entry.phase !== PHASES[i]) {
+      problems.push(`roadmap[${i}]: expected phase ${PHASES[i]}, found ${entry.phase}`);
     }
     for (const field of ["title", "tagline", "brief", "focus"]) {
-      if (!entry[field]) problems.push(`roadmap "${entry.phase}": missing "${field}"`);
+      if (!entry[field]) problems.push(`roadmap ${entry.phase}: field ${field} is empty`);
     }
   });
 
-  // Supporting sections must exist and be non-empty.
   for (const section of ["rules", "faq", "sources"]) {
-    if (!Array.isArray(data[section]) || data[section].length === 0) {
-      problems.push(`section "${section}" is missing or empty`);
+    if (!Array.isArray(data?.[section]) || data[section].length === 0) {
+      problems.push(`section ${section} is missing or empty`);
     }
   }
-  if (data.game?.trophyCount !== EXPECTED_COUNT) {
-    problems.push(`game.trophyCount: want ${EXPECTED_COUNT}, got ${data.game?.trophyCount}`);
+  if (data?.game?.trophyCount !== TOTAL) {
+    problems.push(`game.trophyCount: expected ${TOTAL}, found ${data?.game?.trophyCount}`);
   }
+  return { problems, trophies, missable };
+}
 
-  if (problems.length) {
+function main() {
+  const data = loadMaster(DATA_PATH);
+  const { problems, trophies, missable } = validate(data);
+  if (problems.length > 0) {
     console.error("BUILD FAILED:");
     for (const p of problems) console.error(" - " + p);
     process.exit(1);
   }
 
-  // Derive the slim official list from the validated master file.
-  const list = trophies
+  const official = trophies
     .slice()
     .sort((a, b) => a.id - b.id)
     .map((t) => ({ id: t.id, name: t.name, description: t.description, grade: t.tier }));
-  writeFileSync(LIST_OUT, JSON.stringify(list, null, 2) + "\n", "utf8");
+  writeFileSync(LIST_PATH, JSON.stringify(official, null, 2) + "\n", "utf8");
 
-  const lengths = trophies.map((t) => t.strategy.join(" ").length);
+  const sizes = trophies.map((t) => t.strategy.join(" ").length);
   console.log(
-    `validated ${DATA}: ${trophies.length} trophies, ` +
-      `tiers ${JSON.stringify(tally(trophies, "tier"))}, ` +
-      `phases ${JSON.stringify(tally(trophies, "phase"))}, ` +
-      `missables ${missables.map((t) => t.id).join(",")}, ` +
-      `strategy ${Math.min(...lengths)}-${Math.max(...lengths)} chars`,
+    `validated ${DATA_PATH}: ${trophies.length} trophies, ` +
+      `tiers ${JSON.stringify(countBy(trophies, "tier"))}, ` +
+      `phases ${JSON.stringify(countBy(trophies, "phase"))}, ` +
+      `missable ids ${missable.map((t) => t.id).join(" + ")}, ` +
+      `strategy span ${Math.min(...sizes)}-${Math.max(...sizes)} chars`,
   );
-  console.log(`wrote ${LIST_OUT}: ${list.length} entries (id, name, description, grade)`);
+  console.log(`wrote ${LIST_PATH}: ${official.length} entries (id, name, description, grade)`);
 }
 
 main();
